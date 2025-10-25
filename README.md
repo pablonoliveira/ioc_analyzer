@@ -1,8 +1,8 @@
 # 🛡️ IOC Analyzer - Blue Team Platform
 
-[![Version](https://img.shields.io/badge/version-2.1-blue.svg)](https://github.com/seu-usuario/ioc_analyzer)
+[![Version](https://img.shields.io/badge/version-2.1-blue.svg)](https://github.com/pablonoliveira/ioc_analyzer)
 [![Python](https://img.shields.io/badge/python-3.8+-brightgreen.svg)](https://python.org)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-GPL--3.0-green.svg)](LICENSE)
 [![Flask](https://img.shields.io/badge/flask-3.0+-red.svg)](https://flask.palletsprojects.com/)
 
 Plataforma completa de análise e correlação de **Indicadores de Comprometimento (IoCs)** e **Vulnerabilidades (CVEs)** para equipes de **Blue Team** e **Threat Intelligence**.
@@ -74,6 +74,7 @@ ioc_analyzer/
 ├── webapp.py                      # Aplicação Flask principal
 ├── .env.example                   # Exemplo de configuração
 ├── .gitignore                     # Arquivos ignorados
+├── LICENSE                        # GNU GPL v3
 ├── README.md                      # Este arquivo
 └── requirements.txt               # Dependências Python
 ```
@@ -85,7 +86,7 @@ ioc_analyzer/
 ### 1️⃣ **Clonar o Repositório**
 
 ```bash
-git clone https://github.com/seu-usuario/ioc_analyzer.git
+git clone https://github.com/pablonoliveira/ioc_analyzer.git
 cd ioc_analyzer
 ```
 
@@ -185,7 +186,7 @@ Conecte-se à mesma rede WiFi e acesse:
 http://SEU_IP_LOCAL:5000
 ```
 
-Exemplo: `http://192.168.1.100:5000`
+Exemplo: `http://192.168.254.83:5000`
 
 ---
 
@@ -301,7 +302,7 @@ Acesse `http://localhost:5000/` para visualizar:
 - Botão "Upload de Logs" acessível de todas as páginas
 - Interface modernizada com gradientes
 - Buscar CVEs das últimas 24h automaticamente
-- Dashboard com gráficos interativos
+- Dashboard com gráficos Chart.js interativos
 
 🐛 **Correções:**
 - Rotas 404 corrigidas
@@ -327,14 +328,24 @@ Contribuições são bem-vindas! Para contribuir:
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está licenciado sob a **GNU General Public License v3.0**. 
+
+Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+**Em resumo:**
+- ✅ Uso comercial permitido
+- ✅ Modificação permitida
+- ✅ Distribuição permitida
+- ✅ Uso privado permitido
+- ⚠️ **Copyleft** - Trabalhos derivados devem usar a mesma licença
+- ⚠️ **Código-fonte** - Código-fonte deve ser disponibilizado
 
 ---
 
 ## 👤 Autor
 
 **Pablo Oliveira**
-- GitHub: [@pabloliveir](https://github.com/pabloliveir)
+- GitHub: [@pablonoliveira](https://github.com/pablonoliveira)
 - LinkedIn: [Pablo Oliveira](https://linkedin.com/in/pabloliveir)
 - Email: pabloliveir@gmail.com
 
@@ -352,7 +363,7 @@ Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICEN
 
 ## 📞 Suporte
 
-Para suporte, abra uma [issue](https://github.com/seu-usuario/ioc_analyzer/issues) no GitHub ou entre em contato via email.
+Para suporte, abra uma [issue](https://github.com/pablonoliveira/ioc_analyzer/issues) no GitHub ou entre em contato via email.
 
 ---
 

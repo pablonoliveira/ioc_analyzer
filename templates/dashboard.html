@@ -3,54 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Threat Intelligence</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <title>Dashboard - IOC Analyzer</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
-            color: #eaeaea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-        .header {
-            background: #16213e;
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
+        .container { max-width: 1400px; margin: 0 auto; }
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.1);
         }
-        .header h1 {
+        h1 {
+            color: #667eea;
             font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #00adb5;
-            text-shadow: 0 0 20px rgba(0,173,181,0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
-        .nav-links {
-            margin-top: 15px;
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
         }
-        .nav-links a {
-            color: #1a1a2e;
+        .nav-buttons a {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             text-decoration: none;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #00adb5 0%, #00d4ff 100%);
-            border-radius: 20px;
-            margin: 0 10px;
-            transition: all 0.3s;
+            border-radius: 10px;
             font-weight: 600;
-            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
-        .nav-links a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,173,181,0.4);
+        .nav-buttons a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
         }
         .stats-grid {
             display: grid;
@@ -59,386 +55,197 @@
             margin-bottom: 30px;
         }
         .stat-card {
-            background: #16213e;
+            background: rgba(255, 255, 255, 0.95);
             padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             text-align: center;
-            transition: transform 0.3s;
+            transition: all 0.3s;
         }
         .stat-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
-        .stat-value {
+        .stat-number {
             font-size: 3em;
             font-weight: bold;
-            color: #00adb5;
-            text-shadow: 0 0 15px rgba(0,173,181,0.3);
+            color: #667eea;
+            margin: 10px 0;
         }
         .stat-label {
-            color: #a0a0a0;
-            margin-top: 10px;
+            color: #666;
             font-size: 1.1em;
+            font-weight: 500;
         }
         .charts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 30px;
         }
-        .chart-container {
-            background: #16213e;
+        .chart-card {
+            background: rgba(255, 255, 255, 0.95);
             padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-        .chart-container h3 {
-            color: #00adb5;
+        .chart-title {
+            color: #667eea;
+            font-size: 1.3em;
+            font-weight: 600;
             margin-bottom: 20px;
             text-align: center;
         }
-        .chart-wrapper {
-            position: relative;
-            height: 300px;
-        }
-        .loading {
-            text-align: center;
-            padding: 50px;
-            color: #a0a0a0;
+        canvas { max-height: 300px; }
+        @media (max-width: 768px) {
+            .charts-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header>
             <h1>📊 Dashboard - Threat Intelligence</h1>
-            <p>Visão Consolidada de IOCs e CVEs</p>
-            <div class="nav-links">
-                <a href="/">📤 Upload de Logs</a>
-                <a href="/ioc_panel">🔍 IOC Panel</a>
-                <a href="/cve_panel">🛡️ CVE Panel</a>
-                <a href="/dashboard">📊 Dashboard</a>
+            <p style="color: #666; margin-top: 10px;">Visão Consolidada de IOCs e CVEs</p>
+            <div class="nav-buttons">
+                <a href="/">📊 Dashboard</a>
+                <a href="/upload">📤 Upload de Logs</a>
+                <a href="/ioc">🔍 IOC Panel</a>
+                <a href="/cve">🛡️ CVE Panel</a>
             </div>
-        </div>
-
+        </header>
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-value" id="totalThreats">0</div>
                 <div class="stat-label">Total de Ameaças</div>
+                <div class="stat-number" id="totalThreats">0</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value" id="totalIOCs">0</div>
                 <div class="stat-label">Total de IOCs</div>
+                <div class="stat-number" id="totalIOCs">0</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value" id="totalCVEs">0</div>
                 <div class="stat-label">Total de CVEs</div>
+                <div class="stat-number" id="totalCVEs">0</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value" id="criticalTotal">0</div>
                 <div class="stat-label">Críticos</div>
+                <div class="stat-number" id="criticalCount" style="color: #dc3545;">0</div>
             </div>
         </div>
-
         <div class="charts-grid">
-            <div class="chart-container">
-                <h3>📊 IOCs por Severidade</h3>
-                <div class="chart-wrapper">
-                    <canvas id="iocSeverityChart"></canvas>
-                </div>
+            <div class="chart-card">
+                <div class="chart-title">📊 IOCs por Severidade</div>
+                <canvas id="iocSeverityChart"></canvas>
             </div>
-
-            <div class="chart-container">
-                <h3>🛡️ CVEs por Severidade</h3>
-                <div class="chart-wrapper">
-                    <canvas id="cveSeverityChart"></canvas>
-                </div>
+            <div class="chart-card">
+                <div class="chart-title">📊 CVEs por Severidade</div>
+                <canvas id="cveSeverityChart"></canvas>
             </div>
-
-            <div class="chart-container">
-                <h3>📈 IOCs por Status</h3>
-                <div class="chart-wrapper">
-                    <canvas id="iocStatusChart"></canvas>
-                </div>
+            <div class="chart-card">
+                <div class="chart-title">📊 IOCs por Tipo</div>
+                <canvas id="iocTypeChart"></canvas>
             </div>
-
-            <div class="chart-container">
-                <h3>⚠️ CVEs Exploitadas</h3>
-                <div class="chart-wrapper">
-                    <canvas id="cveExploitedChart"></canvas>
-                </div>
-            </div>
-
-            <div class="chart-container">
-                <h3>🔍 IOCs por Tipo</h3>
-                <div class="chart-wrapper">
-                    <canvas id="iocTypeChart"></canvas>
-                </div>
-            </div>
-
-            <div class="chart-container">
-                <h3>📊 Distribuição Geral de Severidades</h3>
-                <div class="chart-wrapper">
-                    <canvas id="combinedSeverityChart"></canvas>
-                </div>
+            <div class="chart-card">
+                <div class="chart-title">📊 Distribuição Geral</div>
+                <canvas id="generalChart"></canvas>
             </div>
         </div>
     </div>
-
     <script>
-        Chart.register(ChartDataLabels);
-
-        const chartColors = {
-            critical: '#e94560',
-            high: '#fd7e14',
-            medium: '#ffc107',
-            low: '#00b894',
-            unknown: '#535c7c',
-            active: '#e94560',
-            monitored: '#00adb5',
-            mitigated: '#00b894',
-            exploited: '#e94560',
-            notExploited: '#00b894'
-        };
-
-        let charts = {};
-
-        async function loadDashboard() {
+        async function loadDashboardStats() {
             try {
-                const response = await fetch('/api/dashboard/stats');
+                const response = await fetch('/dashboard/stats');
                 const data = await response.json();
-
-                updateStats(data);
+                
+                document.getElementById('totalIOCs').textContent = data.total_iocs || 0;
+                document.getElementById('totalCVEs').textContent = data.total_cves || 0;
+                document.getElementById('totalThreats').textContent = (data.total_iocs + data.total_cves) || 0;
+                
+                const criticalIOCs = data.ioc_by_severity?.Critical || 0;
+                const criticalCVEs = data.cve_by_severity?.Critical || 0;
+                document.getElementById('criticalCount').textContent = criticalIOCs + criticalCVEs;
+                
                 createCharts(data);
             } catch (error) {
-                console.error('Erro ao carregar dashboard:', error);
+                console.error('Erro ao carregar estatísticas:', error);
             }
         }
-
-        function updateStats(data) {
-            document.getElementById('totalThreats').textContent = data.total_threats;
-            document.getElementById('totalIOCs').textContent = data.iocs.total;
-            document.getElementById('totalCVEs').textContent = data.cves.total;
-            document.getElementById('criticalTotal').textContent = data.critical_total;
-        }
-
+        
         function createCharts(data) {
-            createPieChart('iocSeverityChart', 
-                ['Crítica', 'Alta', 'Média', 'Baixa'],
-                [
-                    data.iocs.by_severity.Critical,
-                    data.iocs.by_severity.High,
-                    data.iocs.by_severity.Medium,
-                    data.iocs.by_severity.Low
-                ],
-                [chartColors.critical, chartColors.high, chartColors.medium, chartColors.low]
-            );
-
-            createPieChart('cveSeverityChart',
-                ['Crítica', 'Alta', 'Média', 'Baixa', 'Desconhecida'],
-                [
-                    data.cves.by_severity.Critical,
-                    data.cves.by_severity.High,
-                    data.cves.by_severity.Medium,
-                    data.cves.by_severity.Low,
-                    data.cves.by_severity.Unknown
-                ],
-                [chartColors.critical, chartColors.high, chartColors.medium, chartColors.low, chartColors.unknown]
-            );
-
-            createDoughnutChart('iocStatusChart',
-                ['Ativo', 'Monitorado', 'Mitigado'],
-                [
-                    data.iocs.by_status.Active,
-                    data.iocs.by_status.Monitored,
-                    data.iocs.by_status.Mitigated
-                ],
-                [chartColors.active, chartColors.monitored, chartColors.mitigated]
-            );
-
-            createDoughnutChart('cveExploitedChart',
-                ['Exploitadas', 'Não Exploitadas'],
-                [data.cves.exploited, data.cves.not_exploited],
-                [chartColors.exploited, chartColors.notExploited]
-            );
-
-            createBarChart('iocTypeChart',
-                ['IP', 'Domínio', 'URL', 'Hash', 'Outros'],
-                [
-                    data.iocs.by_type.IP,
-                    data.iocs.by_type.Domain,
-                    data.iocs.by_type.URL,
-                    data.iocs.by_type.Hash,
-                    data.iocs.by_type.Other
-                ],
-                '#00adb5'
-            );
-
-            createBarChart('combinedSeverityChart',
-                ['Crítica', 'Alta', 'Média', 'Baixa'],
-                [
-                    data.iocs.by_severity.Critical + data.cves.by_severity.Critical,
-                    data.iocs.by_severity.High + data.cves.by_severity.High,
-                    data.iocs.by_severity.Medium + data.cves.by_severity.Medium,
-                    data.iocs.by_severity.Low + data.cves.by_severity.Low
-                ],
-                [chartColors.critical, chartColors.high, chartColors.medium, chartColors.low]
-            );
-        }
-
-        function createPieChart(canvasId, labels, data, colors) {
-            const ctx = document.getElementById(canvasId).getContext('2d');
+            const severityColors = {
+                Critical: '#dc3545',
+                High: '#fd7e14',
+                Medium: '#ffc107',
+                Low: '#28a745'
+            };
             
-            if (charts[canvasId]) {
-                charts[canvasId].destroy();
-            }
-
-            charts[canvasId] = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        data: data,
-                        backgroundColor: colors,
-                        borderWidth: 2,
-                        borderColor: '#16213e'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { color: '#eaeaea', padding: 15 }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.label || '';
-                                    let value = context.parsed || 0;
-                                    let total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                    let percentage = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
-                                    return label + ': ' + value + ' (' + percentage + '%)';
-                                }
-                            }
-                        },
-                        datalabels: {
-                            color: '#fff',
-                            font: {
-                                weight: 'bold',
-                                size: 14
-                            },
-                            formatter: (value, ctx) => {
-                                let total = ctx.dataset.data.reduce((a, b) => a + b, 0);
-                                let percentage = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
-                                return value > 0 ? percentage + '%' : '';
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        function createDoughnutChart(canvasId, labels, data, colors) {
-            const ctx = document.getElementById(canvasId).getContext('2d');
-            
-            if (charts[canvasId]) {
-                charts[canvasId].destroy();
-            }
-
-            charts[canvasId] = new Chart(ctx, {
+            new Chart(document.getElementById('iocSeverityChart'), {
                 type: 'doughnut',
                 data: {
-                    labels: labels,
+                    labels: ['Critical', 'High', 'Medium', 'Low'],
                     datasets: [{
-                        data: data,
-                        backgroundColor: colors,
-                        borderWidth: 2,
-                        borderColor: '#16213e'
+                        data: [
+                            data.ioc_by_severity?.Critical || 0,
+                            data.ioc_by_severity?.High || 0,
+                            data.ioc_by_severity?.Medium || 0,
+                            data.ioc_by_severity?.Low || 0
+                        ],
+                        backgroundColor: Object.values(severityColors)
                     }]
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { color: '#eaeaea', padding: 15 }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.label || '';
-                                    let value = context.parsed || 0;
-                                    let total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                    let percentage = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
-                                    return label + ': ' + value + ' (' + percentage + '%)';
-                                }
-                            }
-                        },
-                        datalabels: {
-                            color: '#fff',
-                            font: {
-                                weight: 'bold',
-                                size: 14
-                            },
-                            formatter: (value, ctx) => {
-                                let total = ctx.dataset.data.reduce((a, b) => a + b, 0);
-                                let percentage = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
-                                return value > 0 ? percentage + '%' : '';
-                            }
-                        }
-                    }
-                }
+                options: { responsive: true, maintainAspectRatio: true }
             });
-        }
-
-        function createBarChart(canvasId, labels, data, colors) {
-            const ctx = document.getElementById(canvasId).getContext('2d');
             
-            if (charts[canvasId]) {
-                charts[canvasId].destroy();
-            }
-
-            const backgroundColors = Array.isArray(colors) ? colors : labels.map(() => colors);
-
-            charts[canvasId] = new Chart(ctx, {
+            new Chart(document.getElementById('cveSeverityChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Critical', 'High', 'Medium', 'Low'],
+                    datasets: [{
+                        data: [
+                            data.cve_by_severity?.Critical || 0,
+                            data.cve_by_severity?.High || 0,
+                            data.cve_by_severity?.Medium || 0,
+                            data.cve_by_severity?.Low || 0
+                        ],
+                        backgroundColor: Object.values(severityColors)
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: true }
+            });
+            
+            const iocTypeLabels = Object.keys(data.ioc_by_type || {});
+            const iocTypeValues = Object.values(data.ioc_by_type || {});
+            
+            new Chart(document.getElementById('iocTypeChart'), {
                 type: 'bar',
                 data: {
-                    labels: labels,
+                    labels: iocTypeLabels.length > 0 ? iocTypeLabels : ['Nenhum'],
                     datasets: [{
-                        data: data,
-                        backgroundColor: backgroundColors,
-                        borderWidth: 0
+                        label: 'Quantidade',
+                        data: iocTypeValues.length > 0 ? iocTypeValues : [0],
+                        backgroundColor: '#667eea'
                     }]
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        datalabels: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: { color: '#eaeaea' },
-                            grid: { color: 'rgba(255,255,255,0.1)' }
-                        },
-                        x: {
-                            ticks: { color: '#eaeaea' },
-                            grid: { display: false }
-                        }
-                    }
+                    maintainAspectRatio: true,
+                    scales: { y: { beginAtZero: true } }
                 }
             });
+            
+            new Chart(document.getElementById('generalChart'), {
+                type: 'pie',
+                data: {
+                    labels: ['IOCs', 'CVEs'],
+                    datasets: [{
+                        data: [data.total_iocs || 0, data.total_cves || 0],
+                        backgroundColor: ['#667eea', '#764ba2']
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: true }
+            });
         }
-
-        window.onload = loadDashboard;
+        
+        window.onload = loadDashboardStats;
     </script>
 </body>
 </html>

@@ -1,760 +1,379 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CVE Management Panel</title>
+    <title>CVE Management Panel - IOC Analyzer</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: #eaeaea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-        .container { max-width: 1800px; margin: 0 auto; }
-        .header {
-            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
-            padding: 30px;
+        .container { max-width: 1400px; margin: 0 auto; }
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 30px;
             border-radius: 15px;
-            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            border: 1px solid rgba(0,173,181,0.3);
         }
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #00adb5;
-            text-shadow: 0 0 20px rgba(0,173,181,0.5);
+        h1 {
+            color: #667eea;
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
-        .header p { color: #a0a0a0; font-size: 1.1em; }
+        .subtitle { color: #666; margin-top: 10px; }
         .nav-buttons {
             display: flex;
-            justify-content: center;
             gap: 15px;
             margin-top: 20px;
             flex-wrap: wrap;
         }
-        .nav-btn {
+        .nav-buttons a {
             padding: 12px 25px;
-            background: rgba(0,173,181,0.2);
-            color: #00adb5;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             text-decoration: none;
-            border-radius: 8px;
-            border: 1px solid rgba(0,173,181,0.3);
-            transition: all 0.3s;
+            border-radius: 10px;
             font-weight: 600;
-        }
-        .nav-btn:hover {
-            background: rgba(0,173,181,0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,173,181,0.3);
-        }
-        .nav-btn.active {
-            background: #00adb5;
-            color: #1a1a2e;
-        }
-        .search-section {
-            background: #16213e;
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            border: 1px solid rgba(0,173,181,0.2);
-        }
-        .search-section h2 { color: #00adb5; margin-bottom: 20px; }
-        .search-form {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .search-form input {
-            flex: 1;
-            min-width: 300px;
-            padding: 12px;
-            border: 1px solid rgba(0,173,181,0.3);
-            border-radius: 8px;
-            background: #0f3460;
-            color: #eaeaea;
-            font-size: 1em;
-        }
-        .search-form button {
-            padding: 12px 30px;
-            background: #00adb5;
-            color: #1a1a2e;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
             transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
-        .search-form button:hover {
-            background: #00d4ff;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,173,181,0.4);
+        .nav-buttons a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
         }
-        
-        /* Seção de resultado da busca */
-        .search-result {
-            margin-top: 30px;
-            padding: 25px;
-            background: rgba(0,173,181,0.1);
-            border-radius: 12px;
-            border: 2px solid rgba(0,173,181,0.3);
+        .panel {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
         }
-        .search-result h3 {
-            color: #00adb5;
-            margin-bottom: 20px;
+        .section-title {
+            color: #667eea;
             font-size: 1.5em;
-        }
-        .result-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
             margin-bottom: 20px;
-        }
-        .result-card {
-            background: #0f3460;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid rgba(0,173,181,0.2);
-        }
-        .result-card h4 {
-            color: #00adb5;
-            margin-bottom: 10px;
-            font-size: 0.9em;
-            text-transform: uppercase;
-        }
-        .result-card p {
-            color: #eaeaea;
-            font-size: 1em;
-            word-wrap: break-word;
-        }
-        .result-alert {
-            background: rgba(233,69,96,0.2);
-            border: 1px solid rgba(233,69,96,0.4);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .result-alert strong { color: #ff6b6b; }
-        .result-description {
-            background: #0f3460;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        .result-description h4 {
-            color: #00adb5;
-            margin-bottom: 15px;
-        }
-        .result-description p {
-            color: #eaeaea;
-            line-height: 1.6;
-        }
-
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            gap: 15px;
-            flex-wrap: wrap;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
         }
         .btn {
-            padding: 12px 25px;
+            padding: 12px 30px;
             border: none;
             border-radius: 8px;
-            cursor: pointer;
+            font-size: 16px;
             font-weight: 600;
+            cursor: pointer;
             transition: all 0.3s;
         }
         .btn-primary {
-            background: #00adb5;
-            color: #1a1a2e;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
         .btn-primary:hover {
-            background: #00d4ff;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,173,181,0.4);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
         }
-        .btn-secondary {
-            background: rgba(255,255,255,0.1);
-            color: #eaeaea;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .btn-secondary:hover { background: rgba(255,255,255,0.15); }
-        .filters {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .filters select {
-            padding: 10px;
-            border: 1px solid rgba(0,173,181,0.3);
-            border-radius: 8px;
-            background: #0f3460;
-            color: #eaeaea;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #16213e;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-        }
-        thead { background: linear-gradient(135deg, #00adb5 0%, #00d4ff 100%); }
-        th {
-            padding: 15px;
-            text-align: left;
-            color: #1a1a2e;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.9em;
-        }
-        td {
-            padding: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            color: #eaeaea;
-        }
-        tbody tr { transition: all 0.3s; }
-        tbody tr:hover { background: rgba(0,173,181,0.1); }
-        .severity-badge {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-        }
-        .severity-critical {
-            background: rgba(233,69,96,0.2);
-            color: #ff6b6b;
-            border: 1px solid rgba(233,69,96,0.3);
-        }
-        .severity-high {
-            background: rgba(253,126,20,0.2);
-            color: #fd7e14;
-            border: 1px solid rgba(253,126,20,0.3);
-        }
-        .severity-medium {
-            background: rgba(255,193,7,0.2);
-            color: #ffc107;
-            border: 1px solid rgba(255,193,7,0.3);
-        }
-        .severity-low {
-            background: rgba(0,184,148,0.2);
-            color: #00b894;
-            border: 1px solid rgba(0,184,148,0.3);
-        }
-        .severity-unknown {
-            background: rgba(160,160,160,0.2);
-            color: #a0a0a0;
-            border: 1px solid rgba(160,160,160,0.3);
-        }
-        .exploited-badge {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-            background: rgba(233,69,96,0.2);
-            color: #ff6b6b;
-            border: 1px solid rgba(233,69,96,0.3);
-        }
-        .not-exploited-badge {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-            background: rgba(0,184,148,0.2);
-            color: #00b894;
-            border: 1px solid rgba(0,184,148,0.3);
-        }
-        .actions { display: flex; gap: 10px; }
-        .action-btn {
-            padding: 6px 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.85em;
-            transition: all 0.3s;
-        }
-        .action-btn.edit {
-            background: rgba(0,173,181,0.2);
-            color: #00adb5;
-            border: 1px solid rgba(0,173,181,0.3);
-        }
-        .action-btn.edit:hover { background: rgba(0,173,181,0.3); }
-        .action-btn.delete {
-            background: rgba(233,69,96,0.2);
-            color: #ff6b6b;
-            border: 1px solid rgba(233,69,96,0.3);
-        }
-        .action-btn.delete:hover { background: rgba(233,69,96,0.3); }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        .modal.active { display: flex; }
-        .modal-content {
-            background: #16213e;
-            padding: 30px;
-            border-radius: 12px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            border: 1px solid rgba(0,173,181,0.3);
-        }
-        .modal-content h2 {
-            color: #00adb5;
-            margin-bottom: 20px;
-        }
+        .btn-success { background: #28a745; color: white; }
+        .btn-danger { background: #dc3545; color: white; }
+        .btn-warning { background: #ffc107; color: #333; }
         .form-group { margin-bottom: 20px; }
-        .form-group label {
+        .form-label {
             display: block;
             margin-bottom: 8px;
-            color: #a0a0a0;
             font-weight: 600;
+            color: #333;
         }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .form-input {
             width: 100%;
             padding: 12px;
-            border: 1px solid rgba(0,173,181,0.3);
+            border: 2px solid #ddd;
             border-radius: 8px;
-            background: #0f3460;
-            color: #eaeaea;
-            font-size: 1em;
+            font-size: 16px;
         }
-        .form-group textarea {
-            min-height: 100px;
-            resize: vertical;
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
         }
-        .form-actions {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end;
+        .cve-table {
+            width: 100%;
+            border-collapse: collapse;
             margin-top: 20px;
         }
-        .no-data {
+        .cve-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .cve-table td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .cve-table tr:hover { background: #f8f9fa; }
+        .severity-critical { 
+            background: #dc3545; 
+            color: white; 
+            padding: 5px 12px; 
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .severity-high { 
+            background: #fd7e14; 
+            color: white; 
+            padding: 5px 12px; 
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .severity-medium { 
+            background: #ffc107; 
+            color: #333; 
+            padding: 5px 12px; 
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .severity-low { 
+            background: #28a745; 
+            color: white; 
+            padding: 5px 12px; 
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .cve-detail {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .loading {
             text-align: center;
-            padding: 40px;
-            color: #a0a0a0;
+            padding: 20px;
+            color: #667eea;
+            font-style: italic;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header>
             <h1>🛡️ CVE Management Panel</h1>
-            <p>Painel de Gerenciamento de Vulnerabilidades e Exposições Comuns</p>
+            <p class="subtitle">Painel de Gerenciamento de Vulnerabilidades (CVE)</p>
+            <p class="subtitle">Consulte CVEs em múltiplas fontes: NVD, CIRCL e CISA KEV</p>
             <div class="nav-buttons">
-                <a href="/" class="nav-btn">📤 Upload de Logs</a>
-                <a href="/ioc_panel" class="nav-btn">🔍 IOC Panel</a>
-                <a href="/cve_panel" class="nav-btn active">🛡️ CVE Panel</a>
-                <a href="/dashboard" class="nav-btn">📊 Dashboard</a>
+                <a href="/">📊 Dashboard</a>
+                <a href="/upload">📤 Upload de Logs</a>
+                <a href="/ioc">🔍 IOC Panel</a>
+                <a href="/cve">🛡️ CVE Panel</a>
             </div>
-        </div>
-
-        <div class="search-section">
-            <h2>🔍 Busca Rápida de CVE</h2>
-            <p>Consulte CVEs diretamente nas APIs CISA KEV e CIRCL</p>
-            <form class="search-form" id="searchForm">
-                <input type="text" id="searchCVE" placeholder="Digite o CVE-ID (ex: CVE-2024-12345)">
-                <button type="submit">🔍 Consultar API</button>
-            </form>
-            
-            <!-- SEÇÃO DE RESULTADO DA CONSULTA -->
-            <div id="searchResult" class="search-result" style="display: none;">
-                <h3>Resultado da Consulta</h3>
-                <div id="searchResultContent"></div>
-                <button class="btn btn-primary" id="saveResultBtn" style="display: none;" onclick="saveSearchResult()">💾 Salvar no Painel</button>
+        </header>
+        
+        <div class="panel">
+            <h2 class="section-title">🔎 Buscar CVE</h2>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="cveSearchInput" class="form-input" placeholder="Digite o CVE ID (ex: CVE-2024-1234)" style="flex: 1;">
+                <button onclick="searchCVE()" class="btn btn-primary">🔍 Buscar</button>
+                <button onclick="fetchRecentCVEs()" class="btn btn-warning">📥 Buscar CVEs 24h</button>
             </div>
+            <div id="searchResults"></div>
         </div>
-
-        <div class="controls">
-            <button class="btn btn-primary" onclick="openAddModal()">➕ Adicionar CVE</button>
-            <div class="filters">
-                <select id="severityFilter" onchange="filterTable()">
-                    <option value="">Todas Severidades</option>
-                    <option value="Critical">Critical</option>
-                    <option value="High">High</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Low">Low</option>
-                    <option value="Unknown">Unknown</option>
-                </select>
-                <select id="exploitedFilter" onchange="filterTable()">
-                    <option value="">Todas Exploitações</option>
-                    <option value="true">Exploitadas</option>
-                    <option value="false">Não Exploitadas</option>
-                </select>
+        
+        <div class="panel">
+            <h2 class="section-title">💾 Banco de Dados de CVEs</h2>
+            <input type="text" id="filterInput" class="form-input" placeholder="🔍 Filtrar CVEs..." onkeyup="filterCVEs()" style="margin-bottom: 20px;">
+            <div style="overflow-x: auto;">
+                <table class="cve-table" id="cveTable">
+                    <thead>
+                        <tr>
+                            <th>CVE ID</th>
+                            <th>SEVERIDADE</th>
+                            <th>CVSS</th>
+                            <th>DESCRIÇÃO</th>
+                            <th>PUBLICAÇÃO</th>
+                            <th>FONTES</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cveTableBody">
+                        <tr><td colspan="7" style="text-align: center; padding: 40px; color: #999;">📭 Nenhuma CVE salva</td></tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
-
-        <table id="cveTable">
-            <thead>
-                <tr>
-                    <th>CVE-ID</th>
-                    <th>Severidade</th>
-                    <th>Exploitada</th>
-                    <th>Descrição</th>
-                    <th>Produto</th>
-                    <th>Data Publicação</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody id="cveTableBody">
-                <tr>
-                    <td colspan="7" class="no-data">Carregando dados...</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="modal" id="cveModal">
-        <div class="modal-content">
-            <h2 id="modalTitle">Adicionar CVE</h2>
-            <form id="cveForm">
-                <input type="hidden" id="cveDbId">
-                <div class="form-group">
-                    <label>CVE-ID</label>
-                    <input type="text" id="cveId" placeholder="CVE-2024-12345" required>
-                </div>
-                <div class="form-group">
-                    <label>Severidade</label>
-                    <select id="cveSeverity" required>
-                        <option value="Critical">Critical</option>
-                        <option value="High">High</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Low">Low</option>
-                        <option value="Unknown">Unknown</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Exploitada</label>
-                    <select id="cveExploited">
-                        <option value="false">Não</option>
-                        <option value="true">Sim</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Produto</label>
-                    <input type="text" id="cveProduct">
-                </div>
-                <div class="form-group">
-                    <label>Descrição</label>
-                    <textarea id="cveDescription"></textarea>
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
-                </div>
-            </form>
         </div>
     </div>
-
+    
     <script>
-        let cves = [];
-        let currentSearchResult = null;
-
+        window.onload = loadCVEs;
+        
         async function loadCVEs() {
             try {
-                const response = await fetch('/api/cves');
-                cves = await response.json();
-                renderTable();
+                const response = await fetch('/cve/list');
+                const cves = await response.json();
+                displayCVEs(cves);
             } catch (error) {
                 console.error('Erro ao carregar CVEs:', error);
             }
         }
-
-        function renderTable() {
+        
+        function displayCVEs(cves) {
             const tbody = document.getElementById('cveTableBody');
-            const severityFilter = document.getElementById('severityFilter').value;
-            const exploitedFilter = document.getElementById('exploitedFilter').value;
-
-            let filteredCVEs = cves.filter(cve => {
-                return (!severityFilter || cve.severity === severityFilter) &&
-                       (!exploitedFilter || String(cve.exploited) === exploitedFilter);
+            if (cves.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 40px; color: #999;">📭 Nenhuma CVE salva</td></tr>';
+                return;
+            }
+            tbody.innerHTML = '';
+            cves.forEach(cve => {
+                const row = document.createElement('tr');
+                const sources = Array.isArray(cve.sources) ? cve.sources.join(', ') : cve.sources || 'N/A';
+                row.innerHTML = `
+                    <td><strong>${cve.cve_id}</strong></td>
+                    <td><span class="severity-${cve.severity.toLowerCase()}">${cve.severity}</span></td>
+                    <td>${cve.cvss_score}</td>
+                    <td>${cve.description_pt || cve.description || '-'}</td>
+                    <td>${cve.published_date || '-'}</td>
+                    <td>${sources}</td>
+                    <td><button onclick="deleteCVE('${cve.id}')" class="btn btn-danger" style="padding: 8px 16px;">🗑️ Excluir</button></td>
+                `;
+                tbody.appendChild(row);
             });
-
-            if (filteredCVEs.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="7" class="no-data">Nenhum CVE encontrado</td></tr>';
-                return;
-            }
-
-            tbody.innerHTML = filteredCVEs.map(cve => `
-                <tr>
-                    <td><code>${cve.cve_id || cve.cveId || '-'}</code></td>
-                    <td><span class="severity-badge severity-${(cve.severity || 'unknown').toLowerCase()}">${cve.severity || 'Unknown'}</span></td>
-                    <td>${cve.exploited ? '<span class="exploited-badge">⚠️ Sim</span>' : '<span class="not-exploited-badge">✓ Não</span>'}</td>
-                    <td>${(cve.description || '-').substring(0, 100)}...</td>
-                    <td>${cve.product || '-'}</td>
-                    <td>${cve.published || cve.datePublished || '-'}</td>
-                    <td class="actions">
-                        <button class="action-btn edit" onclick="editCVE(${cve.id})">✏️ Editar</button>
-                        <button class="action-btn delete" onclick="deleteCVE(${cve.id})">🗑️ Excluir</button>
-                    </td>
-                </tr>
-            `).join('');
         }
-
-        function filterTable() {
-            renderTable();
-        }
-
-        function openAddModal() {
-            document.getElementById('modalTitle').textContent = 'Adicionar CVE';
-            document.getElementById('cveForm').reset();
-            document.getElementById('cveDbId').value = '';
-            document.getElementById('cveModal').classList.add('active');
-        }
-
-        function editCVE(id) {
-            const cve = cves.find(c => c.id === id);
-            if (!cve) return;
-
-            document.getElementById('modalTitle').textContent = 'Editar CVE';
-            document.getElementById('cveDbId').value = cve.id;
-            document.getElementById('cveId').value = cve.cve_id || cve.cveId || '';
-            document.getElementById('cveSeverity').value = cve.severity || 'Unknown';
-            document.getElementById('cveExploited').value = String(cve.exploited || false);
-            document.getElementById('cveProduct').value = cve.product || '';
-            document.getElementById('cveDescription').value = cve.description || '';
-            document.getElementById('cveModal').classList.add('active');
-        }
-
-        async function deleteCVE(id) {
-            if (!confirm('Tem certeza que deseja excluir este CVE?')) return;
-
-            try {
-                await fetch(`/api/cves/${id}`, { method: 'DELETE' });
-                await loadCVEs();
-            } catch (error) {
-                console.error('Erro ao excluir CVE:', error);
-                alert('Erro ao excluir CVE');
-            }
-        }
-
-        function closeModal() {
-            document.getElementById('cveModal').classList.remove('active');
-        }
-
-        document.getElementById('cveForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const id = document.getElementById('cveDbId').value;
-            const data = {
-                id: id ? parseInt(id) : Date.now(),
-                cve_id: document.getElementById('cveId').value,
-                cveId: document.getElementById('cveId').value,
-                severity: document.getElementById('cveSeverity').value,
-                exploited: document.getElementById('cveExploited').value === 'true',
-                product: document.getElementById('cveProduct').value,
-                description: document.getElementById('cveDescription').value,
-                datePublished: new Date().toISOString().split('T')[0],
-                createdAt: new Date().toISOString()
-            };
-
-            try {
-                if (id) {
-                    await fetch(`/api/cves/${id}`, {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
-                    });
-                } else {
-                    await fetch('/api/cves', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
-                    });
-                }
-                closeModal();
-                await loadCVEs();
-            } catch (error) {
-                console.error('Erro ao salvar CVE:', error);
-                alert('Erro ao salvar CVE');
-            }
-        });
-
-        // BUSCA DE CVE COM RESULTADO VISUAL NA PÁGINA
-        document.getElementById('searchForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const cveId = document.getElementById('searchCVE').value.trim().toUpperCase();
-
+        
+        async function searchCVE() {
+            const cveId = document.getElementById('cveSearchInput').value.trim().toUpperCase();
+            const resultsDiv = document.getElementById('searchResults');
+            
             if (!cveId) {
-                alert('Por favor, digite um CVE-ID');
+                resultsDiv.innerHTML = '<div class="error">⚠️ Digite um CVE ID para buscar</div>';
                 return;
             }
-
-            try {
-                const response = await fetch(`/api/cves/search/${cveId}`);
-                const result = await response.json();
-
-                if (result.found) {
-                    displaySearchResult(result);
-                    currentSearchResult = result;
-                } else {
-                    document.getElementById('searchResult').style.display = 'block';
-                    document.getElementById('searchResultContent').innerHTML = `
-                        <div class="result-alert">
-                            <strong>❌ CVE não encontrado</strong>
-                            <p>O CVE <code>${cveId}</code> não foi encontrado nas APIs consultadas (CISA KEV e CIRCL).</p>
-                        </div>
-                    `;
-                    document.getElementById('saveResultBtn').style.display = 'none';
-                }
-            } catch (error) {
-                console.error('Erro ao buscar CVE:', error);
-                document.getElementById('searchResult').style.display = 'block';
-                document.getElementById('searchResultContent').innerHTML = `
-                    <div class="result-alert">
-                        <strong>⚠️ Erro na busca</strong>
-                        <p>Ocorreu um erro ao consultar as APIs. Tente novamente.</p>
-                    </div>
-                `;
-                document.getElementById('saveResultBtn').style.display = 'none';
-            }
-        });
-
-        function displaySearchResult(result) {
-            document.getElementById('searchResult').style.display = 'block';
             
-            let html = '';
-            
-            // Alerta se for exploitada
-            if (result.exploited) {
-                html += `
-                    <div class="result-alert">
-                        <strong>⚠️ ALERTA CRÍTICO:</strong> Esta CVE está sendo exploitada ativamente (CISA KEV)
-                    </div>
-                `;
-            }
-            
-            // Grid com informações principais
-            html += '<div class="result-grid">';
-            
-            html += `
-                <div class="result-card">
-                    <h4>CVE ID</h4>
-                    <p><code>${result.cve_id}</code></p>
-                </div>
-            `;
-            
-            html += `
-                <div class="result-card">
-                    <h4>Severidade</h4>
-                    <p><span class="severity-badge severity-${(result.severity || 'unknown').toLowerCase()}">${result.severity || 'Unknown'}</span></p>
-                </div>
-            `;
-            
-            html += `
-                <div class="result-card">
-                    <h4>Exploitada</h4>
-                    <p>${result.exploited ? '<span class="exploited-badge">⚠️ Sim</span>' : '<span class="not-exploited-badge">✓ Não</span>'}</p>
-                </div>
-            `;
-            
-            if (result.vulnerability_name) {
-                html += `
-                    <div class="result-card">
-                        <h4>Nome da Vulnerabilidade</h4>
-                        <p>${result.vulnerability_name}</p>
-                    </div>
-                `;
-            }
-            
-            if (result.vendor) {
-                html += `
-                    <div class="result-card">
-                        <h4>Vendor/Produto</h4>
-                        <p>${result.vendor}</p>
-                    </div>
-                `;
-            }
-            
-            html += '</div>';
-            
-            // Descrição completa
-            if (result.short_description || result.summary) {
-                html += `
-                    <div class="result-description">
-                        <h4>📋 Descrição</h4>
-                        <p>${result.short_description || result.summary || 'Descrição não disponível'}</p>
-                    </div>
-                `;
-            }
-            
-            // Ação requerida (CISA)
-            if (result.required_action) {
-                html += `
-                    <div class="result-description" style="border-left: 4px solid #ff6b6b;">
-                        <h4>⚡ Ação Requerida (CISA):</h4>
-                        <p>${result.required_action}</p>
-                    </div>
-                `;
-            }
-            
-            document.getElementById('searchResultContent').innerHTML = html;
-            document.getElementById('saveResultBtn').style.display = 'block';
-        }
-
-        async function saveSearchResult() {
-            if (!currentSearchResult) return;
-            
-            const data = {
-                id: Date.now(),
-                cve_id: currentSearchResult.cve_id,
-                cveId: currentSearchResult.cve_id,
-                severity: currentSearchResult.severity || 'Unknown',
-                exploited: currentSearchResult.exploited || false,
-                product: currentSearchResult.vulnerability_name || currentSearchResult.vendor || 'Diversos',
-                description: currentSearchResult.short_description || currentSearchResult.summary || '',
-                datePublished: new Date().toISOString().split('T')[0],
-                createdAt: new Date().toISOString()
-            };
+            resultsDiv.innerHTML = '<div class="loading">🔍 Buscando CVE...</div>';
             
             try {
-                await fetch('/api/cves', {
+                const response = await fetch('/cve/search', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify({ cve_id: cveId })
                 });
                 
-                alert('✅ CVE salva no painel com sucesso!');
-                await loadCVEs();
-                document.getElementById('searchResult').style.display = 'none';
-                document.getElementById('searchCVE').value = '';
-                currentSearchResult = null;
+                const data = await response.json();
+                
+                if (data.found) {
+                    let html = '<div class="cve-detail">';
+                    html += `<h3 style="color: #667eea; margin-bottom: 15px;">${data.cve_id}</h3>`;
+                    html += `<p><strong>Severidade:</strong> <span class="severity-${data.severity.toLowerCase()}">${data.severity}</span></p>`;
+                    html += `<p><strong>CVSS:</strong> ${data.cvss_score}</p>`;
+                    html += `<p><strong>Descrição (PT):</strong> ${data.description_pt || 'N/A'}</p>`;
+                    html += `<p><strong>Publicação:</strong> ${data.published_date}</p>`;
+                    html += `<p><strong>Fontes:</strong> ${data.sources.join(', ')}</p>`;
+                    
+                    if (data.exploited) {
+                        html += '<div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 15px;">';
+                        html += '<strong>⚠️ ATENÇÃO: CVE Explorada Ativamente (CISA KEV)</strong><br>';
+                        html += `Vulnerabilidade: ${data.cisa_info.vulnerability_name}<br>`;
+                        html += `Data Adicionada: ${data.cisa_info.date_added}<br>`;
+                        html += `Prazo: ${data.cisa_info.due_date}`;
+                        html += '</div>';
+                    }
+                    
+                    html += '<button onclick="saveCVE()" class="btn btn-success" style="margin-top: 15px;">💾 Salvar CVE</button>';
+                    html += '</div>';
+                    
+                    resultsDiv.innerHTML = html;
+                    window.currentCVE = data;
+                } else {
+                    resultsDiv.innerHTML = '<div class="error">❌ CVE não encontrada</div>';
+                }
             } catch (error) {
-                console.error('Erro ao salvar CVE:', error);
+                resultsDiv.innerHTML = '<div class="error">❌ Erro ao buscar CVE: ' + error.message + '</div>';
+            }
+        }
+        
+        async function saveCVE() {
+            if (!window.currentCVE) return;
+            
+            try {
+                const response = await fetch('/cve/add', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(window.currentCVE)
+                });
+                
+                if (response.ok) {
+                    alert('✅ CVE salva com sucesso!');
+                    loadCVEs();
+                }
+            } catch (error) {
                 alert('❌ Erro ao salvar CVE');
             }
         }
-
-        window.onclick = (event) => {
-            const modal = document.getElementById('cveModal');
-            if (event.target === modal) {
-                closeModal();
+        
+        async function deleteCVE(cveId) {
+            if (!confirm('⚠️ Deseja realmente excluir esta CVE?')) return;
+            
+            try {
+                const response = await fetch(`/cve/delete/${cveId}`, { method: 'DELETE' });
+                if (response.ok) {
+                    alert('✅ CVE excluída!');
+                    loadCVEs();
+                }
+            } catch (error) {
+                alert('❌ Erro ao excluir CVE');
             }
-        };
-
-        loadCVEs();
+        }
+        
+        function filterCVEs() {
+            const filter = document.getElementById('filterInput').value.toUpperCase();
+            const rows = document.querySelectorAll('#cveTableBody tr');
+            rows.forEach(row => {
+                const text = row.textContent.toUpperCase();
+                row.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+        
+        async function fetchRecentCVEs() {
+            const resultsDiv = document.getElementById('searchResults');
+            resultsDiv.innerHTML = '<div class="loading">📥 Buscando CVEs das últimas 24 horas...</div>';
+            
+            try {
+                const response = await fetch('/cve/fetch-recent', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ hours: 24, auto_save: true })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultsDiv.innerHTML = `<div class="success">✅ ${data.count} CVEs encontradas e ${data.saved} salvas!</div>`;
+                    loadCVEs();
+                } else {
+                    resultsDiv.innerHTML = `<div class="error">❌ Erro: ${data.error}</div>`;
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = `<div class="error">❌ Erro: ${error.message}</div>`;
+            }
+        }
     </script>
 </body>
 </html>

@@ -48,5 +48,27 @@
     "description": "O Microsoft Outlook contém uma vulnerabilidade de validação de entrada inadequada que permite a execução remota de código.A exploração bem-sucedida desta vulnerabilidade permitiria que um invasor ignorasse o Modo de Exibição Protegido do Office e abrisse no modo de edição em vez do modo protegido.",
     "datePublished": "2025-10-25",
     "createdAt": "2025-10-25T12:11:30.409Z"
+  },
+  {
+    "id": "20251025110049",
+    "cve_id": "CVE-2024-21413",
+    "severity": "Critical",
+    "cvss_score": 9.8,
+    "description": "Microsoft Outlook Remote Code Execution Vulnerability",
+    "description_pt": "Vulnerabilidade de execução remota de código no Microsoft Outlook",
+    "published_date": "N/A",
+    "sources": [
+      "NVD"
+    ],
+    "references": [
+      "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21413",
+      "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21413",
+      "https://research.checkpoint.com/2024/the-risks-of-the-monikerlink-bug-in-microsoft-outlook-and-the-big-picture/",
+      "https://www.vicarius.io/vsociety/posts/cve-2024-21413-critical-monikerlink-vulnerability-affecting-microsoft-outlook-detection-script",
+      "https://www.vicarius.io/vsociety/posts/cve-2024-21413-critical-monikerlink-vulnerability-affecting-microsoft-outlook-mitigation-script"
+    ],
+    "exploited": false,
+    "cisa_info": null,
+    "date_added": "2025-10-25T11:00:49.874787"
   }
 ]

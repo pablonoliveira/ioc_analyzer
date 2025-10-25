@@ -1,788 +1,352 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IOC Management Panel</title>
+    <title>IOC Management Panel - IOC Analyzer</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: #eaeaea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-        .container { max-width: 1800px; margin: 0 auto; }
-        .header {
-            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
-            padding: 30px;
+        .container { max-width: 1400px; margin: 0 auto; }
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 30px;
             border-radius: 15px;
-            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            border: 1px solid rgba(0,173,181,0.3);
         }
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #00adb5;
-            text-shadow: 0 0 20px rgba(0,173,181,0.5);
+        h1 {
+            color: #667eea;
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
-        .header p { color: #a0a0a0; font-size: 1.1em; }
+        .subtitle { color: #666; margin-top: 10px; }
         .nav-buttons {
             display: flex;
-            justify-content: center;
             gap: 15px;
             margin-top: 20px;
             flex-wrap: wrap;
         }
-        .nav-btn {
+        .nav-buttons a {
             padding: 12px 25px;
-            background: rgba(0,173,181,0.2);
-            color: #00adb5;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             text-decoration: none;
-            border-radius: 8px;
-            border: 1px solid rgba(0,173,181,0.3);
-            transition: all 0.3s;
+            border-radius: 10px;
             font-weight: 600;
-        }
-        .nav-btn:hover {
-            background: rgba(0,173,181,0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,173,181,0.3);
-        }
-        .nav-btn.active {
-            background: #00adb5;
-            color: #1a1a2e;
-        }
-        .search-section {
-            background: #16213e;
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            border: 1px solid rgba(0,173,181,0.2);
-        }
-        .search-section h2 { color: #00adb5; margin-bottom: 20px; }
-        .search-form {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .search-form input {
-            flex: 1;
-            min-width: 300px;
-            padding: 12px;
-            border: 1px solid rgba(0,173,181,0.3);
-            border-radius: 8px;
-            background: #0f3460;
-            color: #eaeaea;
-            font-size: 1em;
-        }
-        .search-form button {
-            padding: 12px 30px;
-            background: #00adb5;
-            color: #1a1a2e;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
             transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
-        .search-form button:hover {
-            background: #00d4ff;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,173,181,0.4);
+        .nav-buttons a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
         }
-        
-        /* Seção de resultado da busca */
-        .search-result {
-            margin-top: 30px;
-            padding: 25px;
-            background: rgba(0,173,181,0.1);
-            border-radius: 12px;
-            border: 2px solid rgba(0,173,181,0.3);
+        .panel {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
         }
-        .search-result h3 {
-            color: #00adb5;
-            margin-bottom: 20px;
+        .section-title {
+            color: #667eea;
             font-size: 1.5em;
-        }
-        .result-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
             margin-bottom: 20px;
-        }
-        .result-card {
-            background: #0f3460;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid rgba(0,173,181,0.2);
-        }
-        .result-card h4 {
-            color: #00adb5;
-            margin-bottom: 10px;
-            font-size: 0.9em;
-            text-transform: uppercase;
-        }
-        .result-card p {
-            color: #eaeaea;
-            font-size: 1em;
-            word-wrap: break-word;
-        }
-        .result-alert {
-            background: rgba(233,69,96,0.2);
-            border: 1px solid rgba(233,69,96,0.4);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .result-alert strong { color: #ff6b6b; }
-        .result-description {
-            background: #0f3460;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        .result-description h4 {
-            color: #00adb5;
-            margin-bottom: 15px;
-        }
-        .result-description p {
-            color: #eaeaea;
-            line-height: 1.6;
-        }
-
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            gap: 15px;
-            flex-wrap: wrap;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
         }
         .btn {
-            padding: 12px 25px;
+            padding: 12px 30px;
             border: none;
             border-radius: 8px;
-            cursor: pointer;
+            font-size: 16px;
             font-weight: 600;
+            cursor: pointer;
             transition: all 0.3s;
         }
         .btn-primary {
-            background: #00adb5;
-            color: #1a1a2e;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
         .btn-primary:hover {
-            background: #00d4ff;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,173,181,0.4);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
         }
-        .btn-secondary {
-            background: rgba(255,255,255,0.1);
-            color: #eaeaea;
-            border: 1px solid rgba(255,255,255,0.2);
+        .btn-success { background: #28a745; color: white; }
+        .btn-danger { background: #dc3545; color: white; }
+        .form-group { margin-bottom: 20px; }
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
         }
-        .btn-secondary:hover { background: rgba(255,255,255,0.15); }
-        .filters {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .filters select {
-            padding: 10px;
-            border: 1px solid rgba(0,173,181,0.3);
+        .form-input, .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
             border-radius: 8px;
-            background: #0f3460;
-            color: #eaeaea;
+            font-size: 16px;
         }
-        table {
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .ioc-table {
             width: 100%;
             border-collapse: collapse;
-            background: #16213e;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            margin-top: 20px;
         }
-        thead { background: linear-gradient(135deg, #00adb5 0%, #00d4ff 100%); }
-        th {
+        .ioc-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             padding: 15px;
             text-align: left;
-            color: #1a1a2e;
             font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.9em;
         }
-        td {
+        .ioc-table td {
             padding: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            color: #eaeaea;
+            border-bottom: 1px solid #ddd;
         }
-        tbody tr { transition: all 0.3s; }
-        tbody tr:hover { background: rgba(0,173,181,0.1); }
-        .severity-badge {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-        }
-        .severity-critical {
-            background: rgba(233,69,96,0.2);
-            color: #ff6b6b;
-            border: 1px solid rgba(233,69,96,0.3);
-        }
-        .severity-high {
-            background: rgba(253,126,20,0.2);
-            color: #fd7e14;
-            border: 1px solid rgba(253,126,20,0.3);
-        }
-        .severity-medium {
-            background: rgba(255,193,7,0.2);
-            color: #ffc107;
-            border: 1px solid rgba(255,193,7,0.3);
-        }
-        .severity-low {
-            background: rgba(0,184,148,0.2);
-            color: #00b894;
-            border: 1px solid rgba(0,184,148,0.3);
-        }
-        .status-badge {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-        }
-        .status-active {
-            background: rgba(233,69,96,0.2);
-            color: #ff6b6b;
-            border: 1px solid rgba(233,69,96,0.3);
-        }
-        .status-monitored {
-            background: rgba(0,173,181,0.2);
-            color: #00adb5;
-            border: 1px solid rgba(0,173,181,0.3);
-        }
-        .status-mitigated {
-            background: rgba(0,184,148,0.2);
-            color: #00b894;
-            border: 1px solid rgba(0,184,148,0.3);
-        }
-        .actions { display: flex; gap: 10px; }
-        .action-btn {
-            padding: 6px 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.85em;
-            transition: all 0.3s;
-        }
-        .action-btn.edit {
-            background: rgba(0,173,181,0.2);
-            color: #00adb5;
-            border: 1px solid rgba(0,173,181,0.3);
-        }
-        .action-btn.edit:hover { background: rgba(0,173,181,0.3); }
-        .action-btn.delete {
-            background: rgba(233,69,96,0.2);
-            color: #ff6b6b;
-            border: 1px solid rgba(233,69,96,0.3);
-        }
-        .action-btn.delete:hover { background: rgba(233,69,96,0.3); }
+        .ioc-table tr:hover { background: #f8f9fa; }
+        .severity-critical { color: #dc3545; font-weight: bold; }
+        .severity-high { color: #fd7e14; font-weight: bold; }
+        .severity-medium { color: #ffc107; font-weight: bold; }
+        .severity-low { color: #28a745; font-weight: bold; }
         .modal {
             display: none;
             position: fixed;
-            top: 0;
+            z-index: 1000;
             left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
+            background: rgba(0, 0, 0, 0.7);
         }
-        .modal.active { display: flex; }
         .modal-content {
-            background: #16213e;
+            background: white;
+            margin: 5% auto;
             padding: 30px;
-            border-radius: 12px;
-            max-width: 600px;
+            border-radius: 15px;
             width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            border: 1px solid rgba(0,173,181,0.3);
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
-        .modal-content h2 {
-            color: #00adb5;
-            margin-bottom: 20px;
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
         }
-        .form-group { margin-bottom: 20px; }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #a0a0a0;
-            font-weight: 600;
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid rgba(0,173,181,0.3);
-            border-radius: 8px;
-            background: #0f3460;
-            color: #eaeaea;
-            font-size: 1em;
-        }
-        .form-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-        .form-actions {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end;
-            margin-top: 20px;
-        }
-        .no-data {
-            text-align: center;
-            padding: 40px;
-            color: #a0a0a0;
-        }
+        .close:hover { color: #000; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header>
             <h1>🔍 IOC Management Panel</h1>
-            <p>Painel de Gerenciamento de Indicadores de Comprometimento</p>
+            <p class="subtitle">Painel de Gerenciamento de Indicadores de Comprometimento</p>
+            <p class="subtitle">Consulte IPs, Domínios, URLs e Hashes diretamente nas APIs AbuseIPDB e VirusTotal</p>
             <div class="nav-buttons">
-                <a href="/" class="nav-btn">📤 Upload de Logs</a>
-                <a href="/ioc_panel" class="nav-btn active">🔍 IOC Panel</a>
-                <a href="/cve_panel" class="nav-btn">🛡️ CVE Panel</a>
-                <a href="/dashboard" class="nav-btn">📊 Dashboard</a>
+                <a href="/">📊 Dashboard</a>
+                <a href="/upload">📤 Upload de Logs</a>
+                <a href="/ioc">🔍 IOC Panel</a>
+                <a href="/cve">🛡️ CVE Panel</a>
             </div>
+        </header>
+        
+        <div class="panel">
+            <h2 class="section-title">🔎 Busca Rápida de IOC</h2>
+            <p style="color: #666; margin-bottom: 15px;">Consulte IPs, Domínios, URLs e Hashes diretamente nas APIs AbuseIPDB e VirusTotal</p>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="quickSearchInput" class="form-input" placeholder="Digite o IOC (IP, Domínio, URL ou Hash)" style="flex: 1;">
+                <button onclick="quickSearch()" class="btn btn-primary">🔍 Consultar API</button>
+            </div>
+            <div id="quickSearchResults" style="margin-top: 20px;"></div>
         </div>
-
-        <div class="search-section">
-            <h2>🔎 Busca Rápida de IOC</h2>
-            <p>Consulte IPs, Domínios, URLs e Hashes diretamente nas APIs AbuseIPDB e VirusTotal</p>
-            <form class="search-form" id="searchForm">
-                <input type="text" id="searchIOC" placeholder="Digite o IOC (IP, Domínio, URL ou Hash)">
-                <button type="submit">🔍 Consultar API</button>
-            </form>
+        
+        <div class="panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 class="section-title" style="margin: 0; border: none;">➕ Adicionar IOC</h2>
+                <button onclick="openAddModal()" class="btn btn-success">+ Adicionar Novo IOC</button>
+            </div>
             
-            <!-- SEÇÃO DE RESULTADO DA CONSULTA -->
-            <div id="searchResult" class="search-result" style="display: none;">
-                <h3>Resultado da Consulta</h3>
-                <div id="searchResultContent"></div>
-                <button class="btn btn-primary" id="saveResultBtn" style="display: none;" onclick="saveSearchResult()">💾 Salvar no Painel</button>
+            <h2 class="section-title">💾 Banco de Dados de IOCs</h2>
+            <input type="text" id="filterInput" class="form-input" placeholder="🔍 Filtrar IOCs..." onkeyup="filterIOCs()" style="margin-bottom: 20px;">
+            <div style="overflow-x: auto;">
+                <table class="ioc-table" id="iocTable">
+                    <thead>
+                        <tr>
+                            <th>IOC</th>
+                            <th>TIPO</th>
+                            <th>SEVERIDADE</th>
+                            <th>DESCRIÇÃO</th>
+                            <th>ORIGEM</th>
+                            <th>DATA</th>
+                            <th>AÇÕES</th>
+                        </tr>
+                    </thead>
+                    <tbody id="iocTableBody">
+                        <tr><td colspan="7" style="text-align: center; padding: 40px; color: #999;">📭 Nenhum IOC salvo</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-
-        <div class="controls">
-            <button class="btn btn-primary" onclick="openAddModal()">➕ Adicionar IOC</button>
-            <div class="filters">
-                <select id="severityFilter" onchange="filterTable()">
-                    <option value="">Todas Severidades</option>
-                    <option value="Critical">Critical</option>
-                    <option value="High">High</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Low">Low</option>
-                </select>
-                <select id="statusFilter" onchange="filterTable()">
-                    <option value="">Todos Status</option>
-                    <option value="Active">Active</option>
-                    <option value="Monitored">Monitored</option>
-                    <option value="Mitigated">Mitigated</option>
-                </select>
-                <select id="typeFilter" onchange="filterTable()">
-                    <option value="">Todos Tipos</option>
-                    <option value="IP">IP</option>
+    </div>
+    
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddModal()">&times;</span>
+            <h2 style="color: #667eea; margin-bottom: 20px;">Adicionar Novo IOC</h2>
+            <div class="form-group">
+                <label class="form-label">Tipo</label>
+                <select id="iocType" class="form-select">
+                    <option value="IP">IP Address</option>
                     <option value="Domain">Domain</option>
                     <option value="URL">URL</option>
                     <option value="Hash">Hash</option>
                 </select>
             </div>
-        </div>
-
-        <table id="iocTable">
-            <thead>
-                <tr>
-                    <th>IOC</th>
-                    <th>Tipo</th>
-                    <th>Severidade</th>
-                    <th>Status</th>
-                    <th>Descrição</th>
-                    <th>Origem</th>
-                    <th>Data</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody id="iocTableBody">
-                <tr>
-                    <td colspan="8" class="no-data">Carregando dados...</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="modal" id="iocModal">
-        <div class="modal-content">
-            <h2 id="modalTitle">Adicionar IOC</h2>
-            <form id="iocForm">
-                <input type="hidden" id="iocDbId">
-                <div class="form-group">
-                    <label>IOC (IP, Domínio, URL ou Hash)</label>
-                    <input type="text" id="iocValue" placeholder="192.168.1.1 ou example.com" required>
-                </div>
-                <div class="form-group">
-                    <label>Tipo</label>
-                    <select id="iocType" required>
-                        <option value="IP">IP</option>
-                        <option value="Domain">Domain</option>
-                        <option value="URL">URL</option>
-                        <option value="Hash">Hash</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Severidade</label>
-                    <select id="iocSeverity" required>
-                        <option value="Critical">Critical</option>
-                        <option value="High">High</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Low">Low</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Status</label>
-                    <select id="iocStatus">
-                        <option value="Active">Active</option>
-                        <option value="Monitored">Monitored</option>
-                        <option value="Mitigated">Mitigated</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Descrição</label>
-                    <textarea id="iocDescription"></textarea>
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
-                </div>
-            </form>
+            <div class="form-group">
+                <label class="form-label">Valor</label>
+                <input type="text" id="iocValue" class="form-input" placeholder="Ex: 192.168.1.1">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Origem</label>
+                <input type="text" id="iocSource" class="form-input" placeholder="Ex: Logs do Firewall">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Severidade</label>
+                <select id="iocSeverity" class="form-select">
+                    <option value="Critical">Critical</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Descrição</label>
+                <textarea id="iocDescription" class="form-input" rows="3" placeholder="Descrição detalhada"></textarea>
+            </div>
+            <button onclick="addIOC()" class="btn btn-success" style="width: 100%;">💾 Salvar IOC</button>
         </div>
     </div>
-
+    
     <script>
-        let iocs = [];
-        let currentSearchResult = null;
-
+        window.onload = loadIOCs;
+        
         async function loadIOCs() {
             try {
-                const response = await fetch('/api/iocs');
-                iocs = await response.json();
-                renderTable();
+                const response = await fetch('/ioc/list');
+                const iocs = await response.json();
+                displayIOCs(iocs);
             } catch (error) {
                 console.error('Erro ao carregar IOCs:', error);
             }
         }
-
-        function renderTable() {
+        
+        function displayIOCs(iocs) {
             const tbody = document.getElementById('iocTableBody');
-            const severityFilter = document.getElementById('severityFilter').value;
-            const statusFilter = document.getElementById('statusFilter').value;
-            const typeFilter = document.getElementById('typeFilter').value;
-
-            let filteredIOCs = iocs.filter(ioc => {
-                return (!severityFilter || ioc.severity === severityFilter) &&
-                       (!statusFilter || ioc.status === statusFilter) &&
-                       (!typeFilter || ioc.type === typeFilter);
-            });
-
-            if (filteredIOCs.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="8" class="no-data">Nenhum IOC encontrado</td></tr>';
+            if (iocs.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 40px; color: #999;">📭 Nenhum IOC salvo</td></tr>';
                 return;
             }
-
-            tbody.innerHTML = filteredIOCs.map(ioc => `
-                <tr>
-                    <td><code>${ioc.ioc || '-'}</code></td>
-                    <td>${ioc.type || '-'}</td>
-                    <td><span class="severity-badge severity-${(ioc.severity || 'low').toLowerCase()}">${ioc.severity || 'Low'}</span></td>
-                    <td><span class="status-badge status-${(ioc.status || 'active').toLowerCase()}">${ioc.status || 'Active'}</span></td>
-                    <td>${(ioc.description || '-').substring(0, 80)}...</td>
+            tbody.innerHTML = '';
+            iocs.forEach(ioc => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><strong>${ioc.value}</strong></td>
+                    <td>${ioc.type}</td>
+                    <td><span class="severity-${ioc.severity.toLowerCase()}">${ioc.severity}</span></td>
+                    <td>${ioc.description || '-'}</td>
                     <td>${ioc.source || '-'}</td>
-                    <td>${ioc.timestamp || '-'}</td>
-                    <td class="actions">
-                        <button class="action-btn edit" onclick="editIOC(${ioc.id})">✏️ Editar</button>
-                        <button class="action-btn delete" onclick="deleteIOC(${ioc.id})">🗑️ Excluir</button>
-                    </td>
-                </tr>
-            `).join('');
+                    <td>${new Date(ioc.date_added).toLocaleDateString('pt-BR')}</td>
+                    <td><button onclick="deleteIOC('${ioc.id}')" class="btn btn-danger" style="padding: 8px 16px;">🗑️ Excluir</button></td>
+                `;
+                tbody.appendChild(row);
+            });
         }
-
-        function filterTable() {
-            renderTable();
-        }
-
+        
         function openAddModal() {
-            document.getElementById('modalTitle').textContent = 'Adicionar IOC';
-            document.getElementById('iocForm').reset();
-            document.getElementById('iocDbId').value = '';
-            document.getElementById('iocModal').classList.add('active');
+            document.getElementById('addModal').style.display = 'block';
         }
-
-        function editIOC(id) {
-            const ioc = iocs.find(i => i.id === id);
-            if (!ioc) return;
-
-            document.getElementById('modalTitle').textContent = 'Editar IOC';
-            document.getElementById('iocDbId').value = ioc.id;
-            document.getElementById('iocValue').value = ioc.ioc || '';
-            document.getElementById('iocType').value = ioc.type || 'IP';
-            document.getElementById('iocSeverity').value = ioc.severity || 'Low';
-            document.getElementById('iocStatus').value = ioc.status || 'Active';
-            document.getElementById('iocDescription').value = ioc.description || '';
-            document.getElementById('iocModal').classList.add('active');
+        
+        function closeAddModal() {
+            document.getElementById('addModal').style.display = 'none';
         }
-
-        async function deleteIOC(id) {
-            if (!confirm('Tem certeza que deseja excluir este IOC?')) return;
-
-            try {
-                await fetch(`/api/iocs/${id}`, { method: 'DELETE' });
-                await loadIOCs();
-            } catch (error) {
-                console.error('Erro ao excluir IOC:', error);
-                alert('Erro ao excluir IOC');
-            }
-        }
-
-        function closeModal() {
-            document.getElementById('iocModal').classList.remove('active');
-        }
-
-        document.getElementById('iocForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const id = document.getElementById('iocDbId').value;
-            const data = {
-                id: id ? parseInt(id) : Date.now(),
-                ioc: document.getElementById('iocValue').value,
+        
+        async function addIOC() {
+            const ioc = {
                 type: document.getElementById('iocType').value,
+                value: document.getElementById('iocValue').value,
+                source: document.getElementById('iocSource').value,
                 severity: document.getElementById('iocSeverity').value,
-                status: document.getElementById('iocStatus').value,
-                description: document.getElementById('iocDescription').value,
-                source: 'Manual',
-                timestamp: new Date().toISOString().split('T')[0]
-            };
-
-            try {
-                if (id) {
-                    await fetch(`/api/iocs/${id}`, {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
-                    });
-                } else {
-                    await fetch('/api/iocs', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
-                    });
-                }
-                closeModal();
-                await loadIOCs();
-            } catch (error) {
-                console.error('Erro ao salvar IOC:', error);
-                alert('Erro ao salvar IOC');
-            }
-        });
-
-        // BUSCA DE IOC COM RESULTADO VISUAL NA PÁGINA
-        document.getElementById('searchForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const iocValue = document.getElementById('searchIOC').value.trim();
-
-            if (!iocValue) {
-                alert('Por favor, digite um IOC');
-                return;
-            }
-
-            try {
-                const response = await fetch(`/api/iocs/search/${encodeURIComponent(iocValue)}`);
-                const result = await response.json();
-
-                if (result.found) {
-                    displaySearchResult(result);
-                    currentSearchResult = result;
-                } else {
-                    document.getElementById('searchResult').style.display = 'block';
-                    document.getElementById('searchResultContent').innerHTML = `
-                        <div class="result-alert">
-                            <strong>❌ IOC não encontrado</strong>
-                            <p>O IOC <code>${iocValue}</code> não foi encontrado nas APIs consultadas (AbuseIPDB e VirusTotal).</p>
-                        </div>
-                    `;
-                    document.getElementById('saveResultBtn').style.display = 'none';
-                }
-            } catch (error) {
-                console.error('Erro ao buscar IOC:', error);
-                document.getElementById('searchResult').style.display = 'block';
-                document.getElementById('searchResultContent').innerHTML = `
-                    <div class="result-alert">
-                        <strong>⚠️ Erro na busca</strong>
-                        <p>Ocorreu um erro ao consultar as APIs. Tente novamente.</p>
-                    </div>
-                `;
-                document.getElementById('saveResultBtn').style.display = 'none';
-            }
-        });
-
-        function displaySearchResult(result) {
-            document.getElementById('searchResult').style.display = 'block';
-            
-            let html = '';
-            
-            // Alerta se for malicioso
-            if (result.is_malicious) {
-                html += `
-                    <div class="result-alert">
-                        <strong>⚠️ ALERTA:</strong> Este IOC foi classificado como MALICIOSO
-                    </div>
-                `;
-            }
-            
-            // Grid com informações principais
-            html += '<div class="result-grid">';
-            
-            html += `
-                <div class="result-card">
-                    <h4>IOC</h4>
-                    <p><code>${result.ioc}</code></p>
-                </div>
-            `;
-            
-            html += `
-                <div class="result-card">
-                    <h4>Tipo</h4>
-                    <p>${result.type || 'N/A'}</p>
-                </div>
-            `;
-            
-            html += `
-                <div class="result-card">
-                    <h4>Severidade</h4>
-                    <p><span class="severity-badge severity-${(result.severity || 'low').toLowerCase()}">${result.severity || 'Low'}</span></p>
-                </div>
-            `;
-            
-            if (result.abuse_score !== undefined) {
-                html += `
-                    <div class="result-card">
-                        <h4>Abuse Score</h4>
-                        <p><strong>${result.abuse_score}%</strong></p>
-                    </div>
-                `;
-            }
-            
-            if (result.country) {
-                html += `
-                    <div class="result-card">
-                        <h4>País</h4>
-                        <p>${result.country}</p>
-                    </div>
-                `;
-            }
-            
-            if (result.isp) {
-                html += `
-                    <div class="result-card">
-                        <h4>ISP</h4>
-                        <p>${result.isp}</p>
-                    </div>
-                `;
-            }
-            
-            if (result.total_reports !== undefined) {
-                html += `
-                    <div class="result-card">
-                        <h4>Total de Reports</h4>
-                        <p>${result.total_reports}</p>
-                    </div>
-                `;
-            }
-            
-            if (result.positives !== undefined) {
-                html += `
-                    <div class="result-card">
-                        <h4>Detecções VirusTotal</h4>
-                        <p>${result.positives}/${result.total || 'N/A'}</p>
-                    </div>
-                `;
-            }
-            
-            html += '</div>';
-            
-            // Descrição
-            if (result.description) {
-                html += `
-                    <div class="result-description">
-                        <h4>📋 Descrição</h4>
-                        <p>${result.description}</p>
-                    </div>
-                `;
-            }
-            
-            document.getElementById('searchResultContent').innerHTML = html;
-            document.getElementById('saveResultBtn').style.display = 'block';
-        }
-
-        async function saveSearchResult() {
-            if (!currentSearchResult) return;
-            
-            const data = {
-                id: Date.now(),
-                ioc: currentSearchResult.ioc,
-                type: currentSearchResult.type || 'Unknown',
-                severity: currentSearchResult.severity || 'Low',
-                status: 'Active',
-                description: currentSearchResult.description || '',
-                source: 'API Search',
-                timestamp: new Date().toISOString().split('T')[0]
+                description: document.getElementById('iocDescription').value
             };
             
             try {
-                await fetch('/api/iocs', {
+                const response = await fetch('/ioc/add', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(ioc)
                 });
                 
-                alert('✅ IOC salvo no painel com sucesso!');
-                await loadIOCs();
-                document.getElementById('searchResult').style.display = 'none';
-                document.getElementById('searchIOC').value = '';
-                currentSearchResult = null;
+                if (response.ok) {
+                    alert('✅ IOC adicionado com sucesso!');
+                    closeAddModal();
+                    loadIOCs();
+                    document.getElementById('iocValue').value = '';
+                    document.getElementById('iocSource').value = '';
+                    document.getElementById('iocDescription').value = '';
+                }
             } catch (error) {
-                console.error('Erro ao salvar IOC:', error);
-                alert('❌ Erro ao salvar IOC');
+                alert('❌ Erro ao adicionar IOC');
             }
         }
-
-        window.onclick = (event) => {
-            const modal = document.getElementById('iocModal');
-            if (event.target === modal) {
-                closeModal();
+        
+        async function deleteIOC(iocId) {
+            if (!confirm('⚠️ Deseja realmente excluir este IOC?')) return;
+            
+            try {
+                const response = await fetch(`/ioc/delete/${iocId}`, { method: 'DELETE' });
+                if (response.ok) {
+                    alert('✅ IOC excluído!');
+                    loadIOCs();
+                }
+            } catch (error) {
+                alert('❌ Erro ao excluir IOC');
             }
-        };
-
-        loadIOCs();
+        }
+        
+        function filterIOCs() {
+            const filter = document.getElementById('filterInput').value.toUpperCase();
+            const rows = document.querySelectorAll('#iocTableBody tr');
+            rows.forEach(row => {
+                const text = row.textContent.toUpperCase();
+                row.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+        
+        async function quickSearch() {
+            const value = document.getElementById('quickSearchInput').value.trim();
+            const resultsDiv = document.getElementById('quickSearchResults');
+            
+            if (!value) {
+                resultsDiv.innerHTML = '<div style="padding: 15px; background: #fff3cd; border-radius: 8px; color: #856404;">⚠️ Digite um IOC para consultar</div>';
+                return;
+            }
+            
+            resultsDiv.innerHTML = '<div style="padding: 15px; background: #d1ecf1; border-radius: 8px; color: #0c5460;">🔍 Consultando APIs...</div>';
+            
+            alert('⚠️ Funcionalidade de consulta rápida em desenvolvimento.\n\nPor enquanto, adicione o IOC manualmente no banco de dados.');
+        }
     </script>
 </body>
 </html>

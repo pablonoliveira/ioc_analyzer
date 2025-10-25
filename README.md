@@ -1,376 +1,359 @@
-# 🛡️ IOC Analyzer
+# 🛡️ IOC Analyzer - Blue Team Platform
 
-**Plataforma Blue Team para Análise de Indicadores de Comprometimento e CVEs**
+[![Version](https://img.shields.io/badge/version-2.1-blue.svg)](https://github.com/seu-usuario/ioc_analyzer)
+[![Python](https://img.shields.io/badge/python-3.8+-brightgreen.svg)](https://python.org)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Flask](https://img.shields.io/badge/flask-3.0+-red.svg)](https://flask.palletsprojects.com/)
 
-![Version](https://img.shields.io/badge/version-2.1-blue.svg)
-![Status](https://img.shields.io/badge/status-stable-green.svg)
-![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-yellow.svg)
-
----
-
-## 📑 Índice
-
-- [Sobre o Projeto](#-sobre-o-projeto)
-- [Funcionalidades](#-funcionalidades)
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Instalação](#-instalação)
-- [Configuração](#️-configuração)
-- [Como Usar](#-como-usar)
-- [APIs Integradas](#-apis-integradas)
-- [Screenshots](#-screenshots)
-- [Roadmap](#️-roadmap)
-- [Como Contribuir](#-como-contribuir)
-- [Licença](#-licença)
+Plataforma completa de análise e correlação de **Indicadores de Comprometimento (IoCs)** e **Vulnerabilidades (CVEs)** para equipes de **Blue Team** e **Threat Intelligence**.
 
 ---
 
-## 📖 Sobre o Projeto
+## 🚀 Funcionalidades v2.1
 
-O **IOC Analyzer** é uma plataforma desenvolvida para equipes de Blue Team e profissionais de Cibersegurança em geral que precisam gerenciar, analisar e correlacionar Indicadores de Comprometimento (IoCs) e Vulnerabilidades (CVEs) de forma eficiente.
+### ✅ **Dashboard Interativo**
+- 📊 Visualização consolidada de IoCs e CVEs
+- 📈 Gráficos interativos com Chart.js
+- 🎯 Estatísticas em tempo real
+- 🔢 Contador de ameaças críticas
 
-> ✅ **Versão 2.1 - Estável e Pronta para Produção**  
-> Esta versão inclui todas as funcionalidades essenciais consolidadas, interface visual aprimorada e integrações de API testadas.
+### ✅ **Gerenciamento de IoCs**
+- 🔍 Busca rápida de IPs, Domínios, URLs e Hashes
+- 💾 CRUD completo de IoCs
+- 🏷️ Classificação por severidade (Critical, High, Medium, Low)
+- 🔎 Filtro de busca em tempo real
+- 📂 Organização por tipo (IP, Domain, URL, Hash)
 
-### 🎯 Principais Objetivos
+### ✅ **Gerenciamento de CVEs**
+- 🛡️ Busca em múltiplas fontes (NVD, CIRCL, CISA KEV)
+- 📥 Buscar CVEs das últimas 24 horas automaticamente
+- 🌐 Tradução automática para português (PT-BR)
+- ⚠️ Detecção de CVEs exploradas ativamente (CISA KEV)
+- 💾 Banco de dados local de CVEs
+- 🔍 Busca e filtro de CVEs
 
-- **Centralização**: Gerenciar IoCs e CVEs em um único local
-- **Automação**: Buscar e enriquecer dados de múltiplas fontes
-- **Visualização**: Dashboard interativo com gráficos e estatísticas
-- **Correlação**: Relacionar IoCs com CVEs conhecidas
-- **Análise Forense**: Suporte a investigações e perícia digital
+### ✅ **Upload de Logs**
+- 📤 Upload com drag-and-drop
+- 📂 Suporte a múltiplos arquivos (.log, .txt, .csv)
+- 🤖 Extração automática de IoCs
+- 💾 Salvamento automático no banco de dados
 
----
-
-## ✨ Funcionalidades
-
-### 📊 Dashboard Interativo
-- 6 gráficos dinâmicos
-- Estatísticas em tempo real após consulta
-- Porcentagens automáticas
-- Visão geral do ambiente
-
-### 🔍 IOC Panel
-- Painel completo de IoCs
-- Busca visual na página
-- Suporte: IPs, URLs, Hashes, Domínios
-- Classificação por tipo e severidade
-
-### 🛡️ CVE Panel
-- Gerenciamento de CVEs
-- Integração NVD API
-- Severidade (CVSS v3.1)
-- Tradução automática para português
-
-### 🔗 Integrações API
-- **VirusTotal**: Análise de URLs, domínios, IPs e hashes
-- **AbuseIPDB**: Reputação de endereços IP
-- **CISA KEV**: CVEs ativamente exploradas
-- **CIRCL CVE**: Base alternativa de CVEs
-- **NVD (NIST)**: Base nacional de vulnerabilidades
-
-### 🎨 Interface Moderna
-- Tema escuro profissional
-- Responsivo (mobile-first)
-- Cards visuais organizados
-- Navegação intuitiva
-
-### 💾 Persistência de Dados
-- JSON Database
-- Export/Import
-- Backup automático
-- Histórico completo
+### ✅ **Navegação e Interface**
+- 🎨 Interface moderna com gradientes
+- 📱 Totalmente responsiva
+- 🔗 Navegação consistente entre páginas
+- 🌐 Acesso via rede local (LAN)
 
 ---
 
-## 📁 Estrutura do Projeto
+## 🏗️ Estrutura do Projeto
 
 ```
 ioc_analyzer/
 ├── data/
-│   ├── ioc_database.json      # Base de IoCs
-│   └── cve_database.json      # Base de CVEs
+│   ├── ioc_database.json          # Banco de IoCs
+│   └── cve_database.json          # Banco de CVEs
 ├── docs/
-│   ├── img/                   # Screenshots
-│   └── DOCUMENTACAO.html      # Documentação interativa
+│   ├── DOCUMENTACAO.html          # Documentação completa
+│   └── img/                       # Screenshots
 ├── ioc/
-│   ├── abuseipdb_client.py    # Cliente AbuseIPDB
-│   ├── virustotal_client.py   # Cliente VirusTotal
-│   ├── cisa_kev_client.py     # Cliente CISA KEV
-│   ├── circl_cve_client.py    # Cliente CIRCL CVE
-│   ├── nvd_cve_client.py      # Cliente NVD ✅
-│   └── url_checker.py         # Verificador de URLs
+│   ├── abuseipdb_client.py        # Cliente AbuseIPDB
+│   ├── virustotal_client.py       # Cliente VirusTotal
+│   ├── cisa_kev_client.py         # Cliente CISA KEV
+│   ├── circl_cve_client.py        # Cliente CIRCL
+│   ├── nvd_cve_client.py          # Cliente NVD (novo!)
+│   └── url_checker.py             # Checker de URLs
 ├── parsers/
-│   └── log_parser.py          # Parser de logs
+│   └── log_parser.py              # Parser de logs
 ├── templates/
-│   ├── dashboard.html         # Dashboard principal
-│   ├── ioc_panel.html         # Painel de IoCs
-│   └── cve_panel.html         # Painel de CVEs
-├── webapp.py                  # Aplicação Flask
-├── requirements.txt           # Dependências Python
-├── .env                       # Variáveis de ambiente
-├── .gitignore
-└── README.md
+│   ├── dashboard.html             # Dashboard principal
+│   ├── ioc_panel.html             # Painel de IoCs
+│   ├── cve_panel.html             # Painel de CVEs
+│   └── upload.html                # Upload de logs
+├── uploads/                       # Pasta temporária de uploads
+├── webapp.py                      # Aplicação Flask principal
+├── .env.example                   # Exemplo de configuração
+├── .gitignore                     # Arquivos ignorados
+├── README.md                      # Este arquivo
+└── requirements.txt               # Dependências Python
 ```
 
 ---
 
-## 🚀 Instalação
+## ⚙️ Instalação
 
-### Pré-requisitos
-
-- Python 3.8 ou superior
-- pip (gerenciador de pacotes Python)
-- Git
-
-### Passo 1: Clonar o Repositório
+### 1️⃣ **Clonar o Repositório**
 
 ```bash
-git clone https://github.com/SEU_USUARIO/ioc_analyzer.git
+git clone https://github.com/seu-usuario/ioc_analyzer.git
 cd ioc_analyzer
 ```
 
-### Passo 2: Criar Ambiente Virtual (Recomendado)
+### 2️⃣ **Criar Ambiente Virtual**
 
 ```bash
-# Linux/Mac
-python3 -m venv venv
-source venv/bin/activate
-
-# Windows
 python -m venv venv
+
+# Windows:
 venv\Scripts\activate
+
+# Linux/Mac:
+source venv/bin/activate
 ```
 
-### Passo 3: Instalar Dependências
+### 3️⃣ **Instalar Dependências**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-> 📦 **Dependências principais**: Flask, Requests, python-dotenv, googletrans
+### 4️⃣ **Configurar APIs (Opcional)**
 
----
-
-## ⚙️ Configuração
-
-### Passo 1: Criar arquivo .env
-
-Crie um arquivo `.env` na raiz do projeto com suas chaves de API:
+Crie um arquivo `.env` na raiz do projeto:
 
 ```env
 # APIs de Threat Intelligence
-VIRUSTOTAL_API_KEY=sua_chave_aqui
 ABUSEIPDB_API_KEY=sua_chave_aqui
-NVD_API_KEY=sua_chave_aqui
+VIRUSTOTAL_API_KEY=sua_chave_aqui
 
-# Configurações da aplicação
-FLASK_ENV=development
+# Configurações do Servidor
 FLASK_DEBUG=True
-SECRET_KEY=sua_chave_secreta_aqui
+FLASK_HOST=0.0.0.0
+FLASK_PORT=5000
 ```
 
-### Passo 2: Obter API Keys
-
-| Serviço | URL de Registro | Plano Gratuito | Limite |
-|---------|----------------|----------------|---------|
-| **VirusTotal** | [virustotal.com](https://www.virustotal.com/gui/join-us) | ✅ Sim | 500 req/dia |
-| **AbuseIPDB** | [abuseipdb.com](https://www.abuseipdb.com/register) | ✅ Sim | 1.000 req/dia |
-| **NVD** | [nvd.nist.gov](https://nvd.nist.gov/developers/request-an-api-key) | ✅ Sim | 50 req/30s |
-| **CISA KEV** | - | ✅ Pública | Sem limite |
-| **CIRCL CVE** | - | ✅ Pública | Sem limite |
-
-> ⚠️ **Importante**: Sem as API keys, algumas funcionalidades estarão limitadas. O IOC Analyzer funcionará com funcionalidades básicas usando apenas APIs públicas (CISA KEV e CIRCL CVE).
-
-### Passo 3: Inicializar Bases de Dados
-
-Os arquivos JSON serão criados automaticamente na primeira execução em `data/`:
-
-```
-data/ioc_database.json    # Iniciado como []
-data/cve_database.json    # Iniciado como []
-```
+> **Nota**: As APIs são opcionais. O sistema funciona sem elas, mas com funcionalidades limitadas.
 
 ---
 
-## 💻 Como Usar
+## 🚀 Execução
 
-### Iniciar a Aplicação
+### **Iniciar o Servidor**
 
 ```bash
 python webapp.py
 ```
 
-A aplicação estará disponível em: **http://localhost:5000**
+**Saída esperada:**
 
-### Navegação
+```
+============================================================
+🛡️  IOC Analyzer - Blue Team Platform
+============================================================
+✅ Servidor iniciado
+📊 Dashboard: http://localhost:5000
+📤 Upload: http://localhost:5000/upload
+🔍 IOC Panel: http://localhost:5000/ioc
+🛡️  CVE Panel: http://localhost:5000/cve
+============================================================
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.X.X:5000
+```
 
-- **Dashboard**: `/` - Visão geral com gráficos e estatísticas
-- **IOC Panel**: `/ioc` - Gerenciamento de Indicadores de Comprometimento
-- **CVE Panel**: `/cve` - Gerenciamento de Vulnerabilidades
+### **Acessar via Navegador**
 
-### Gerenciar IoCs
-
-1. Acesse o **IOC Panel**
-2. Clique em **"Adicionar Novo IOC"**
-3. Preencha os campos:
-   - **Tipo**: IP, Domain, URL, Hash
-   - **Valor**: O indicador (ex: `192.168.1.1`)
-   - **Fonte**: Onde foi identificado
-   - **Severidade**: Critical, High, Medium, Low
-   - **Descrição**: Contexto adicional
-4. Clique em **"Salvar"**
-
-### Buscar CVEs
-
-1. Acesse o **CVE Panel**
-2. Digite o ID da CVE (ex: `CVE-2024-21413`)
-3. Clique em **"Buscar CVE"**
-4. Os resultados serão exibidos com:
-   - Severidade (CVSS Score)
-   - Descrição traduzida
-   - Data de publicação
-   - Links para referências
-5. Clique em **"Salvar no Banco"** para persistir
-
-### Busca Visual
-
-Tanto o IOC Panel quanto o CVE Panel possuem campo de busca no topo que filtra os resultados em tempo real.
+- **Local**: http://localhost:5000
+- **Rede Local**: http://SEU_IP_LOCAL:5000
 
 ---
 
-## 🔌 APIs Integradas
+## 🌐 Acesso via Rede Local (LAN)
 
-### ✅ VirusTotal
-**Função**: Análise de URLs, domínios, IPs e hashes de arquivos  
-**Dados retornados**: Detecções de antivírus, reputação, categorias
+### **Configuração do Firewall (Windows)**
 
-### ✅ AbuseIPDB
-**Função**: Reputação de endereços IP  
-**Dados retornados**: Score de abuso, categoria de ataques, relatórios
+```powershell
+# Executar como Administrador:
+netsh advfirewall firewall add rule name="IOC Analyzer Port 5000" dir=in action=allow protocol=TCP localport=5000
+```
 
-### ✅ NVD (NIST)
-**Função**: Base nacional de vulnerabilidades (EUA)  
-**Dados retornados**: CVEs completas com CVSS v3.1, descrições, referências
+### **Descobrir seu IP Local**
 
-### ✅ CISA KEV
-**Função**: CVEs ativamente exploradas  
-**Dados retornados**: Catálogo de exploits conhecidos, datas de exploração
+```bash
+# Windows:
+ipconfig
 
-### ✅ CIRCL CVE
-**Função**: Base de CVEs alternativa (Luxemburgo)  
-**Dados retornados**: CVEs com descrições e referências
+# Linux/Mac:
+ifconfig
+```
 
-### ⚙️ Tradução Automática
-**Função**: Traduzir descrições de CVEs para português  
-**Biblioteca**: googletrans (fallback para descrição original)
+### **Acessar de Outros Dispositivos**
 
----
+Conecte-se à mesma rede WiFi e acesse:
 
-## 📸 Screenshots
+```
+http://SEU_IP_LOCAL:5000
+```
 
-> 💡 **Dica**: Veja a documentação completa interativa em `docs/documentacao.html`
-
-### Dashboard Principal
-![Dashboard](docs/img/dashboard.png)
-
-### IOC Panel
-![IOC Panel](docs/img/ioc_panel.png)
-
-### CVE Panel
-![CVE Panel](docs/img/cve_panel.png)
+Exemplo: `http://192.168.1.100:5000`
 
 ---
 
-## 🗺️ Roadmap
+## 📚 Dependências Principais
 
-### ✅ v2.1 (Atual - Estável)
-- Dashboard interativo com 6 gráficos
-- PAINEL completo de IoCs e CVEs
-- Integração com 5 APIs
-- Tradução automática
-- Interface visual moderna
+```
+flask>=3.0.0
+requests>=2.31.0
+googletrans==4.0.0-rc1
+werkzeug>=3.0.0
+python-dotenv>=1.0.0
+```
 
-### 🚧 v3.0 (Próxima - Em Planejamento)
-- **Botão "Buscar CVEs 24h"**: Automação de busca de CVEs recentes
-- **Correlação IOC ↔ CVE**: Relacionamento automático
-- **Exportação de Relatórios**: PDF, CSV, JSON
-- **Sistema de Alertas**: Email, Telegram, Webhook
-- **Scoring Automatizado**: Classificação de risco
-- **Ingestão de Feeds**: AlienVault OTX, URLhaus, ThreatFox
+**Instalar todas:**
 
-### 🔮 v4.0 (Futuro)
-- **API REST Completa**: Endpoints para integração externa
-- **Autenticação**: Multi-usuário com controle de acesso
-- **Banco de Dados Relacional**: Migração para PostgreSQL
-- **Integração SIEM**: Splunk, ELK, Wazuh, TheHive
-- **Agentes de IA**: Classificação e correlação inteligente
-- **Docker**: Containerização completa
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
-## 🤝 Como Contribuir
+## 🛠️ APIs Suportadas
 
-Contribuições são bem-vindas! Siga os passos abaixo:
+| API | Descrição | Status | Documentação |
+|-----|-----------|--------|--------------|
+| **NVD** | National Vulnerability Database | ✅ Integrado | [nvd.nist.gov](https://nvd.nist.gov) |
+| **CIRCL CVE** | CVE Search | ✅ Integrado | [cve.circl.lu](https://cve.circl.lu) |
+| **CISA KEV** | Known Exploited Vulnerabilities | ✅ Integrado | [cisa.gov/kev](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
+| **AbuseIPDB** | IP Reputation | 🔧 Requer API Key | [abuseipdb.com](https://www.abuseipdb.com) |
+| **VirusTotal** | Hash/URL Analysis | 🔧 Requer API Key | [virustotal.com](https://www.virustotal.com) |
 
-1. **Fork** o projeto
-2. Crie uma **branch** para sua feature (`git checkout -b feature/NovaFuncionalidade`)
-3. **Commit** suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
-4. **Push** para a branch (`git push origin feature/NovaFuncionalidade`)
-5. Abra um **Pull Request**
+---
 
-### Diretrizes
+## 📖 Uso Básico
 
-- Mantenha o código limpo e documentado
-- Siga o padrão PEP 8 para Python
-- Adicione testes quando aplicável
-- Atualize a documentação conforme necessário
+### **1. Dashboard - Visão Geral**
 
-### Reportar Bugs
+Acesse `http://localhost:5000/` para visualizar:
+- Total de IoCs e CVEs
+- Contador de ameaças críticas
+- Gráficos de distribuição por severidade
+- Gráficos de IoCs por tipo
 
-Encontrou um bug? Abra uma **Issue** no GitHub com:
+### **2. Upload de Logs**
 
-- Descrição clara do problema
-- Passos para reproduzir
-- Comportamento esperado vs. atual
-- Logs de erro (se aplicável)
-- Ambiente (SO, versão Python, etc.)
+1. Acesse `http://localhost:5000/upload`
+2. Arraste arquivos `.log`, `.txt` ou `.csv`
+3. Clique em "Analisar Logs"
+4. IoCs serão extraídos e salvos automaticamente
+
+### **3. Gerenciar IoCs**
+
+1. Acesse `http://localhost:5000/ioc`
+2. Adicione IoCs manualmente ou via upload
+3. Filtre e busque IoCs
+4. Exclua ou atualize IoCs
+
+### **4. Gerenciar CVEs**
+
+1. Acesse `http://localhost:5000/cve`
+2. Busque CVEs específicas (ex: CVE-2024-1234)
+3. Busque CVEs das últimas 24h automaticamente
+4. Visualize informações detalhadas
+5. Salve CVEs no banco de dados local
+
+---
+
+## 🔐 Segurança
+
+⚠️ **IMPORTANTE**:
+- Este servidor é projetado para **uso em rede local confiável**
+- **NÃO exponha à internet** sem proteção adequada
+- Não possui autenticação por padrão
+- Debug mode deve ser desabilitado em produção
+- Não possui HTTPS por padrão
+
+**Recomendações para Produção:**
+- Adicionar autenticação (login/senha)
+- Usar HTTPS com certificado SSL
+- Desabilitar debug mode (`debug=False`)
+- Usar servidor WSGI (Gunicorn, uWSGI)
+- Configurar firewall adequadamente
+
+---
+
+## 🗺️ Roadmap (Próximas Versões)
+
+### **v2.2 - Correlação IOC ↔ CVE**
+- [ ] Correlacionar IoCs com CVEs automaticamente
+- [ ] Buscar CVEs relacionadas a IoCs
+- [ ] Buscar IoCs relacionados a CVEs
+- [ ] Dashboard de correlações
+
+### **v3.0 - Autenticação e Segurança**
+- [ ] Sistema de login/senha
+- [ ] Autenticação JWT
+- [ ] Níveis de permissão (Admin, Analyst, Viewer)
+- [ ] Logs de auditoria
+
+### **v3.1 - Integrações Avançadas**
+- [ ] MISP Integration
+- [ ] TheHive Integration
+- [ ] STIX/TAXII Support
+- [ ] Exportação para SIEM
+
+---
+
+## 📝 Changelog
+
+### **v2.1 - 25/10/2025**
+✨ **Novidades:**
+- Navegação consistente em todas as páginas
+- Botão "Upload de Logs" acessível de todas as páginas
+- Interface modernizada com gradientes
+- Buscar CVEs das últimas 24h automaticamente
+- Dashboard com gráficos interativos
+
+🐛 **Correções:**
+- Rotas 404 corrigidas
+- Comunicação entre páginas funcionando
+- API endpoints atualizados
+
+### **v2.0 - 20/10/2025**
+✨ **Primeira Release Estável**
+
+---
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Para contribuir:
+
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/NovaFuncionalidade`)
+3. Commit suas mudanças (`git commit -m 'Adiciona NovaFuncionalidade'`)
+4. Push para a branch (`git push origin feature/NovaFuncionalidade`)
+5. Abra um Pull Request
 
 ---
 
 ## 📄 Licença
 
-**GNU GENERAL PUBLIC LICENSEMIT License**
-
-Este projeto está licenciado sob a Licença GNU GENERAL PUBLIC LICENSE - veja o arquivo LICENSE para detalhes.
-
-Copyright © 2025 - IOC Analyzer Project
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 
-## 👨‍💻 Autor
+## 👤 Autor
 
 **Pablo Oliveira**
-
-- 🌐 LinkedIn: [Pablo Oliveira](https://linkedin.com/in/pabloliveira)
-- 📧 Email: pabloliveir@gmail.com
-- 💼 Especialização: Especialista em Defesa Cibernética | Segurança de Redes e Administração de Sistemas | Perícia Forense Computacional | Engenharia de Sistemas
-- 📚 Experiência: ~20 anos em TI e Segurança da Informação
+- GitHub: [@pabloliveir](https://github.com/pabloliveir)
+- LinkedIn: [Pablo Oliveira](https://linkedin.com/in/pabloliveir)
+- Email: pabloliveir@gmail.com
 
 ---
 
 ## 🙏 Agradecimentos
 
-- **VirusTotal**, **AbuseIPDB**, **NVD**, **CISA**, **CIRCL** - Pelas APIs públicas
-- Comunidade de **Threat Intelligence**
-- Profissionais de **Blue Team** e **Cybersecurity**
+- [Flask](https://flask.palletsprojects.com/) - Framework web
+- [Chart.js](https://www.chartjs.org/) - Biblioteca de gráficos
+- [NVD](https://nvd.nist.gov/) - National Vulnerability Database
+- [CISA](https://www.cisa.gov/) - Cybersecurity and Infrastructure Security Agency
+- [CIRCL](https://www.circl.lu/) - Computer Incident Response Center Luxembourg
 
 ---
 
-<div align="center">
+## 📞 Suporte
 
-**Desenvolvido para Analistas de Segurança da Informação que atuam diretamente em SOC e Blue Team**
+Para suporte, abra uma [issue](https://github.com/seu-usuario/ioc_analyzer/issues) no GitHub ou entre em contato via email.
 
-**IOC Analyzer v2.1** - Outubro 2025
+---
 
-</div>
+**⭐ Se este projeto foi útil, considere dar uma estrela no GitHub!**

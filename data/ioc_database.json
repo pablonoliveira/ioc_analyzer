@@ -1,188 +1,6 @@
 [
   {
-    "id": 1761346903282,
-    "type": "IP",
-    "value": "170.0.57.172",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:01:43.282138"
-  },
-  {
-    "id": 1761346903710,
-    "type": "IP",
-    "value": "179.191.168.57",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:01:43.710653"
-  },
-  {
-    "id": 1761346904477,
-    "type": "IP",
-    "value": "179.191.169.113",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:01:44.475411"
-  },
-  {
-    "id": 1761346904872,
-    "type": "IP",
-    "value": "20.171.207.87",
-    "severity": "Critical",
-    "status": "Active",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:01:44.869173"
-  },
-  {
-    "id": 1761346905249,
-    "type": "IP",
-    "value": "206.41.72.83",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:01:45.245814"
-  },
-  {
-    "id": 1761346905634,
-    "type": "IP",
-    "value": "4.227.36.92",
-    "severity": "Critical",
-    "status": "Active",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:01:45.629341"
-  },
-  {
-    "id": 1761346906055,
-    "type": "IP",
-    "value": "179.191.186.64",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:01:46.049812"
-  },
-  {
-    "id": 1761346907677,
-    "type": "IP",
-    "value": "45.169.189.150",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:01:47.670893"
-  },
-  {
-    "id": 1761346908063,
-    "type": "IP",
-    "value": "179.191.172.25",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:01:48.055181"
-  },
-  {
-    "id": 1761346908886,
-    "type": "IP",
-    "value": "179.191.172.33",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:01:48.878744"
-  },
-  {
-    "id": 1761346909329,
-    "type": "IP",
-    "value": "85.208.96.197",
-    "severity": "Critical",
-    "status": "Active",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. US | Commercial",
-    "createdAt": "2025-10-24T20:01:49.319674"
-  },
-  {
-    "id": 1761346909743,
-    "type": "IP",
-    "value": "179.191.177.33",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:01:49.733382"
-  },
-  {
-    "id": 1761346910152,
-    "type": "IP",
-    "value": "85.208.96.202",
-    "severity": "Critical",
-    "status": "Active",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. US | Commercial",
-    "createdAt": "2025-10-24T20:01:50.140850"
-  },
-  {
-    "id": 1761346910564,
-    "type": "IP",
-    "value": "179.191.182.65",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. DE | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:01:50.551929"
-  },
-  {
-    "id": 1761347082824,
+    "id": 1761359257108,
     "type": "IP",
     "value": "177.9.121.242",
     "severity": "Low",
@@ -192,10 +10,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:04:42.811174"
+    "createdAt": "2025-10-24T23:27:37.108856"
   },
   {
-    "id": 1761347083216,
+    "id": 1761359257495,
     "type": "IP",
     "value": "139.45.197.252",
     "severity": "Low",
@@ -205,10 +23,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. NL | Content Delivery Network",
-    "createdAt": "2025-10-24T20:04:43.202258"
+    "createdAt": "2025-10-24T23:27:37.494174"
   },
   {
-    "id": 1761347086066,
+    "id": 1761359258615,
     "type": "Domain",
     "value": "fongumporg.net",
     "severity": "Low",
@@ -217,11 +35,11 @@
     "firstSeen": "2025-10-24",
     "lastSeen": "2025-10-24",
     "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. Malicious:2 Suspicious:0",
-    "createdAt": "2025-10-24T20:04:46.050864"
+    "description": "Detectado automaticamente via análise de logs. Malicious:0 Suspicious:0",
+    "createdAt": "2025-10-24T23:27:38.614781"
   },
   {
-    "id": 1761347086478,
+    "id": 1761359258996,
     "type": "IP",
     "value": "10.7.23.124",
     "severity": "Low",
@@ -231,10 +49,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. None | Reserved",
-    "createdAt": "2025-10-24T20:04:46.461815"
+    "createdAt": "2025-10-24T23:27:38.993751"
   },
   {
-    "id": 1761347086910,
+    "id": 1761359259363,
     "type": "IP",
     "value": "95.164.5.169",
     "severity": "Low",
@@ -244,10 +62,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:04:46.892771"
+    "createdAt": "2025-10-24T23:27:39.359018"
   },
   {
-    "id": 1761347088896,
+    "id": 1761359260305,
     "type": "Domain",
     "value": "stark-industries.solutions",
     "severity": "Low",
@@ -256,11 +74,11 @@
     "firstSeen": "2025-10-24",
     "lastSeen": "2025-10-24",
     "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. Malicious:1 Suspicious:0",
-    "createdAt": "2025-10-24T20:04:48.877149"
+    "description": "Detectado automaticamente via análise de logs. Malicious:0 Suspicious:0",
+    "createdAt": "2025-10-24T23:27:40.300961"
   },
   {
-    "id": 1761347089746,
+    "id": 1761359261091,
     "type": "IP",
     "value": "139.45.197.103",
     "severity": "Low",
@@ -270,10 +88,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. NL | Content Delivery Network",
-    "createdAt": "2025-10-24T20:04:49.726773"
+    "createdAt": "2025-10-24T23:27:41.085318"
   },
   {
-    "id": 1761347091386,
+    "id": 1761359262695,
     "type": "IP",
     "value": "95.164.5.124",
     "severity": "Low",
@@ -283,10 +101,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:04:51.365589"
+    "createdAt": "2025-10-24T23:27:42.688886"
   },
   {
-    "id": 1761347091756,
+    "id": 1761359263083,
     "type": "IP",
     "value": "186.195.66.65",
     "severity": "Low",
@@ -296,10 +114,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. IT | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:04:51.734292"
+    "createdAt": "2025-10-24T23:27:43.075271"
   },
   {
-    "id": 1761347093372,
+    "id": 1761359264905,
     "type": "IP",
     "value": "10.7.24.28",
     "severity": "Low",
@@ -309,10 +127,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. None | Reserved",
-    "createdAt": "2025-10-24T20:04:53.350361"
+    "createdAt": "2025-10-24T23:27:44.896029"
   },
   {
-    "id": 1761347093753,
+    "id": 1761359265297,
     "type": "IP",
     "value": "95.164.5.51",
     "severity": "Low",
@@ -322,10 +140,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:04:53.730350"
+    "createdAt": "2025-10-24T23:27:45.287318"
   },
   {
-    "id": 1761347095956,
+    "id": 1761359266800,
     "type": "IP",
     "value": "10.7.31.32",
     "severity": "Low",
@@ -335,10 +153,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. None | Reserved",
-    "createdAt": "2025-10-24T20:04:55.931080"
+    "createdAt": "2025-10-24T23:27:46.789744"
   },
   {
-    "id": 1761347096413,
+    "id": 1761359267185,
     "type": "IP",
     "value": "95.164.5.150",
     "severity": "Low",
@@ -348,10 +166,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:04:56.387709"
+    "createdAt": "2025-10-24T23:27:47.173055"
   },
   {
-    "id": 1761347098111,
+    "id": 1761359268921,
     "type": "IP",
     "value": "139.45.197.254",
     "severity": "Low",
@@ -361,23 +179,23 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. NL | Content Delivery Network",
-    "createdAt": "2025-10-24T20:04:58.085230"
+    "createdAt": "2025-10-24T23:27:48.909074"
   },
   {
-    "id": 1761347099097,
+    "id": 1761359269889,
     "type": "Domain",
     "value": "edaukooru.net",
-    "severity": "Medium",
-    "status": "Active",
+    "severity": "Low",
+    "status": "Monitored",
     "source": "Log Analysis - Automated Detection",
     "firstSeen": "2025-10-24",
     "lastSeen": "2025-10-24",
     "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. Malicious:3 Suspicious:0",
-    "createdAt": "2025-10-24T20:04:59.069625"
+    "description": "Detectado automaticamente via análise de logs. Malicious:0 Suspicious:0",
+    "createdAt": "2025-10-24T23:27:49.875949"
   },
   {
-    "id": 1761347099514,
+    "id": 1761359270290,
     "type": "IP",
     "value": "10.7.33.54",
     "severity": "Low",
@@ -387,10 +205,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. None | Reserved",
-    "createdAt": "2025-10-24T20:04:59.485750"
+    "createdAt": "2025-10-24T23:27:50.275087"
   },
   {
-    "id": 1761347099898,
+    "id": 1761359270675,
     "type": "IP",
     "value": "95.164.4.121",
     "severity": "Low",
@@ -400,10 +218,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:04:59.869984"
+    "createdAt": "2025-10-24T23:27:50.659941"
   },
   {
-    "id": 1761347101337,
+    "id": 1761359271958,
     "type": "IP",
     "value": "10.7.7.56",
     "severity": "Low",
@@ -413,10 +231,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. None | Reserved",
-    "createdAt": "2025-10-24T20:05:01.306900"
+    "createdAt": "2025-10-24T23:27:51.941173"
   },
   {
-    "id": 1761347101726,
+    "id": 1761359272348,
     "type": "IP",
     "value": "95.164.5.234",
     "severity": "Low",
@@ -426,10 +244,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:05:01.694390"
+    "createdAt": "2025-10-24T23:27:52.330785"
   },
   {
-    "id": 1761347103360,
+    "id": 1761359273627,
     "type": "IP",
     "value": "179.193.72.97",
     "severity": "Low",
@@ -439,10 +257,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Mobile ISP",
-    "createdAt": "2025-10-24T20:05:03.327217"
+    "createdAt": "2025-10-24T23:27:53.608451"
   },
   {
-    "id": 1761347105395,
+    "id": 1761359275261,
     "type": "IP",
     "value": "77.75.230.195",
     "severity": "Low",
@@ -452,10 +270,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. CZ | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:05:05.361869"
+    "createdAt": "2025-10-24T23:27:55.242475"
   },
   {
-    "id": 1761347105808,
+    "id": 1761359275653,
     "type": "IP",
     "value": "200.153.25.108",
     "severity": "Low",
@@ -465,10 +283,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Mobile ISP",
-    "createdAt": "2025-10-24T20:05:05.773907"
+    "createdAt": "2025-10-24T23:27:55.632103"
   },
   {
-    "id": 1761347107157,
+    "id": 1761359277188,
     "type": "IP",
     "value": "77.91.74.214",
     "severity": "Low",
@@ -478,10 +296,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. IL | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:05:07.121100"
+    "createdAt": "2025-10-24T23:27:57.166057"
   },
   {
-    "id": 1761347107573,
+    "id": 1761359277563,
     "type": "IP",
     "value": "179.190.60.251",
     "severity": "Low",
@@ -491,10 +309,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:05:07.536696"
+    "createdAt": "2025-10-24T23:27:57.540597"
   },
   {
-    "id": 1761347111041,
+    "id": 1761359280688,
     "type": "IP",
     "value": "179.113.101.251",
     "severity": "Low",
@@ -504,10 +322,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:05:11.003740"
+    "createdAt": "2025-10-24T23:28:00.664086"
   },
   {
-    "id": 1761347112821,
+    "id": 1761359282765,
     "type": "IP",
     "value": "45.14.244.46",
     "severity": "Medium",
@@ -517,10 +335,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. NL | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:05:12.782191"
+    "createdAt": "2025-10-24T23:28:02.740076"
   },
   {
-    "id": 1761347113268,
+    "id": 1761359283146,
     "type": "IP",
     "value": "201.28.145.118",
     "severity": "Low",
@@ -530,10 +348,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Mobile ISP",
-    "createdAt": "2025-10-24T20:05:13.228368"
+    "createdAt": "2025-10-24T23:28:03.120204"
   },
   {
-    "id": 1761347115312,
+    "id": 1761359285386,
     "type": "IP",
     "value": "200.153.25.109",
     "severity": "Low",
@@ -543,10 +361,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Mobile ISP",
-    "createdAt": "2025-10-24T20:05:15.271411"
+    "createdAt": "2025-10-24T23:28:05.359734"
   },
   {
-    "id": 1761347117361,
+    "id": 1761359287052,
     "type": "IP",
     "value": "179.191.188.65",
     "severity": "Low",
@@ -556,10 +374,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:05:17.319640"
+    "createdAt": "2025-10-24T23:28:07.024849"
   },
   {
-    "id": 1761347121104,
+    "id": 1761359290619,
     "type": "IP",
     "value": "191.240.157.121",
     "severity": "Low",
@@ -569,10 +387,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:05:21.061503"
+    "createdAt": "2025-10-24T23:28:10.590500"
   },
   {
-    "id": 1761347123292,
+    "id": 1761359292602,
     "type": "IP",
     "value": "191.240.157.122",
     "severity": "Low",
@@ -582,10 +400,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:05:23.248396"
+    "createdAt": "2025-10-24T23:28:12.572885"
   },
   {
-    "id": 1761347125142,
+    "id": 1761359294539,
     "type": "IP",
     "value": "191.240.157.123",
     "severity": "Low",
@@ -595,10 +413,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:05:25.097455"
+    "createdAt": "2025-10-24T23:28:14.508358"
   },
   {
-    "id": 1761347127529,
+    "id": 1761359296595,
     "type": "IP",
     "value": "191.240.157.126",
     "severity": "Low",
@@ -608,10 +426,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:05:27.483923"
+    "createdAt": "2025-10-24T23:28:16.563489"
   },
   {
-    "id": 1761347129362,
+    "id": 1761359298250,
     "type": "IP",
     "value": "191.240.157.127",
     "severity": "Low",
@@ -621,10 +439,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:05:29.315762"
+    "createdAt": "2025-10-24T23:28:18.217315"
   },
   {
-    "id": 1761347131250,
+    "id": 1761359300185,
     "type": "IP",
     "value": "201.28.145.115",
     "severity": "Low",
@@ -634,10 +452,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Mobile ISP",
-    "createdAt": "2025-10-24T20:05:31.202778"
+    "createdAt": "2025-10-24T23:28:20.151129"
   },
   {
-    "id": 1761347132953,
+    "id": 1761359301850,
     "type": "IP",
     "value": "201.28.145.126",
     "severity": "Low",
@@ -647,10 +465,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Mobile ISP",
-    "createdAt": "2025-10-24T20:05:32.904137"
+    "createdAt": "2025-10-24T23:28:21.816282"
   },
   {
-    "id": 1761347136384,
+    "id": 1761359305287,
     "type": "IP",
     "value": "45.89.53.222",
     "severity": "Critical",
@@ -660,10 +478,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:05:36.334159"
+    "createdAt": "2025-10-24T23:28:25.252411"
   },
   {
-    "id": 1761347136765,
+    "id": 1761359305671,
     "type": "IP",
     "value": "179.190.61.21",
     "severity": "Low",
@@ -673,10 +491,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:05:36.714125"
+    "createdAt": "2025-10-24T23:28:25.634025"
   },
   {
-    "id": 1761347139809,
+    "id": 1761359307431,
     "type": "IP",
     "value": "191.240.157.120",
     "severity": "Low",
@@ -686,10 +504,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:05:39.757239"
+    "createdAt": "2025-10-24T23:28:27.393744"
   },
   {
-    "id": 1761347141538,
+    "id": 1761359309118,
     "type": "IP",
     "value": "191.240.157.125",
     "severity": "Low",
@@ -699,10 +517,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:05:41.485700"
+    "createdAt": "2025-10-24T23:28:29.079458"
   },
   {
-    "id": 1761347143283,
+    "id": 1761359310905,
     "type": "IP",
     "value": "201.28.145.117",
     "severity": "Low",
@@ -712,10 +530,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Mobile ISP",
-    "createdAt": "2025-10-24T20:05:43.229676"
+    "createdAt": "2025-10-24T23:28:30.865143"
   },
   {
-    "id": 1761347145239,
+    "id": 1761359312587,
     "type": "IP",
     "value": "201.28.145.119",
     "severity": "Low",
@@ -725,10 +543,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Mobile ISP",
-    "createdAt": "2025-10-24T20:05:45.185279"
+    "createdAt": "2025-10-24T23:28:32.546631"
   },
   {
-    "id": 1761347147005,
+    "id": 1761359314507,
     "type": "IP",
     "value": "200.245.57.5",
     "severity": "Low",
@@ -738,10 +556,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:05:46.949608"
+    "createdAt": "2025-10-24T23:28:34.465482"
   },
   {
-    "id": 1761347148753,
+    "id": 1761359316242,
     "type": "IP",
     "value": "200.153.25.110",
     "severity": "Low",
@@ -751,10 +569,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Mobile ISP",
-    "createdAt": "2025-10-24T20:05:48.696414"
+    "createdAt": "2025-10-24T23:28:36.199948"
   },
   {
-    "id": 1761347150449,
+    "id": 1761359318002,
     "type": "IP",
     "value": "200.245.57.6",
     "severity": "Low",
@@ -764,10 +582,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:05:50.391714"
+    "createdAt": "2025-10-24T23:28:37.959869"
   },
   {
-    "id": 1761347152320,
+    "id": 1761359319884,
     "type": "IP",
     "value": "200.232.63.5",
     "severity": "Low",
@@ -777,10 +595,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:05:52.261698"
+    "createdAt": "2025-10-24T23:28:39.839481"
   },
   {
-    "id": 1761347155831,
+    "id": 1761359323211,
     "type": "IP",
     "value": "166.88.160.20",
     "severity": "Low",
@@ -790,23 +608,23 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:05:55.772664"
+    "createdAt": "2025-10-24T23:28:43.165320"
   },
   {
-    "id": 1761347156817,
+    "id": 1761359324158,
     "type": "Domain",
     "value": "ooguy.com",
-    "severity": "Medium",
-    "status": "Active",
+    "severity": "Low",
+    "status": "Monitored",
     "source": "Log Analysis - Automated Detection",
     "firstSeen": "2025-10-24",
     "lastSeen": "2025-10-24",
     "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. Malicious:4 Suspicious:2",
-    "createdAt": "2025-10-24T20:05:56.756138"
+    "description": "Detectado automaticamente via análise de logs. Malicious:0 Suspicious:0",
+    "createdAt": "2025-10-24T23:28:44.111715"
   },
   {
-    "id": 1761347157213,
+    "id": 1761359324595,
     "type": "IP",
     "value": "10.7.53.43",
     "severity": "Low",
@@ -816,10 +634,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. None | Reserved",
-    "createdAt": "2025-10-24T20:05:57.151397"
+    "createdAt": "2025-10-24T23:28:44.547593"
   },
   {
-    "id": 1761347157656,
+    "id": 1761359325062,
     "type": "IP",
     "value": "45.15.170.42",
     "severity": "Low",
@@ -829,10 +647,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. AL | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:05:57.593082"
+    "createdAt": "2025-10-24T23:28:45.013108"
   },
   {
-    "id": 1761347159858,
+    "id": 1761359326387,
     "type": "IP",
     "value": "138.124.180.110",
     "severity": "Low",
@@ -842,10 +660,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:05:59.794954"
+    "createdAt": "2025-10-24T23:28:46.337649"
   },
   {
-    "id": 1761347160264,
+    "id": 1761359326782,
     "type": "IP",
     "value": "206.41.74.3",
     "severity": "Low",
@@ -855,10 +673,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:06:00.199784"
+    "createdAt": "2025-10-24T23:28:46.731360"
   },
   {
-    "id": 1761347162515,
+    "id": 1761359328455,
     "type": "IP",
     "value": "191.240.157.124",
     "severity": "Low",
@@ -868,10 +686,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:06:02.449266"
+    "createdAt": "2025-10-24T23:28:48.403404"
   },
   {
-    "id": 1761347164403,
+    "id": 1761359330148,
     "type": "IP",
     "value": "200.168.221.163",
     "severity": "Low",
@@ -881,10 +699,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T20:06:04.336917"
+    "createdAt": "2025-10-24T23:28:50.095099"
   },
   {
-    "id": 1761347166295,
+    "id": 1761359331884,
     "type": "IP",
     "value": "201.28.145.114",
     "severity": "Low",
@@ -894,10 +712,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Mobile ISP",
-    "createdAt": "2025-10-24T20:06:06.227997"
+    "createdAt": "2025-10-24T23:28:51.830751"
   },
   {
-    "id": 1761347167586,
+    "id": 1761359333167,
     "type": "IP",
     "value": "77.91.101.134",
     "severity": "Low",
@@ -907,10 +725,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. GB | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:06:07.517588"
+    "createdAt": "2025-10-24T23:28:53.112048"
   },
   {
-    "id": 1761347167992,
+    "id": 1761359333551,
     "type": "IP",
     "value": "179.190.61.25",
     "severity": "Low",
@@ -920,10 +738,10 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
-    "createdAt": "2025-10-24T20:06:07.922937"
+    "createdAt": "2025-10-24T23:28:53.495606"
   },
   {
-    "id": 1761347169738,
+    "id": 1761359335232,
     "type": "IP",
     "value": "179.189.225.226",
     "severity": "Low",
@@ -933,6 +751,999 @@
     "lastSeen": "2025-10-24",
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Mobile ISP",
-    "createdAt": "2025-10-24T20:06:09.667343"
+    "createdAt": "2025-10-24T23:28:55.175913"
+  },
+  {
+    "id": 1761359364971,
+    "type": "IP",
+    "value": "170.0.57.172",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
+    "createdAt": "2025-10-24T23:29:24.913859"
+  },
+  {
+    "id": 1761359365371,
+    "type": "IP",
+    "value": "179.191.168.57",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:29:25.312811"
+  },
+  {
+    "id": 1761359366218,
+    "type": "IP",
+    "value": "179.191.169.113",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:29:26.158046"
+  },
+  {
+    "id": 1761359366598,
+    "type": "IP",
+    "value": "20.171.207.87",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:29:26.537413"
+  },
+  {
+    "id": 1761359366975,
+    "type": "IP",
+    "value": "206.41.72.83",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:29:26.913498"
+  },
+  {
+    "id": 1761359367364,
+    "type": "IP",
+    "value": "4.227.36.92",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:29:27.301333"
+  },
+  {
+    "id": 1761359367793,
+    "type": "IP",
+    "value": "179.191.186.64",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:29:27.729823"
+  },
+  {
+    "id": 1761359368227,
+    "type": "IP",
+    "value": "45.169.189.150",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
+    "createdAt": "2025-10-24T23:29:28.162623"
+  },
+  {
+    "id": 1761359368670,
+    "type": "IP",
+    "value": "179.191.172.25",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:29:28.604603"
+  },
+  {
+    "id": 1761359369445,
+    "type": "IP",
+    "value": "179.191.172.33",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:29:29.378582"
+  },
+  {
+    "id": 1761359369911,
+    "type": "IP",
+    "value": "85.208.96.197",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Commercial",
+    "createdAt": "2025-10-24T23:29:29.843260"
+  },
+  {
+    "id": 1761359370318,
+    "type": "IP",
+    "value": "179.191.177.33",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:29:30.249927"
+  },
+  {
+    "id": 1761359370746,
+    "type": "IP",
+    "value": "85.208.96.202",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Commercial",
+    "createdAt": "2025-10-24T23:29:30.676118"
+  },
+  {
+    "id": 1761359371113,
+    "type": "IP",
+    "value": "179.191.182.65",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. DE | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:29:31.042496"
+  },
+  {
+    "id": 1761360507052,
+    "type": "IP",
+    "value": "103.59.95.21",
+    "severity": "Medium",
+    "status": "Active",
+    "source": "AbuseIPDB",
+    "firstSeen": [
+      "2025-10-25",
+      "02:48:27.053Z"
+    ],
+    "lastSeen": [
+      "2025-10-25",
+      "02:48:27.053Z"
+    ],
+    "campaign": "",
+    "description": "Adicionado via busca API. Score: 44",
+    "createdAt": "2025-10-25T02:48:27.053Z"
+  },
+  {
+    "id": 1761360528248,
+    "type": "IP",
+    "value": "211.1901.234.145",
+    "severity": "Low",
+    "status": "Active",
+    "source": "AbuseIPDB",
+    "firstSeen": [
+      "2025-10-25",
+      "02:48:48.248Z"
+    ],
+    "lastSeen": [
+      "2025-10-25",
+      "02:48:48.248Z"
+    ],
+    "campaign": "",
+    "description": "Adicionado via busca API. Score: null",
+    "createdAt": "2025-10-25T02:48:48.248Z"
+  },
+  {
+    "id": 1761360547116,
+    "type": "IP",
+    "value": "38.54.14.88",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. VN | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:07.042200"
+  },
+  {
+    "id": 1761360548594,
+    "type": "Domain",
+    "value": "autenticidade.cetesb.sp.gov.br",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. Malicious:0 Suspicious:0",
+    "createdAt": "2025-10-24T23:49:08.519212"
+  },
+  {
+    "id": 1761360549893,
+    "type": "Domain",
+    "value": "licitacoes.cetesb.sp.gov.br",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. Malicious:0 Suspicious:0",
+    "createdAt": "2025-10-24T23:49:09.817021"
+  },
+  {
+    "id": 1761360551228,
+    "type": "Domain",
+    "value": "sao-publico.cetesb.sp.gov.br",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. Malicious:0 Suspicious:0",
+    "createdAt": "2025-10-24T23:49:11.151337"
+  },
+  {
+    "id": 1761360552907,
+    "type": "Domain",
+    "value": "simqua.cetesb.sp.gov.br",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. Malicious:0 Suspicious:0",
+    "createdAt": "2025-10-24T23:49:12.829401"
+  },
+  {
+    "id": 1761360575667,
+    "type": "IP",
+    "value": "164.68.110.119",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. FR | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:35.588630"
+  },
+  {
+    "id": 1761360576134,
+    "type": "IP",
+    "value": "34.171.29.151",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:36.054088"
+  },
+  {
+    "id": 1761360576580,
+    "type": "IP",
+    "value": "34.19.127.197",
+    "severity": "Medium",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:36.499089"
+  },
+  {
+    "id": 1761360579892,
+    "type": "IP",
+    "value": "118.193.46.22",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. HK | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:39.810287"
+  },
+  {
+    "id": 1761360580681,
+    "type": "IP",
+    "value": "34.19.127.183",
+    "severity": "Medium",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:40.597811"
+  },
+  {
+    "id": 1761360581123,
+    "type": "IP",
+    "value": "34.19.127.185",
+    "severity": "High",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:41.038942"
+  },
+  {
+    "id": 1761360581560,
+    "type": "IP",
+    "value": "34.19.127.199",
+    "severity": "High",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:41.474326"
+  },
+  {
+    "id": 1761360582610,
+    "type": "Domain",
+    "value": "saomobile.cetesb.sp.gov.br",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. Malicious:0 Suspicious:0",
+    "createdAt": "2025-10-24T23:49:42.523543"
+  },
+  {
+    "id": 1761360583914,
+    "type": "Domain",
+    "value": "seguranca.cetesb.sp.gov.br",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. Malicious:0 Suspicious:0",
+    "createdAt": "2025-10-24T23:49:43.826549"
+  },
+  {
+    "id": 1761360584288,
+    "type": "IP",
+    "value": "34.19.127.205",
+    "severity": "Medium",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:44.199685"
+  },
+  {
+    "id": 1761360584731,
+    "type": "IP",
+    "value": "34.19.127.219",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:44.641910"
+  },
+  {
+    "id": 1761360585715,
+    "type": "Domain",
+    "value": "biblioteca.cetesb.sp.gov.br",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. Malicious:0 Suspicious:0",
+    "createdAt": "2025-10-24T23:49:45.624544"
+  },
+  {
+    "id": 1761360587374,
+    "type": "IP",
+    "value": "114.43.151.248",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. TW | Fixed Line ISP",
+    "createdAt": "2025-10-24T23:49:47.282657"
+  },
+  {
+    "id": 1761360587902,
+    "type": "IP",
+    "value": "201.55.44.210",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Government",
+    "createdAt": "2025-10-24T23:49:47.809771"
+  },
+  {
+    "id": 1761360588677,
+    "type": "IP",
+    "value": "114.43.154.175",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. TW | Fixed Line ISP",
+    "createdAt": "2025-10-24T23:49:48.583912"
+  },
+  {
+    "id": 1761360590612,
+    "type": "IP",
+    "value": "201.55.44.227",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Government",
+    "createdAt": "2025-10-24T23:49:50.517469"
+  },
+  {
+    "id": 1761360591046,
+    "type": "IP",
+    "value": "123.139.218.0",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. CN | Fixed Line ISP",
+    "createdAt": "2025-10-24T23:49:50.951115"
+  },
+  {
+    "id": 1761360591885,
+    "type": "IP",
+    "value": "141.255.164.26",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. CH | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:51.788199"
+  },
+  {
+    "id": 1761360592408,
+    "type": "IP",
+    "value": "201.55.44.217",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Government",
+    "createdAt": "2025-10-24T23:49:52.310147"
+  },
+  {
+    "id": 1761360593364,
+    "type": "IP",
+    "value": "201.55.44.234",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Government",
+    "createdAt": "2025-10-24T23:49:53.265723"
+  },
+  {
+    "id": 1761360594280,
+    "type": "IP",
+    "value": "201.55.44.244",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Government",
+    "createdAt": "2025-10-24T23:49:54.180556"
+  },
+  {
+    "id": 1761360595195,
+    "type": "IP",
+    "value": "142.93.132.14",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. NL | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:55.094409"
+  },
+  {
+    "id": 1761360595770,
+    "type": "IP",
+    "value": "201.55.44.220",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Government",
+    "createdAt": "2025-10-24T23:49:55.668256"
+  },
+  {
+    "id": 1761360596160,
+    "type": "IP",
+    "value": "150.241.206.248",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:56.057432"
+  },
+  {
+    "id": 1761360596715,
+    "type": "IP",
+    "value": "201.55.44.222",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Government",
+    "createdAt": "2025-10-24T23:49:56.611220"
+  },
+  {
+    "id": 1761360597140,
+    "type": "IP",
+    "value": "152.32.252.132",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. HK | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:57.035525"
+  },
+  {
+    "id": 1761360597747,
+    "type": "IP",
+    "value": "201.55.44.206",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Government",
+    "createdAt": "2025-10-24T23:49:57.641927"
+  },
+  {
+    "id": 1761360598130,
+    "type": "IP",
+    "value": "154.44.19.198",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Fixed Line ISP",
+    "createdAt": "2025-10-24T23:49:58.023948"
+  },
+  {
+    "id": 1761360598660,
+    "type": "IP",
+    "value": "201.55.44.221",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Government",
+    "createdAt": "2025-10-24T23:49:58.552706"
+  },
+  {
+    "id": 1761360599066,
+    "type": "IP",
+    "value": "156.227.232.166",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. JP | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:58.957142"
+  },
+  {
+    "id": 1761360599646,
+    "type": "IP",
+    "value": "201.55.44.225",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Government",
+    "createdAt": "2025-10-24T23:49:59.536490"
+  },
+  {
+    "id": 1761360600055,
+    "type": "IP",
+    "value": "158.220.91.37",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. GB | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:49:59.944689"
+  },
+  {
+    "id": 1761360600683,
+    "type": "IP",
+    "value": "165.154.3.138",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. HK | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:50:00.572510"
+  },
+  {
+    "id": 1761360601485,
+    "type": "IP",
+    "value": "165.154.3.181",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. HK | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:50:01.372805"
+  },
+  {
+    "id": 1761360602044,
+    "type": "IP",
+    "value": "201.55.44.229",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Government",
+    "createdAt": "2025-10-24T23:50:01.930640"
+  },
+  {
+    "id": 1761360602553,
+    "type": "IP",
+    "value": "170.9.225.137",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:50:02.438430"
+  },
+  {
+    "id": 1761360603220,
+    "type": "IP",
+    "value": "201.55.44.240",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Government",
+    "createdAt": "2025-10-24T23:50:03.104550"
+  },
+  {
+    "id": 1761360603718,
+    "type": "IP",
+    "value": "178.142.220.73",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. DE | Fixed Line ISP",
+    "createdAt": "2025-10-24T23:50:03.601856"
+  },
+  {
+    "id": 1761360604135,
+    "type": "IP",
+    "value": "178.17.50.93",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. DE | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:50:04.017973"
+  },
+  {
+    "id": 1761360604668,
+    "type": "IP",
+    "value": "185.85.205.122",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. TR | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:50:04.549087"
+  },
+  {
+    "id": 1761360605567,
+    "type": "IP",
+    "value": "192.210.133.26",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:50:05.448888"
+  },
+  {
+    "id": 1761360606153,
+    "type": "IP",
+    "value": "201.55.44.231",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Government",
+    "createdAt": "2025-10-24T23:50:06.032801"
+  },
+  {
+    "id": 1761360606589,
+    "type": "IP",
+    "value": "194.146.13.28",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. FR | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:50:06.467105"
+  },
+  {
+    "id": 1761360607028,
+    "type": "IP",
+    "value": "20.55.39.239",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:50:06.905806"
+  },
+  {
+    "id": 1761360607468,
+    "type": "IP",
+    "value": "213.176.17.21",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. FI | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:50:07.344795"
+  },
+  {
+    "id": 1761360607902,
+    "type": "IP",
+    "value": "23.158.56.159",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. DE | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:50:07.777172"
+  },
+  {
+    "id": 1761360608487,
+    "type": "IP",
+    "value": "201.55.44.213",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. BR | Government",
+    "createdAt": "2025-10-24T23:50:08.361083"
+  },
+  {
+    "id": 1761360609095,
+    "type": "IP",
+    "value": "34.148.212.160",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:50:08.968042"
+  },
+  {
+    "id": 1761360610886,
+    "type": "IP",
+    "value": "34.19.116.48",
+    "severity": "High",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:50:10.758848"
+  },
+  {
+    "id": 1761360612282,
+    "type": "Domain",
+    "value": "sistemainfoaguas.cetesb.sp.gov.br",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. Malicious:0 Suspicious:0",
+    "createdAt": "2025-10-24T23:50:12.154190"
+  },
+  {
+    "id": 1761360612716,
+    "type": "IP",
+    "value": "34.19.116.52",
+    "severity": "Critical",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:50:12.586062"
+  },
+  {
+    "id": 1761360614535,
+    "type": "IP",
+    "value": "34.19.127.181",
+    "severity": "Medium",
+    "status": "Active",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. US | Data Center/Web Hosting/Transit",
+    "createdAt": "2025-10-24T23:50:14.405499"
+  },
+  {
+    "id": 1761360616633,
+    "type": "Domain",
+    "value": "qualipraia.cetesb.sp.gov.br",
+    "severity": "Low",
+    "status": "Monitored",
+    "source": "Log Analysis - Automated Detection",
+    "firstSeen": "2025-10-24",
+    "lastSeen": "2025-10-24",
+    "campaign": "",
+    "description": "Detectado automaticamente via análise de logs. Malicious:0 Suspicious:0",
+    "createdAt": "2025-10-24T23:50:16.501183"
+  },
+  {
+    "id": 1761361946802,
+    "type": "IP",
+    "value": "34.19.127.178",
+    "severity": "High",
+    "status": "Active",
+    "source": "AbuseIPDB",
+    "firstSeen": [
+      "2025-10-25",
+      "03:12:26.802Z"
+    ],
+    "lastSeen": [
+      "2025-10-25",
+      "03:12:26.802Z"
+    ],
+    "campaign": "",
+    "description": "Adicionado via busca API. Score: 52",
+    "createdAt": "2025-10-25T03:12:26.802Z"
   }
 ]

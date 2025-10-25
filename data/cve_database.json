@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1761363421564,
+    "cveId": "CVE-2025-62723",
+    "severity": "Unknown",
+    "cvssScore": null,
+    "status": "Active",
+    "exploited": false,
+    "vendor": "",
+    "published": "",
+    "source": "CIRCL",
+    "description": "",
+    "createdAt": "2025-10-25T03:37:01.565Z"
+  },
+  {
+    "id": 1761363434126,
+    "cveId": "CVE-2025-62714",
+    "severity": "Unknown",
+    "cvssScore": null,
+    "status": "Active",
+    "exploited": false,
+    "vendor": "",
+    "published": "",
+    "source": "CIRCL",
+    "description": "",
+    "createdAt": "2025-10-25T03:37:14.126Z"
+  },
+  {
+    "id": 1761363453322,
+    "cveId": "CVE-2024-22024",
+    "severity": "Unknown",
+    "cvssScore": null,
+    "status": "Active",
+    "exploited": false,
+    "vendor": "",
+    "published": "",
+    "source": "CIRCL",
+    "description": "",
+    "createdAt": "2025-10-25T03:37:33.322Z"
+  }
+]

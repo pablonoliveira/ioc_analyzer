@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVE Management Panel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #eaeaea;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid rgba(0,173,181,0.3);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #00adb5;
+            text-shadow: 0 0 20px rgba(0,173,181,0.5);
+        }
+
+        .header p {
+            color: #a0a0a0;
+            font-size: 1.1em;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            background: rgba(0,173,181,0.2);
+            color: #00adb5;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid rgba(0,173,181,0.3);
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .nav-btn:hover {
+            background: rgba(0,173,181,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,173,181,0.3);
+        }
+
+        .nav-btn.active {
+            background: #00adb5;
+            color: #1a1a2e;
+        }
+
+        .search-section {
+            background: #16213e;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            border: 1px solid rgba(0,173,181,0.2);
+        }
+
+        .search-section h2 {
+            color: #00adb5;
+            margin-bottom: 20px;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .search-form input {
+            flex: 1;
+            min-width: 300px;
+            padding: 12px;
+            border: 1px solid rgba(0,173,181,0.3);
+            border-radius: 8px;
+            background: #0f3460;
+            color: #eaeaea;
+            font-size: 1em;
+        }
+
+        .search-form button {
+            padding: 12px 30px;
+            background: #00adb5;
+            color: #1a1a2e;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .search-form button:hover {
+            background: #00d4ff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,173,181,0.4);
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #00adb5;
+            color: #1a1a2e;
+        }
+
+        .btn-primary:hover {
+            background: #00d4ff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,173,181,0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: #eaeaea;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filters select {
+            padding: 10px;
+            border: 1px solid rgba(0,173,181,0.3);
+            border-radius: 8px;
+            background: #0f3460;
+            color: #eaeaea;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #16213e;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        thead {
+            background: linear-gradient(135deg, #00adb5 0%, #00d4ff 100%);
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            color: #1a1a2e;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: #eaeaea;
+        }
+
+        tbody tr {
+            transition: all 0.3s;
+        }
+
+        tbody tr:hover {
+            background: rgba(0,173,181,0.1);
+        }
+
+        .severity-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .severity-critical {
+            background: rgba(233,69,96,0.2);
+            color: #ff6b6b;
+            border: 1px solid rgba(233,69,96,0.3);
+        }
+
+        .severity-high {
+            background: rgba(253,126,20,0.2);
+            color: #fd7e14;
+            border: 1px solid rgba(253,126,20,0.3);
+        }
+
+        .severity-medium {
+            background: rgba(255,193,7,0.2);
+            color: #ffc107;
+            border: 1px solid rgba(255,193,7,0.3);
+        }
+
+        .severity-low {
+            background: rgba(0,184,148,0.2);
+            color: #00b894;
+            border: 1px solid rgba(0,184,148,0.3);
+        }
+
+        .severity-unknown {
+            background: rgba(160,160,160,0.2);
+            color: #a0a0a0;
+            border: 1px solid rgba(160,160,160,0.3);
+        }
+
+        .exploited-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            background: rgba(233,69,96,0.2);
+            color: #ff6b6b;
+            border: 1px solid rgba(233,69,96,0.3);
+        }
+
+        .not-exploited-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            background: rgba(0,184,148,0.2);
+            color: #00b894;
+            border: 1px solid rgba(0,184,148,0.3);
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: all 0.3s;
+        }
+
+        .action-btn.edit {
+            background: rgba(0,173,181,0.2);
+            color: #00adb5;
+            border: 1px solid rgba(0,173,181,0.3);
+        }
+
+        .action-btn.edit:hover {
+            background: rgba(0,173,181,0.3);
+        }
+
+        .action-btn.delete {
+            background: rgba(233,69,96,0.2);
+            color: #ff6b6b;
+            border: 1px solid rgba(233,69,96,0.3);
+        }
+
+        .action-btn.delete:hover {
+            background: rgba(233,69,96,0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #16213e;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid rgba(0,173,181,0.3);
+        }
+
+        .modal-content h2 {
+            color: #00adb5;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #a0a0a0;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(0,173,181,0.3);
+            border-radius: 8px;
+            background: #0f3460;
+            color: #eaeaea;
+            font-size: 1em;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #a0a0a0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ CVE Management Panel</h1>
+            <p>Painel de Gerenciamento de Vulnerabilidades e Exposições Comuns</p>
+            <div class="nav-buttons">
+                <a href="/" class="nav-btn">📤 Upload de Logs</a>
+                <a href="/ioc_panel" class="nav-btn">🔍 IOC Panel</a>
+                <a href="/cve_panel" class="nav-btn active">🛡️ CVE Panel</a>
+                <a href="/dashboard" class="nav-btn">📊 Dashboard</a>
+            </div>
+        </div>
+
+        <div class="search-section">
+            <h2>🔍 Busca Rápida de CVE</h2>
+            <p>Consulte CVEs diretamente nas APIs CISA KEV e CIRCL</p>
+            <form class="search-form" id="searchForm">
+                <input type="text" id="searchCVE" placeholder="Digite o CVE-ID (ex: CVE-2024-12345)">
+                <button type="submit">🔍 Consultar API</button>
+            </form>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" onclick="openAddModal()">➕ Adicionar CVE</button>
+            <div class="filters">
+                <select id="severityFilter" onchange="filterTable()">
+                    <option value="">Todas Severidades</option>
+                    <option value="Critical">Critical</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+                <select id="exploitedFilter" onchange="filterTable()">
+                    <option value="">Todas Exploitações</option>
+                    <option value="true">Exploitadas</option>
+                    <option value="false">Não Exploitadas</option>
+                </select>
+            </div>
+        </div>
+
+        <table id="cveTable">
+            <thead>
+                <tr>
+                    <th>CVE-ID</th>
+                    <th>Severidade</th>
+                    <th>Exploitada</th>
+                    <th>Descrição</th>
+                    <th>Produto</th>
+                    <th>Data Publicação</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="cveTableBody">
+                <tr>
+                    <td colspan="7" class="no-data">Carregando dados...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal" id="cveModal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Adicionar CVE</h2>
+            <form id="cveForm">
+                <input type="hidden" id="cveDbId">
+                <div class="form-group">
+                    <label>CVE-ID</label>
+                    <input type="text" id="cveId" placeholder="CVE-2024-12345" required>
+                </div>
+                <div class="form-group">
+                    <label>Severidade</label>
+                    <select id="cveSeverity" required>
+                        <option value="Critical">Critical</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                        <option value="Unknown">Unknown</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Exploitada</label>
+                    <select id="cveExploited">
+                        <option value="false">Não</option>
+                        <option value="true">Sim</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Produto</label>
+                    <input type="text" id="cveProduct">
+                </div>
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <textarea id="cveDescription"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let cves = [];
+
+        async function loadCVEs() {
+            try {
+                const response = await fetch('/api/cves');
+                cves = await response.json();
+                renderTable();
+            } catch (error) {
+                console.error('Erro ao carregar CVEs:', error);
+            }
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('cveTableBody');
+            const severityFilter = document.getElementById('severityFilter').value;
+            const exploitedFilter = document.getElementById('exploitedFilter').value;
+
+            let filteredCVEs = cves.filter(cve => {
+                return (!severityFilter || cve.severity === severityFilter) &&
+                       (!exploitedFilter || String(cve.exploited) === exploitedFilter);
+            });
+
+            if (filteredCVEs.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="no-data">Nenhum CVE encontrado</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = filteredCVEs.map(cve => `
+                <tr>
+                    <td><code>${cve.cve_id || cve.cveId || '-'}</code></td>
+                    <td><span class="severity-badge severity-${(cve.severity || 'unknown').toLowerCase()}">${cve.severity || 'Unknown'}</span></td>
+                    <td>${cve.exploited ? '<span class="exploited-badge">⚠️ Sim</span>' : '<span class="not-exploited-badge">✓ Não</span>'}</td>
+                    <td>${(cve.description || '-').substring(0, 100)}...</td>
+                    <td>${cve.product || '-'}</td>
+                    <td>${cve.published || cve.datePublished || '-'}</td>
+                    <td class="actions">
+                        <button class="action-btn edit" onclick="editCVE(${cve.id})">✏️ Editar</button>
+                        <button class="action-btn delete" onclick="deleteCVE(${cve.id})">🗑️ Excluir</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function filterTable() {
+            renderTable();
+        }
+
+        function openAddModal() {
+            document.getElementById('modalTitle').textContent = 'Adicionar CVE';
+            document.getElementById('cveForm').reset();
+            document.getElementById('cveDbId').value = '';
+            document.getElementById('cveModal').classList.add('active');
+        }
+
+        function editCVE(id) {
+            const cve = cves.find(c => c.id === id);
+            if (!cve) return;
+
+            document.getElementById('modalTitle').textContent = 'Editar CVE';
+            document.getElementById('cveDbId').value = cve.id;
+            document.getElementById('cveId').value = cve.cve_id || cve.cveId || '';
+            document.getElementById('cveSeverity').value = cve.severity || 'Unknown';
+            document.getElementById('cveExploited').value = String(cve.exploited || false);
+            document.getElementById('cveProduct').value = cve.product || '';
+            document.getElementById('cveDescription').value = cve.description || '';
+            document.getElementById('cveModal').classList.add('active');
+        }
+
+        async function deleteCVE(id) {
+            if (!confirm('Tem certeza que deseja excluir este CVE?')) return;
+
+            try {
+                await fetch(`/api/cves/${id}`, { method: 'DELETE' });
+                await loadCVEs();
+            } catch (error) {
+                console.error('Erro ao excluir CVE:', error);
+                alert('Erro ao excluir CVE');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('cveModal').classList.remove('active');
+        }
+
+        document.getElementById('cveForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const id = document.getElementById('cveDbId').value;
+            const data = {
+                id: id ? parseInt(id) : Date.now(),
+                cve_id: document.getElementById('cveId').value,
+                cveId: document.getElementById('cveId').value,
+                severity: document.getElementById('cveSeverity').value,
+                exploited: document.getElementById('cveExploited').value === 'true',
+                product: document.getElementById('cveProduct').value,
+                description: document.getElementById('cveDescription').value,
+                datePublished: new Date().toISOString().split('T')[0],
+                createdAt: new Date().toISOString()
+            };
+
+            try {
+                if (id) {
+                    await fetch(`/api/cves/${id}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                } else {
+                    await fetch('/api/cves', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                }
+                closeModal();
+                await loadCVEs();
+            } catch (error) {
+                console.error('Erro ao salvar CVE:', error);
+                alert('Erro ao salvar CVE');
+            }
+        });
+
+        document.getElementById('searchForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const cveId = document.getElementById('searchCVE').value.trim().toUpperCase();
+
+            if (!cveId) {
+                alert('Por favor, digite um CVE-ID');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/cves/search/${cveId}`);
+                const result = await response.json();
+
+                if (result.found) {
+                    let msg = `Resultado da consulta:\n\nCVE-ID: ${result.cve_id}\nSeveridade: ${result.severity || 'Unknown'}\nExploitada: ${result.exploited ? 'Sim' : 'Não'}`;
+                    
+                    if (result.vulnerability_name) {
+                        msg += `\nVulnerabilidade: ${result.vulnerability_name}`;
+                    }
+                    
+                    if (result.short_description) {
+                        msg += `\n\nDescrição: ${result.short_description}`;
+                    }
+                    
+                    if (result.summary) {
+                        msg += `\n\nResumo: ${result.summary.substring(0, 200)}...`;
+                    }
+                    
+                    alert(msg);
+                } else {
+                    alert(`CVE ${cveId} não encontrado nas APIs consultadas.`);
+                }
+            } catch (error) {
+                console.error('Erro ao buscar CVE:', error);
+                alert('Erro ao realizar busca');
+            }
+        });
+
+        window.onclick = (event) => {
+            const modal = document.getElementById('cveModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+
+        loadCVEs();
+    </script>
+</body>
+</html>

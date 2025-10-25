@@ -1,87 +1,95 @@
-# IOC Analyzer - Blue Team Tool
+IOC Analyzer - Blue Team
+Sistema profissional para análise e gerenciamento de Indicadores de Comprometimento (IOCs) voltado a times de Segurança Cibernética e Blue Team.
 
-Sistema de análise e gerenciamento de Indicadores de Comprometimento (IOCs) para times de Segurança Cibernética.
+✨ Funcionalidades
+Análise automática de logs com detecção de IPs, domínios, URLs e hashes maliciosos
 
-## 🛡️ Funcionalidades
+Verificação de reputação automática via AbuseIPDB (IPs) e VirusTotal (domínios, URLs, hashes)
 
-- **Análise de Logs**: Upload de arquivos de log com detecção automática de IPs, URLs, domínios e hashes
-- **Verificação de Reputação**: Integração com AbuseIPDB e VirusTotal
-- **Classificação Automática**: Score de reputação convertido em vereditos (Malicioso, Suspeito, Não Malicioso)
-- **CRUD de IOCs**: Gerenciamento completo de indicadores com interface web moderna
-- **Salvamento Automático**: IOCs detectados são salvos automaticamente no banco de dados
-- **Exportação**: Suporte para exportar IOCs em formato JSON
+Classificação instantânea dos IOCs (Malicioso, Suspeito, Não Malicioso)
 
-## 📋 Requisitos
+CRUD completo e interface web moderna para gestão dos IOCs
 
-- Python 3.8+
-- Flask
-- Requests
-- python-dotenv
-- AbuseIPDB API Key
-- VirusTotal API Key
+Exportação de IOCs em JSON
 
-## 🚀 Instalação
+Dados e modificações persistentes (não perde dados ao reiniciar)
 
-1. Clone o repositório:
-git clone https://github.com/SEU_USUARIO/ioc_analyzer.git
+Suporte à exportação e revisão rápida dos indicadores
+
+📋 Requisitos
+Python 3.8+
+
+Flask
+
+Requests
+
+python-dotenv
+
+AbuseIPDB API Key
+
+VirusTotal API Key
+
+🛠 Instalação
+Clone o repositório:
+
+bash
+git clone https://github.com/pablonoliveira/ioc_analyzer.git
 cd ioc_analyzer
+Crie e ative um ambiente virtual (opcional e recomendado):
 
-2. Instale as dependências:
+bash
+python -m venv env
+# Ative no Windows:
+.\env\Scripts\activate
+# Ou no Linux/Mac:
+source env/bin/activate
+Instale as dependências:
+
+bash
 pip install -r requirements.txt
+Configure as chaves de API:
 
-3. Configure as variáveis de ambiente:
-Crie um arquivo `.env` na raiz do projeto:
-ABUSEIPDB_KEY=sua_chave_aqui
-VIRUSTOTAL_API_KEY=sua_chave_aqui
+Crie um arquivo .env na raiz do projeto, usando ioc/.env.example como modelo:
 
-4. Execute a aplicação:
+text
+ABUSEIPDB_KEY=sua_chave_abuseipdb
+VIRUSTOTAL_API_KEY=sua_chave_virustotal
+Nunca faça commit do seu .env! Ele já está protegido no .gitignore.
+
+🚀 Executando a aplicação
+bash
 python webapp.py
+Upload de Logs: http://127.0.0.1:5000/
 
-5. Acesse no navegador:
-- Upload de Logs: `http://127.0.0.1:5000/`
-- Gerenciar IOCs: `http://127.0.0.1:5000/crud`
+Gerenciar IOCs: http://127.0.0.1:5000/crud
 
-## 📁 Estrutura do Projeto
-
+📁 Estrutura do Projeto
+text
 ioc_analyzer/
-├── ioc/
-│ ├── abuseipdb_client.py
-│ ├── virustotal_client.py
-│ └── url_checker.py
-├── parsers/
-│ └── log_parser.py
-├── templates/
-│ └── crud.html
-├── utils/
-│ └── logger.py
-├── data/
-├── .env
-├── .gitignore
-├── requirements.txt
-├── webapp.py
+├── ioc/                 # Integrações com AbuseIPDB/VirusTotal
+├── parsers/             # Parser de logs para extração de IOCs
+├── templates/           # Templates HTML (painel web CRUD)
+├── utils/               # Utilidades e logger
+├── data/                # Banco de dados dos IOCs (persistente)
+├── requirements.txt     # Dependências do projeto
+├── webapp.py            # Servidor Flask principal
 └── README.md
+🔒 Segurança
+Suas chaves de API ficam sempre no .env (excluído do controle de versão).
 
-## 🔒 Segurança
+As chaves devem ser obtidas em:
 
-- **Nunca commit suas API keys!** Use sempre o arquivo `.env` e inclua-o no `.gitignore`
-- As chaves de API devem ser obtidas nos sites oficiais:
-  - [AbuseIPDB](https://www.abuseipdb.com/)
-  - [VirusTotal](https://www.virustotal.com/)
+AbuseIPDB
 
-## 📝 Licença
+VirusTotal
 
-Este projeto é de código aberto para fins educacionais e profissionais de Blue Team.
+📝 Licença
+GPL-3.0. Projeto aberto para fins educacionais e profissionais de Blue Team.
 
-## 🤝 Contribuições
+🤝 Contribuições
+Contribuições são bem-vindas! Abra issues ou pull requests para sugerir melhorias.
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
-
-## 👤 Autor
-
-**Pablo Nuunes de Oliveira**
-Analista de Cibersegurança | Blue Team
-
-## 📧 Contato
-
-- LinkedIn: (https://www.linkedin.com/in/pabloliveira/l)
-- Email: pabloliveir@gmail.com
+👤 Autor
+Pablo Nunes de Oliveira
+Analista de Segurança da Informação | Blue Team
+LinkedIn | Email

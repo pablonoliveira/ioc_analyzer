@@ -90,6 +90,6 @@ GPL-3.0. Projeto aberto para fins educacionais e profissionais de Blue Team.
 Contribuições são bem-vindas! Abra issues ou pull requests para sugerir melhorias.
 
 👤 Autor
-Pablo Nunes de Oliveira
+Pablo Nunes de Oliveira | 
 Analista de Segurança da Informação | Blue Team
 LinkedIn | Email

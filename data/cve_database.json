@@ -37,5 +37,16 @@
     "source": "CIRCL",
     "description": "",
     "createdAt": "2025-10-25T03:37:33.322Z"
+  },
+  {
+    "id": 1761394290409,
+    "cve_id": "CVE-2024-21413",
+    "cveId": "CVE-2024-21413",
+    "severity": "Unknown",
+    "exploited": true,
+    "product": "Vulnerabilidade de validação de entrada inadequada do Microsoft Outlook",
+    "description": "O Microsoft Outlook contém uma vulnerabilidade de validação de entrada inadequada que permite a execução remota de código.A exploração bem-sucedida desta vulnerabilidade permitiria que um invasor ignorasse o Modo de Exibição Protegido do Office e abrisse no modo de edição em vez do modo protegido.",
+    "datePublished": "2025-10-25",
+    "createdAt": "2025-10-25T12:11:30.409Z"
   }
 ]

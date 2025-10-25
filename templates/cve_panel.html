@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CVE Management Panel</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -18,12 +13,7 @@
             min-height: 100vh;
             padding: 20px;
         }
-
-        .container {
-            max-width: 1800px;
-            margin: 0 auto;
-        }
-
+        .container { max-width: 1800px; margin: 0 auto; }
         .header {
             background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
             padding: 30px;
@@ -33,19 +23,13 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
             border: 1px solid rgba(0,173,181,0.3);
         }
-
         .header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
             color: #00adb5;
             text-shadow: 0 0 20px rgba(0,173,181,0.5);
         }
-
-        .header p {
-            color: #a0a0a0;
-            font-size: 1.1em;
-        }
-
+        .header p { color: #a0a0a0; font-size: 1.1em; }
         .nav-buttons {
             display: flex;
             justify-content: center;
@@ -53,7 +37,6 @@
             margin-top: 20px;
             flex-wrap: wrap;
         }
-
         .nav-btn {
             padding: 12px 25px;
             background: rgba(0,173,181,0.2);
@@ -64,18 +47,15 @@
             transition: all 0.3s;
             font-weight: 600;
         }
-
         .nav-btn:hover {
             background: rgba(0,173,181,0.3);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,173,181,0.3);
         }
-
         .nav-btn.active {
             background: #00adb5;
             color: #1a1a2e;
         }
-
         .search-section {
             background: #16213e;
             padding: 30px;
@@ -84,18 +64,12 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.3);
             border: 1px solid rgba(0,173,181,0.2);
         }
-
-        .search-section h2 {
-            color: #00adb5;
-            margin-bottom: 20px;
-        }
-
+        .search-section h2 { color: #00adb5; margin-bottom: 20px; }
         .search-form {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
-
         .search-form input {
             flex: 1;
             min-width: 300px;
@@ -106,7 +80,6 @@
             color: #eaeaea;
             font-size: 1em;
         }
-
         .search-form button {
             padding: 12px 30px;
             background: #00adb5;
@@ -117,11 +90,69 @@
             font-weight: bold;
             transition: all 0.3s;
         }
-
         .search-form button:hover {
             background: #00d4ff;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,173,181,0.4);
+        }
+        
+        /* Seção de resultado da busca */
+        .search-result {
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(0,173,181,0.1);
+            border-radius: 12px;
+            border: 2px solid rgba(0,173,181,0.3);
+        }
+        .search-result h3 {
+            color: #00adb5;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .result-card {
+            background: #0f3460;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(0,173,181,0.2);
+        }
+        .result-card h4 {
+            color: #00adb5;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+        .result-card p {
+            color: #eaeaea;
+            font-size: 1em;
+            word-wrap: break-word;
+        }
+        .result-alert {
+            background: rgba(233,69,96,0.2);
+            border: 1px solid rgba(233,69,96,0.4);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .result-alert strong { color: #ff6b6b; }
+        .result-description {
+            background: #0f3460;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .result-description h4 {
+            color: #00adb5;
+            margin-bottom: 15px;
+        }
+        .result-description p {
+            color: #eaeaea;
+            line-height: 1.6;
         }
 
         .controls {
@@ -131,7 +162,6 @@
             gap: 15px;
             flex-wrap: wrap;
         }
-
         .btn {
             padding: 12px 25px;
             border: none;
@@ -140,34 +170,26 @@
             font-weight: 600;
             transition: all 0.3s;
         }
-
         .btn-primary {
             background: #00adb5;
             color: #1a1a2e;
         }
-
         .btn-primary:hover {
             background: #00d4ff;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,173,181,0.4);
         }
-
         .btn-secondary {
             background: rgba(255,255,255,0.1);
             color: #eaeaea;
             border: 1px solid rgba(255,255,255,0.2);
         }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.15);
-        }
-
+        .btn-secondary:hover { background: rgba(255,255,255,0.15); }
         .filters {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
-
         .filters select {
             padding: 10px;
             border: 1px solid rgba(0,173,181,0.3);
@@ -175,7 +197,6 @@
             background: #0f3460;
             color: #eaeaea;
         }
-
         table {
             width: 100%;
             border-collapse: collapse;
@@ -184,11 +205,7 @@
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
-
-        thead {
-            background: linear-gradient(135deg, #00adb5 0%, #00d4ff 100%);
-        }
-
+        thead { background: linear-gradient(135deg, #00adb5 0%, #00d4ff 100%); }
         th {
             padding: 15px;
             text-align: left;
@@ -197,21 +214,13 @@
             text-transform: uppercase;
             font-size: 0.9em;
         }
-
         td {
             padding: 15px;
             border-bottom: 1px solid rgba(255,255,255,0.05);
             color: #eaeaea;
         }
-
-        tbody tr {
-            transition: all 0.3s;
-        }
-
-        tbody tr:hover {
-            background: rgba(0,173,181,0.1);
-        }
-
+        tbody tr { transition: all 0.3s; }
+        tbody tr:hover { background: rgba(0,173,181,0.1); }
         .severity-badge {
             display: inline-block;
             padding: 5px 12px;
@@ -219,37 +228,31 @@
             font-size: 0.85em;
             font-weight: 600;
         }
-
         .severity-critical {
             background: rgba(233,69,96,0.2);
             color: #ff6b6b;
             border: 1px solid rgba(233,69,96,0.3);
         }
-
         .severity-high {
             background: rgba(253,126,20,0.2);
             color: #fd7e14;
             border: 1px solid rgba(253,126,20,0.3);
         }
-
         .severity-medium {
             background: rgba(255,193,7,0.2);
             color: #ffc107;
             border: 1px solid rgba(255,193,7,0.3);
         }
-
         .severity-low {
             background: rgba(0,184,148,0.2);
             color: #00b894;
             border: 1px solid rgba(0,184,148,0.3);
         }
-
         .severity-unknown {
             background: rgba(160,160,160,0.2);
             color: #a0a0a0;
             border: 1px solid rgba(160,160,160,0.3);
         }
-
         .exploited-badge {
             display: inline-block;
             padding: 5px 12px;
@@ -260,7 +263,6 @@
             color: #ff6b6b;
             border: 1px solid rgba(233,69,96,0.3);
         }
-
         .not-exploited-badge {
             display: inline-block;
             padding: 5px 12px;
@@ -271,12 +273,7 @@
             color: #00b894;
             border: 1px solid rgba(0,184,148,0.3);
         }
-
-        .actions {
-            display: flex;
-            gap: 10px;
-        }
-
+        .actions { display: flex; gap: 10px; }
         .action-btn {
             padding: 6px 12px;
             border: none;
@@ -285,27 +282,18 @@
             font-size: 0.85em;
             transition: all 0.3s;
         }
-
         .action-btn.edit {
             background: rgba(0,173,181,0.2);
             color: #00adb5;
             border: 1px solid rgba(0,173,181,0.3);
         }
-
-        .action-btn.edit:hover {
-            background: rgba(0,173,181,0.3);
-        }
-
+        .action-btn.edit:hover { background: rgba(0,173,181,0.3); }
         .action-btn.delete {
             background: rgba(233,69,96,0.2);
             color: #ff6b6b;
             border: 1px solid rgba(233,69,96,0.3);
         }
-
-        .action-btn.delete:hover {
-            background: rgba(233,69,96,0.3);
-        }
-
+        .action-btn.delete:hover { background: rgba(233,69,96,0.3); }
         .modal {
             display: none;
             position: fixed;
@@ -318,11 +306,7 @@
             align-items: center;
             justify-content: center;
         }
-
-        .modal.active {
-            display: flex;
-        }
-
+        .modal.active { display: flex; }
         .modal-content {
             background: #16213e;
             padding: 30px;
@@ -334,23 +318,17 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
             border: 1px solid rgba(0,173,181,0.3);
         }
-
         .modal-content h2 {
             color: #00adb5;
             margin-bottom: 20px;
         }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
+        .form-group { margin-bottom: 20px; }
         .form-group label {
             display: block;
             margin-bottom: 8px;
             color: #a0a0a0;
             font-weight: 600;
         }
-
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -362,19 +340,16 @@
             color: #eaeaea;
             font-size: 1em;
         }
-
         .form-group textarea {
             min-height: 100px;
             resize: vertical;
         }
-
         .form-actions {
             display: flex;
             gap: 10px;
             justify-content: flex-end;
             margin-top: 20px;
         }
-
         .no-data {
             text-align: center;
             padding: 40px;
@@ -402,6 +377,13 @@
                 <input type="text" id="searchCVE" placeholder="Digite o CVE-ID (ex: CVE-2024-12345)">
                 <button type="submit">🔍 Consultar API</button>
             </form>
+            
+            <!-- SEÇÃO DE RESULTADO DA CONSULTA -->
+            <div id="searchResult" class="search-result" style="display: none;">
+                <h3>Resultado da Consulta</h3>
+                <div id="searchResultContent"></div>
+                <button class="btn btn-primary" id="saveResultBtn" style="display: none;" onclick="saveSearchResult()">💾 Salvar no Painel</button>
+            </div>
         </div>
 
         <div class="controls">
@@ -487,6 +469,7 @@
 
     <script>
         let cves = [];
+        let currentSearchResult = null;
 
         async function loadCVEs() {
             try {
@@ -608,6 +591,7 @@
             }
         });
 
+        // BUSCA DE CVE COM RESULTADO VISUAL NA PÁGINA
         document.getElementById('searchForm').addEventListener('submit', async (e) => {
             e.preventDefault();
 
@@ -623,29 +607,145 @@
                 const result = await response.json();
 
                 if (result.found) {
-                    let msg = `Resultado da consulta:\n\nCVE-ID: ${result.cve_id}\nSeveridade: ${result.severity || 'Unknown'}\nExploitada: ${result.exploited ? 'Sim' : 'Não'}`;
-                    
-                    if (result.vulnerability_name) {
-                        msg += `\nVulnerabilidade: ${result.vulnerability_name}`;
-                    }
-                    
-                    if (result.short_description) {
-                        msg += `\n\nDescrição: ${result.short_description}`;
-                    }
-                    
-                    if (result.summary) {
-                        msg += `\n\nResumo: ${result.summary.substring(0, 200)}...`;
-                    }
-                    
-                    alert(msg);
+                    displaySearchResult(result);
+                    currentSearchResult = result;
                 } else {
-                    alert(`CVE ${cveId} não encontrado nas APIs consultadas.`);
+                    document.getElementById('searchResult').style.display = 'block';
+                    document.getElementById('searchResultContent').innerHTML = `
+                        <div class="result-alert">
+                            <strong>❌ CVE não encontrado</strong>
+                            <p>O CVE <code>${cveId}</code> não foi encontrado nas APIs consultadas (CISA KEV e CIRCL).</p>
+                        </div>
+                    `;
+                    document.getElementById('saveResultBtn').style.display = 'none';
                 }
             } catch (error) {
                 console.error('Erro ao buscar CVE:', error);
-                alert('Erro ao realizar busca');
+                document.getElementById('searchResult').style.display = 'block';
+                document.getElementById('searchResultContent').innerHTML = `
+                    <div class="result-alert">
+                        <strong>⚠️ Erro na busca</strong>
+                        <p>Ocorreu um erro ao consultar as APIs. Tente novamente.</p>
+                    </div>
+                `;
+                document.getElementById('saveResultBtn').style.display = 'none';
             }
         });
+
+        function displaySearchResult(result) {
+            document.getElementById('searchResult').style.display = 'block';
+            
+            let html = '';
+            
+            // Alerta se for exploitada
+            if (result.exploited) {
+                html += `
+                    <div class="result-alert">
+                        <strong>⚠️ ALERTA CRÍTICO:</strong> Esta CVE está sendo exploitada ativamente (CISA KEV)
+                    </div>
+                `;
+            }
+            
+            // Grid com informações principais
+            html += '<div class="result-grid">';
+            
+            html += `
+                <div class="result-card">
+                    <h4>CVE ID</h4>
+                    <p><code>${result.cve_id}</code></p>
+                </div>
+            `;
+            
+            html += `
+                <div class="result-card">
+                    <h4>Severidade</h4>
+                    <p><span class="severity-badge severity-${(result.severity || 'unknown').toLowerCase()}">${result.severity || 'Unknown'}</span></p>
+                </div>
+            `;
+            
+            html += `
+                <div class="result-card">
+                    <h4>Exploitada</h4>
+                    <p>${result.exploited ? '<span class="exploited-badge">⚠️ Sim</span>' : '<span class="not-exploited-badge">✓ Não</span>'}</p>
+                </div>
+            `;
+            
+            if (result.vulnerability_name) {
+                html += `
+                    <div class="result-card">
+                        <h4>Nome da Vulnerabilidade</h4>
+                        <p>${result.vulnerability_name}</p>
+                    </div>
+                `;
+            }
+            
+            if (result.vendor) {
+                html += `
+                    <div class="result-card">
+                        <h4>Vendor/Produto</h4>
+                        <p>${result.vendor}</p>
+                    </div>
+                `;
+            }
+            
+            html += '</div>';
+            
+            // Descrição completa
+            if (result.short_description || result.summary) {
+                html += `
+                    <div class="result-description">
+                        <h4>📋 Descrição</h4>
+                        <p>${result.short_description || result.summary || 'Descrição não disponível'}</p>
+                    </div>
+                `;
+            }
+            
+            // Ação requerida (CISA)
+            if (result.required_action) {
+                html += `
+                    <div class="result-description" style="border-left: 4px solid #ff6b6b;">
+                        <h4>⚡ Ação Requerida (CISA):</h4>
+                        <p>${result.required_action}</p>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('searchResultContent').innerHTML = html;
+            document.getElementById('saveResultBtn').style.display = 'block';
+        }
+
+        async function saveSearchResult() {
+            if (!currentSearchResult) return;
+            
+            const data = {
+                id: Date.now(),
+                cve_id: currentSearchResult.cve_id,
+                cveId: currentSearchResult.cve_id,
+                severity: currentSearchResult.severity || 'Unknown',
+                exploited: currentSearchResult.exploited || false,
+                product: currentSearchResult.vulnerability_name || currentSearchResult.vendor || 'Diversos',
+                description: currentSearchResult.short_description || currentSearchResult.summary || '',
+                datePublished: new Date().toISOString().split('T')[0],
+                createdAt: new Date().toISOString()
+            };
+            
+            try {
+                await fetch('/api/cves', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                alert('✅ CVE salva no painel com sucesso!');
+                await loadCVEs();
+                document.getElementById('searchResult').style.display = 'none';
+                document.getElementById('searchCVE').value = '';
+                currentSearchResult = null;
+            } catch (error) {
+                console.error('Erro ao salvar CVE:', error);
+                alert('❌ Erro ao salvar CVE');
+            }
+        }
 
         window.onclick = (event) => {
             const modal = document.getElementById('cveModal');

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>README - IOC Analyzer</title>
+    <style>
+        :root {
+            --color-bg: #0d1117;
+            --color-surface: #161b22;
+            --color-border: #30363d;
+            --color-text: #c9d1d9;
+            --color-text-muted: #8b949e;
+            --color-accent: #58a6ff;
+            --color-success: #3fb950;
+            --color-warning: #d29922;
+            --color-danger: #f85149;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--color-border);
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-accent);
+        }
+
+        .header p {
+            color: var(--color-text-muted);
+            font-size: 1.1rem;
+        }
+
+        .badges {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge-version { background: var(--color-accent); color: #fff; }
+        .badge-status { background: var(--color-success); color: #fff; }
+        .badge-license { background: var(--color-warning); color: #0d1117; }
+        .badge-python { background: #3776ab; color: #fff; }
+
+        h2 {
+            color: var(--color-accent);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        h3 {
+            color: var(--color-text);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        code {
+            background: var(--color-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--color-accent);
+        }
+
+        pre {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: var(--color-text);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-card {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 1.5rem;
+        }
+
+        .feature-card h4 {
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-card ul {
+            margin-left: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .api-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .api-table th,
+        .api-table td {
+            border: 1px solid var(--color-border);
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        .api-table th {
+            background: var(--color-bg);
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        .api-table tr:hover {
+            background: rgba(88, 166, 255, 0.1);
+        }
+
+        .status-icon {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .status-success { background: var(--color-success); }
+        .status-warning { background: var(--color-warning); }
+        .status-danger { background: var(--color-danger); }
+
+        .screenshot {
+            width: 100%;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+
+        .btn-copy {
+            background: var(--color-accent);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn-copy:hover {
+            background: #1f6feb;
+        }
+
+        .toc {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            color: var(--color-accent);
+        }
+
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .toc a {
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            color: var(--color-accent);
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-info {
+            background: rgba(88, 166, 255, 0.1);
+            border-color: var(--color-accent);
+        }
+
+        .alert-warning {
+            background: rgba(210, 153, 34, 0.1);
+            border-color: var(--color-warning);
+        }
+
+        .alert-success {
+            background: rgba(63, 185, 80, 0.1);
+            border-color: var(--color-success);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ IOC Analyzer</h1>
+            <p>Plataforma Blue Team para Análise de Indicadores de Comprometimento e CVEs</p>
+            <div class="badges">
+                <span class="badge badge-version">v2.1</span>
+                <span class="badge badge-status">Stable</span>
+                <span class="badge badge-python">Python 3.8+</span>
+                <span class="badge badge-license">MIT License</span>
+            </div>
+        </div>
+
+        <div class="toc">
+            <h3>📑 Índice</h3>
+            <ul>
+                <li>• <a href="#sobre">Sobre o Projeto</a></li>
+                <li>• <a href="#funcionalidades">Funcionalidades</a></li>
+                <li>• <a href="#estrutura">Estrutura do Projeto</a></li>
+                <li>• <a href="#instalacao">Instalação</a></li>
+                <li>• <a href="#configuracao">Configuração</a></li>
+                <li>• <a href="#uso">Como Usar</a></li>
+                <li>• <a href="#apis">APIs Integradas</a></li>
+                <li>• <a href="#screenshots">Screenshots</a></li>
+                <li>• <a href="#roadmap">Roadmap</a></li>
+                <li>• <a href="#contribuir">Como Contribuir</a></li>
+                <li>• <a href="#licenca">Licença</a></li>
+            </ul>
+        </div>
+
+        <section id="sobre">
+            <h2>📖 Sobre o Projeto</h2>
+            <p>O <strong>IOC Analyzer</strong> é uma plataforma desenvolvida para equipes de Blue Team e profissionais de Cibersegurança que precisam gerenciar, analisar e correlacionar Indicadores de Comprometimento (IoCs) e Vulnerabilidades (CVEs) de forma eficiente.</p>
+            
+            <div class="alert alert-success">
+                <strong>✅ Versão 2.1 - Estável e Pronta para Produção</strong><br>
+                Esta versão inclui todas as funcionalidades essenciais consolidadas, interface visual aprimorada e integrações de API testadas.
+            </div>
+
+            <h3>🎯 Principais Objetivos</h3>
+            <ul>
+                <li><strong>Centralização</strong>: Gerenciar IoCs e CVEs em um único local</li>
+                <li><strong>Automação</strong>: Buscar e enriquecer dados de múltiplas fontes</li>
+                <li><strong>Visualização</strong>: Dashboard interativo com gráficos e estatísticas</li>
+                <li><strong>Correlação</strong>: Relacionar IoCs com CVEs conhecidas</li>
+                <li><strong>Análise Forense</strong>: Suporte a investigações e perícia digital</li>
+            </ul>
+        </section>
+
+        <section id="funcionalidades">
+            <h2>✨ Funcionalidades</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>📊 Dashboard Interativo</h4>
+                    <ul>
+                        <li>6 gráficos dinâmicos</li>
+                        <li>Estatísticas em tempo real</li>
+                        <li>Porcentagens automáticas</li>
+                        <li>Visão geral do ambiente</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🔍 IOC Panel</h4>
+                    <ul>
+                        <li>CRUD completo de IoCs</li>
+                        <li>Busca visual na página</li>
+                        <li>Suporte: IPs, URLs, Hashes</li>
+                        <li>Classificação por tipo</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🛡️ CVE Panel</h4>
+                    <ul>
+                        <li>Gerenciamento de CVEs</li>
+                        <li>Integração NVD API</li>
+                        <li>Severidade (CVSS)</li>
+                        <li>Tradução automática</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🔗 Integrações API</h4>
+                    <ul>
+                        <li>VirusTotal</li>
+                        <li>AbuseIPDB</li>
+                        <li>CISA KEV</li>
+                        <li>CIRCL CVE / NVD</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🎨 Interface Moderna</h4>
+                    <ul>
+                        <li>Tema escuro profissional</li>
+                        <li>Responsivo (mobile-first)</li>
+                        <li>Cards visuais</li>
+                        <li>Navegação intuitiva</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h4>💾 Persistência de Dados</h4>
+                    <ul>
+                        <li>JSON Database</li>
+                        <li>Export/Import</li>
+                        <li>Backup automático</li>
+                        <li>Histórico completo</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="estrutura">
+            <h2>📁 Estrutura do Projeto</h2>
+            <pre><code>ioc_analyzer/
+├── data/
+│   ├── ioc_database.json      # Base de IoCs
+│   └── cve_database.json      # Base de CVEs
+├── docs/
+│   └── img/                   # Screenshots
+│       ├── dashboard.png
+│       ├── ioc_panel.png
+│       └── cve_panel.png
+├── ioc/
+│   ├── abuseipdb_client.py    # Cliente AbuseIPDB
+│   ├── virustotal_client.py   # Cliente VirusTotal
+│   ├── cisa_kev_client.py     # Cliente CISA KEV
+│   ├── circl_cve_client.py    # Cliente CIRCL CVE
+│   ├── nvd_cve_client.py      # Cliente NVD (✅ Novo)
+│   └── url_checker.py         # Verificador de URLs
+├── parsers/
+│   └── log_parser.py          # Parser de logs
+├── templates/
+│   ├── dashboard.html         # Dashboard principal
+│   ├── ioc_panel.html         # Painel de IoCs
+│   └── cve_panel.html         # Painel de CVEs
+├── webapp.py                  # Aplicação Flask
+├── requirements.txt           # Dependências Python
+├── .env                       # Variáveis de ambiente
+├── .gitignore
+└── README.md</code></pre>
+        </section>
+
+        <section id="instalacao">
+            <h2>🚀 Instalação</h2>
+
+            <h3>Pré-requisitos</h3>
+            <ul>
+                <li>Python 3.8 ou superior</li>
+                <li>pip (gerenciador de pacotes Python)</li>
+                <li>Git</li>
+            </ul>
+
+            <h3>Passo 1: Clonar o Repositório</h3>
+            <pre><code>git clone https://github.com/SEU_USUARIO/ioc_analyzer.git
+cd ioc_analyzer</code></pre>
+
+            <h3>Passo 2: Criar Ambiente Virtual (Recomendado)</h3>
+            <pre><code># Linux/Mac
+python3 -m venv venv
+source venv/bin/activate
+
+# Windows
+python -m venv venv
+venv\Scripts\activate</code></pre>
+
+            <h3>Passo 3: Instalar Dependências</h3>
+            <pre><code>pip install -r requirements.txt</code></pre>
+
+            <div class="alert alert-info">
+                <strong>📦 Dependências principais:</strong> Flask, Requests, python-dotenv, googletrans (para tradução automática)
+            </div>
+        </section>
+
+        <section id="configuracao">
+            <h2>⚙️ Configuração</h2>
+
+            <h3>Passo 1: Criar arquivo .env</h3>
+            <p>Crie um arquivo <code>.env</code> na raiz do projeto com suas chaves de API:</p>
+            <pre><code># APIs de Threat Intelligence
+VIRUSTOTAL_API_KEY=sua_chave_aqui
+ABUSEIPDB_API_KEY=sua_chave_aqui
+NVD_API_KEY=sua_chave_aqui
+
+# Configurações da aplicação
+FLASK_ENV=development
+FLASK_DEBUG=True
+SECRET_KEY=sua_chave_secreta_aqui</code></pre>
+
+            <h3>Passo 2: Obter API Keys</h3>
+            <table class="api-table">
+                <thead>
+                    <tr>
+                        <th>Serviço</th>
+                        <th>URL de Registro</th>
+                        <th>Plano Gratuito</th>
+                        <th>Limite</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>VirusTotal</strong></td>
+                        <td><a href="https://www.virustotal.com/gui/join-us" target="_blank">virustotal.com</a></td>
+                        <td>✅ Sim</td>
+                        <td>500 req/dia</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AbuseIPDB</strong></td>
+                        <td><a href="https://www.abuseipdb.com/register" target="_blank">abuseipdb.com</a></td>
+                        <td>✅ Sim</td>
+                        <td>1.000 req/dia</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NVD</strong></td>
+                        <td><a href="https://nvd.nist.gov/developers/request-an-api-key" target="_blank">nvd.nist.gov</a></td>
+                        <td>✅ Sim</td>
+                        <td>50 req/30s (com key)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CISA KEV</strong></td>
+                        <td>-</td>
+                        <td>✅ Pública</td>
+                        <td>Sem limite</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CIRCL CVE</strong></td>
+                        <td>-</td>
+                        <td>✅ Pública</td>
+                        <td>Sem limite</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-warning">
+                <strong>⚠️ Importante:</strong> Sem as API keys, algumas funcionalidades estarão limitadas. O IOC Analyzer funcionará com funcionalidades básicas usando apenas APIs públicas (CISA KEV e CIRCL CVE).
+            </div>
+
+            <h3>Passo 3: Inicializar Bases de Dados</h3>
+            <p>Os arquivos JSON serão criados automaticamente na primeira execução em <code>data/</code>:</p>
+            <pre><code>data/ioc_database.json    # Iniciado como []
+data/cve_database.json    # Iniciado como []</code></pre>
+        </section>
+
+        <section id="uso">
+            <h2>💻 Como Usar</h2>
+
+            <h3>Iniciar a Aplicação</h3>
+            <pre><code>python webapp.py</code></pre>
+
+            <p>A aplicação estará disponível em: <code>http://localhost:5000</code></p>
+
+            <h3>Navegação</h3>
+            <ul>
+                <li><strong>Dashboard</strong>: <code>/</code> - Visão geral com gráficos e estatísticas</li>
+                <li><strong>IOC Panel</strong>: <code>/ioc</code> - Gerenciamento de Indicadores de Comprometimento</li>
+                <li><strong>CVE Panel</strong>: <code>/cve</code> - Gerenciamento de Vulnerabilidades</li>
+            </ul>
+
+            <h3>Gerenciar IoCs</h3>
+            <ol>
+                <li>Acesse o <strong>IOC Panel</strong></li>
+                <li>Clique em <strong>"Adicionar Novo IOC"</strong></li>
+                <li>Preencha os campos:
+                    <ul>
+                        <li><strong>Tipo</strong>: IP, Domain, URL, Hash</li>
+                        <li><strong>Valor</strong>: O indicador (ex: 192.168.1.1)</li>
+                        <li><strong>Fonte</strong>: Onde foi identificado</li>
+                        <li><strong>Severidade</strong>: Critical, High, Medium, Low</li>
+                        <li><strong>Descrição</strong>: Contexto adicional</li>
+                    </ul>
+                </li>
+                <li>Clique em <strong>"Salvar"</strong></li>
+            </ol>
+
+            <h3>Buscar CVEs</h3>
+            <ol>
+                <li>Acesse o <strong>CVE Panel</strong></li>
+                <li>Digite o ID da CVE (ex: <code>CVE-2024-21413</code>)</li>
+                <li>Clique em <strong>"Buscar CVE"</strong></li>
+                <li>Os resultados serão exibidos com:
+                    <ul>
+                        <li>Severidade (CVSS Score)</li>
+                        <li>Descrição traduzida</li>
+                        <li>Data de publicação</li>
+                        <li>Links para referências</li>
+                    </ul>
+                </li>
+                <li>Clique em <strong>"Salvar no Banco"</strong> para persistir</li>
+            </ol>
+
+            <h3>Busca Visual</h3>
+            <p>Tanto o IOC Panel quanto o CVE Panel possuem campo de busca no topo que filtra os resultados em tempo real.</p>
+        </section>
+
+        <section id="apis">
+            <h2>🔌 APIs Integradas</h2>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4><span class="status-icon status-success"></span>VirusTotal</h4>
+                    <p><strong>Função:</strong> Análise de URLs, domínios, IPs e hashes de arquivos</p>
+                    <p><strong>Dados retornados:</strong> Detecções de antivírus, reputação, categorias</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4><span class="status-icon status-success"></span>AbuseIPDB</h4>
+                    <p><strong>Função:</strong> Reputação de endereços IP</p>
+                    <p><strong>Dados retornados:</strong> Score de abuso, categoria de ataques, relatórios</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4><span class="status-icon status-success"></span>NVD (NIST)</h4>
+                    <p><strong>Função:</strong> Base nacional de vulnerabilidades (EUA)</p>
+                    <p><strong>Dados retornados:</strong> CVEs completas com CVSS v3.1, descrições, referências</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4><span class="status-icon status-success"></span>CISA KEV</h4>
+                    <p><strong>Função:</strong> CVEs ativamente exploradas</p>
+                    <p><strong>Dados retornados:</strong> Catálogo de exploits conhecidos, datas de exploração</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4><span class="status-icon status-success"></span>CIRCL CVE</h4>
+                    <p><strong>Função:</strong> Base de CVEs alternativa (Luxemburgo)</p>
+                    <p><strong>Dados retornados:</strong> CVEs com descrições e referências</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4><span class="status-icon status-warning"></span>Tradução Automática</h4>
+                    <p><strong>Função:</strong> Traduzir descrições de CVEs para português</p>
+                    <p><strong>Biblioteca:</strong> googletrans (fallback para descrição original)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="screenshots">
+            <h2>📸 Screenshots</h2>
+
+            <h3>Dashboard Principal</h3>
+            <div class="alert alert-info">
+                <strong>💡 Dica:</strong> Adicione suas capturas de tela em <code>docs/img/dashboard.png</code>
+            </div>
+            <!-- <img src="docs/img/dashboard.png" alt="Dashboard" class="screenshot"> -->
+
+            <h3>IOC Panel</h3>
+            <!-- <img src="docs/img/ioc_panel.png" alt="IOC Panel" class="screenshot"> -->
+
+            <h3>CVE Panel</h3>
+            <!-- <img src="docs/img/cve_panel.png" alt="CVE Panel" class="screenshot"> -->
+        </section>
+
+        <section id="roadmap">
+            <h2>🗺️ Roadmap</h2>
+
+            <h3>✅ v2.1 (Atual - Estável)</h3>
+            <ul>
+                <li>Dashboard interativo com 6 gráficos</li>
+                <li>CRUD completo de IoCs e CVEs</li>
+                <li>Integração com 5 APIs</li>
+                <li>Tradução automática</li>
+                <li>Interface visual moderna</li>
+            </ul>
+
+            <h3>🚧 v3.0 (Próxima - Em Planejamento)</h3>
+            <ul>
+                <li><strong>Botão "Buscar CVEs 24h"</strong>: Automação de busca de CVEs recentes</li>
+                <li><strong>Correlação IOC ↔ CVE</strong>: Relacionamento automático</li>
+                <li><strong>Exportação de Relatórios</strong>: PDF, CSV, JSON</li>
+                <li><strong>Sistema de Alertas</strong>: Email, Telegram, Webhook</li>
+                <li><strong>Scoring Automatizado</strong>: Classificação de risco</li>
+                <li><strong>Ingestão de Feeds</strong>: AlienVault OTX, URLhaus, ThreatFox</li>
+            </ul>
+
+            <h3>🔮 v4.0 (Futuro)</h3>
+            <ul>
+                <li><strong>API REST Completa</strong>: Endpoints para integração externa</li>
+                <li><strong>Autenticação</strong>: Multi-usuário com controle de acesso</li>
+                <li><strong>Banco de Dados Relacional</strong>: Migração para PostgreSQL</li>
+                <li><strong>Integração SIEM</strong>: Splunk, ELK, Wazuh, TheHive</li>
+                <li><strong>Agentes de IA</strong>: Classificação e correlação inteligente</li>
+                <li><strong>Docker</strong>: Containerização completa</li>
+            </ul>
+        </section>
+
+        <section id="contribuir">
+            <h2>🤝 Como Contribuir</h2>
+
+            <p>Contribuições são bem-vindas! Siga os passos abaixo:</p>
+
+            <ol>
+                <li><strong>Fork</strong> o projeto</li>
+                <li>Crie uma <strong>branch</strong> para sua feature (<code>git checkout -b feature/NovaFuncionalidade</code>)</li>
+                <li><strong>Commit</strong> suas mudanças (<code>git commit -m 'Adiciona nova funcionalidade'</code>)</li>
+                <li><strong>Push</strong> para a branch (<code>git push origin feature/NovaFuncionalidade</code>)</li>
+                <li>Abra um <strong>Pull Request</strong></li>
+            </ol>
+
+            <h3>Diretrizes</h3>
+            <ul>
+                <li>Mantenha o código limpo e documentado</li>
+                <li>Siga o padrão PEP 8 para Python</li>
+                <li>Adicione testes quando aplicável</li>
+                <li>Atualize a documentação conforme necessário</li>
+            </ul>
+
+            <h3>Reportar Bugs</h3>
+            <p>Encontrou um bug? Abra uma <strong>Issue</strong> no GitHub com:</p>
+            <ul>
+                <li>Descrição clara do problema</li>
+                <li>Passos para reproduzir</li>
+                <li>Comportamento esperado vs. atual</li>
+                <li>Logs de erro (se aplicável)</li>
+                <li>Ambiente (SO, versão Python, etc.)</li>
+            </ul>
+        </section>
+
+        <section id="licenca">
+            <h2>📄 Licença</h2>
+
+            <div class="alert alert-success">
+                <strong>MIT License</strong><br>
+                Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para detalhes.
+            </div>
+
+            <p>Copyright © 2025 - IOC Analyzer Project</p>
+
+            <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software.</p>
+        </section>
+
+        <section>
+            <h2>👨‍💻 Autor</h2>
+            <p><strong>Pablo Oliveira</strong></p>
+            <ul>
+                <li>🌐 LinkedIn: <a href="https://linkedin.com/in/seu-perfil" target="_blank">seu-perfil</a></li>
+                <li>📧 Email: pabloliveir@gmail.com</li>
+                <li>💼 Especialização: Cibersegurança Blue Team | Redes | Perícia Digital</li>
+                <li>📚 Experiência: ~20 anos em TI e Segurança da Informação</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🙏 Agradecimentos</h2>
+            <ul>
+                <li><strong>VirusTotal</strong>, <strong>AbuseIPDB</strong>, <strong>NVD</strong>, <strong>CISA</strong>, <strong>CIRCL</strong> - Pelas APIs públicas</li>
+                <li>Comunidade de <strong>Threat Intelligence</strong></li>
+                <li>Profissionais de <strong>Blue Team</strong> e <strong>Cybersecurity</strong></li>
+            </ul>
+        </section>
+
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+            <p style="color: var(--color-text-muted);">
+                Desenvolvido com ❤️ por profissionais de Blue Team, para profissionais de Blue Team
+            </p>
+            <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+                <strong>IOC Analyzer v2.1</strong> - Outubro 2025
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight da seção ativa no scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.toc a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = 'var(--color-text)';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = 'var(--color-accent)';
+                }
+            });
+        });
+
+        // Copiar código ao clicar no bloco
+        document.querySelectorAll('pre').forEach(pre => {
+            pre.style.position = 'relative';
+            pre.style.cursor = 'pointer';
+            
+            pre.addEventListener('click', async () => {
+                const code = pre.querySelector('code');
+                if (code) {
+                    try {
+                        await navigator.clipboard.writeText(code.textContent);
+                        const originalBg = pre.style.backgroundColor;
+                        pre.style.backgroundColor = 'rgba(63, 185, 80, 0.2)';
+                        setTimeout(() => {
+                            pre.style.backgroundColor = originalBg;
+                        }, 200);
+                    } catch (err) {
+                        console.error('Erro ao copiar:', err);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

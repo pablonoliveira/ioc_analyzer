@@ -1,44 +1,5 @@
 [
   {
-    "id": 1761359257108,
-    "type": "IP",
-    "value": "177.9.121.242",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. BR | Fixed Line ISP",
-    "createdAt": "2025-10-24T23:27:37.108856"
-  },
-  {
-    "id": 1761359257495,
-    "type": "IP",
-    "value": "139.45.197.252",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. NL | Content Delivery Network",
-    "createdAt": "2025-10-24T23:27:37.494174"
-  },
-  {
-    "id": 1761359258615,
-    "type": "Domain",
-    "value": "fongumporg.net",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. Malicious:0 Suspicious:0",
-    "createdAt": "2025-10-24T23:27:38.614781"
-  },
-  {
     "id": 1761359258996,
     "type": "IP",
     "value": "10.7.23.124",
@@ -1715,19 +1676,6 @@
     "createdAt": "2025-10-24T23:50:14.405499"
   },
   {
-    "id": 1761360616633,
-    "type": "Domain",
-    "value": "qualipraia.cetesb.sp.gov.br",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. Malicious:0 Suspicious:0",
-    "createdAt": "2025-10-24T23:50:16.501183"
-  },
-  {
     "id": 1761361946802,
     "type": "IP",
     "value": "34.19.127.178",
@@ -1745,5 +1693,911 @@
     "campaign": "",
     "description": "Adicionado via busca API. Score: 52",
     "createdAt": "2025-10-25T03:12:26.802Z"
+  },
+  {
+    "id": "20251026183434",
+    "type": "IP",
+    "value": "45.89.53.222",
+    "source": "AbuseIPDB, VirusTotal",
+    "severity": "Malicioso",
+    "description": "Fonte: AbuseIPDB, Abuse Score: 100, Malicious: 0, Reports: 64<br>Fonte: VirusTotal, Abuse Score: None, Limpo ou não detectado."
+  },
+  {
+    "id": "20251026183457",
+    "type": "Domain",
+    "value": "qualipraia.cetesb.sp.gov.br",
+    "source": "AbuseIPDB, VirusTotal",
+    "severity": "Não Malicioso",
+    "description": "Fonte: AbuseIPDB, Abuse Score: None, Limpo ou não detectado.<br>Fonte: VirusTotal, Abuse Score: None, Limpo ou não detectado."
+  },
+  {
+    "id": "20251026201303314647",
+    "type": "Ip",
+    "value": "38.54.14.88",
+    "source": "Upload: cve-2021-26084.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-26084.csv",
+    "date_added": "2025-10-26T20:13:03.314647"
+  },
+  {
+    "id": "20251026201303314647",
+    "type": "Ip",
+    "value": "38.54.14.88",
+    "source": "Upload: cve-2021-26084.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-26084.csv",
+    "date_added": "2025-10-26T20:13:03.314647"
+  },
+  {
+    "id": "20251026201303314647",
+    "type": "Domain",
+    "value": "simqua.cetesb.sp.gov.br",
+    "source": "Upload: cve-2021-26084.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-26084.csv",
+    "date_added": "2025-10-26T20:13:03.314647"
+  },
+  {
+    "id": "20251026201303314647",
+    "type": "Ip",
+    "value": "38.54.14.88",
+    "source": "Upload: cve-2021-26084.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-26084.csv",
+    "date_added": "2025-10-26T20:13:03.314647"
+  },
+  {
+    "id": "20251026201303314647",
+    "type": "Domain",
+    "value": "licitacoes.cetesb.sp.gov.br",
+    "source": "Upload: cve-2021-26084.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-26084.csv",
+    "date_added": "2025-10-26T20:13:03.314647"
+  },
+  {
+    "id": "20251026201327444286",
+    "type": "Ip",
+    "value": "38.54.14.88",
+    "source": "Upload: cve-2024-22024.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2024-22024.csv",
+    "date_added": "2025-10-26T20:13:27.444286"
+  },
+  {
+    "id": "20251026201327444286",
+    "type": "Ip",
+    "value": "38.54.14.88",
+    "source": "Upload: cve-2024-22024.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2024-22024.csv",
+    "date_added": "2025-10-26T20:13:27.444286"
+  },
+  {
+    "id": "20251026201327444286",
+    "type": "Domain",
+    "value": "autenticidade.cetesb.sp.gov.br",
+    "source": "Upload: cve-2024-22024.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2024-22024.csv",
+    "date_added": "2025-10-26T20:13:27.444286"
+  },
+  {
+    "id": "20251026201327444286",
+    "type": "Ip",
+    "value": "38.54.14.88",
+    "source": "Upload: cve-2024-22024.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2024-22024.csv",
+    "date_added": "2025-10-26T20:13:27.444286"
+  },
+  {
+    "id": "20251026201327444286",
+    "type": "Domain",
+    "value": "licitacoes.cetesb.sp.gov.br",
+    "source": "Upload: cve-2024-22024.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2024-22024.csv",
+    "date_added": "2025-10-26T20:13:27.444286"
+  },
+  {
+    "id": "20251026201327444286",
+    "type": "Ip",
+    "value": "38.54.14.88",
+    "source": "Upload: cve-2024-22024.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2024-22024.csv",
+    "date_added": "2025-10-26T20:13:27.444286"
+  },
+  {
+    "id": "20251026201327444286",
+    "type": "Domain",
+    "value": "sao-publico.cetesb.sp.gov.br",
+    "source": "Upload: cve-2024-22024.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2024-22024.csv",
+    "date_added": "2025-10-26T20:13:27.444286"
+  },
+  {
+    "id": "20251026201327444286",
+    "type": "Ip",
+    "value": "38.54.14.88",
+    "source": "Upload: cve-2024-22024.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2024-22024.csv",
+    "date_added": "2025-10-26T20:13:27.444286"
+  },
+  {
+    "id": "20251026201327444286",
+    "type": "Domain",
+    "value": "simqua.cetesb.sp.gov.br",
+    "source": "Upload: cve-2024-22024.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2024-22024.csv",
+    "date_added": "2025-10-26T20:13:27.445285"
+  },
+  {
+    "id": "20251026201722567085",
+    "type": "Ip",
+    "value": "38.54.14.88",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.567085"
+  },
+  {
+    "id": "20251026201722568085",
+    "type": "Ip",
+    "value": "164.68.110.119",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.568085"
+  },
+  {
+    "id": "20251026201722568085",
+    "type": "Ip",
+    "value": "34.171.29.151",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.568085"
+  },
+  {
+    "id": "20251026201722568085",
+    "type": "Ip",
+    "value": "34.19.127.197",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.568085"
+  },
+  {
+    "id": "20251026201722568085",
+    "type": "Ip",
+    "value": "38.54.14.88",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.568085"
+  },
+  {
+    "id": "20251026201722568085",
+    "type": "Domain",
+    "value": "autenticidade.cetesb.sp.gov.br",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.568085"
+  },
+  {
+    "id": "20251026201722568085",
+    "type": "Ip",
+    "value": "38.54.14.88",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.568085"
+  },
+  {
+    "id": "20251026201722568085",
+    "type": "Domain",
+    "value": "licitacoes.cetesb.sp.gov.br",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.568085"
+  },
+  {
+    "id": "20251026201722568085",
+    "type": "Ip",
+    "value": "118.193.46.22",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.568085"
+  },
+  {
+    "id": "20251026201722568085",
+    "type": "Ip",
+    "value": "34.19.127.178",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.568085"
+  },
+  {
+    "id": "20251026201722568085",
+    "type": "Ip",
+    "value": "34.19.127.183",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.568085"
+  },
+  {
+    "id": "20251026201722568085",
+    "type": "Ip",
+    "value": "34.19.127.185",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.568085"
+  },
+  {
+    "id": "20251026201722568085",
+    "type": "Ip",
+    "value": "34.19.127.199",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.568085"
+  },
+  {
+    "id": "20251026201722568085",
+    "type": "Domain",
+    "value": "saomobile.cetesb.sp.gov.br",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.568085"
+  },
+  {
+    "id": "20251026201722568085",
+    "type": "Ip",
+    "value": "34.19.127.199",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Domain",
+    "value": "seguranca.cetesb.sp.gov.br",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Ip",
+    "value": "34.19.127.205",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Ip",
+    "value": "34.19.127.219",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Domain",
+    "value": "biblioteca.cetesb.sp.gov.br",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Ip",
+    "value": "38.54.14.88",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Domain",
+    "value": "simqua.cetesb.sp.gov.br",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Ip",
+    "value": "114.43.151.248",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Ip",
+    "value": "201.55.44.210",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Ip",
+    "value": "114.43.151.248",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Ip",
+    "value": "114.43.154.175",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Ip",
+    "value": "118.193.46.22",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Ip",
+    "value": "201.55.44.227",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Ip",
+    "value": "123.139.218.0",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Ip",
+    "value": "201.55.44.210",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Ip",
+    "value": "141.255.164.26",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.569090"
+  },
+  {
+    "id": "20251026201722569090",
+    "type": "Ip",
+    "value": "201.55.44.217",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "141.255.164.26",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "201.55.44.234",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "141.255.164.26",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "201.55.44.244",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "141.255.164.26",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "142.93.132.14",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "201.55.44.220",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "150.241.206.248",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "201.55.44.222",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "152.32.252.132",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "201.55.44.206",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "154.44.19.198",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "201.55.44.221",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "156.227.232.166",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "201.55.44.225",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.570091"
+  },
+  {
+    "id": "20251026201722570091",
+    "type": "Ip",
+    "value": "158.220.91.37",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.571090"
+  },
+  {
+    "id": "20251026201722571090",
+    "type": "Ip",
+    "value": "165.154.3.138",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.571090"
+  },
+  {
+    "id": "20251026201722571090",
+    "type": "Ip",
+    "value": "201.55.44.221",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.571090"
+  },
+  {
+    "id": "20251026201722571090",
+    "type": "Ip",
+    "value": "165.154.3.181",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.571090"
+  },
+  {
+    "id": "20251026201722571090",
+    "type": "Ip",
+    "value": "201.55.44.229",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.571090"
+  },
+  {
+    "id": "20251026201722571090",
+    "type": "Ip",
+    "value": "170.9.225.137",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.571090"
+  },
+  {
+    "id": "20251026201722571090",
+    "type": "Ip",
+    "value": "201.55.44.240",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.571090"
+  },
+  {
+    "id": "20251026201722571090",
+    "type": "Ip",
+    "value": "178.142.220.73",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.571090"
+  },
+  {
+    "id": "20251026201722571090",
+    "type": "Ip",
+    "value": "178.17.50.93",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.571090"
+  },
+  {
+    "id": "20251026201722571090",
+    "type": "Ip",
+    "value": "185.85.205.122",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.571090"
+  },
+  {
+    "id": "20251026201722571090",
+    "type": "Ip",
+    "value": "201.55.44.229",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.571090"
+  },
+  {
+    "id": "20251026201722571090",
+    "type": "Ip",
+    "value": "192.210.133.26",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.571090"
+  },
+  {
+    "id": "20251026201722571090",
+    "type": "Ip",
+    "value": "201.55.44.231",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.571090"
+  },
+  {
+    "id": "20251026201722571090",
+    "type": "Ip",
+    "value": "194.146.13.28",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.571090"
+  },
+  {
+    "id": "20251026201722571090",
+    "type": "Ip",
+    "value": "20.55.39.239",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.571090"
+  },
+  {
+    "id": "20251026201722572089",
+    "type": "Ip",
+    "value": "213.176.17.21",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.572089"
+  },
+  {
+    "id": "20251026201722572089",
+    "type": "Ip",
+    "value": "23.158.56.159",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.572089"
+  },
+  {
+    "id": "20251026201722572089",
+    "type": "Ip",
+    "value": "201.55.44.213",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.572089"
+  },
+  {
+    "id": "20251026201722572089",
+    "type": "Ip",
+    "value": "34.148.212.160",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.572089"
+  },
+  {
+    "id": "20251026201722572089",
+    "type": "Ip",
+    "value": "201.55.44.221",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.572089"
+  },
+  {
+    "id": "20251026201722572089",
+    "type": "Ip",
+    "value": "34.171.29.151",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.572089"
+  },
+  {
+    "id": "20251026201722572089",
+    "type": "Ip",
+    "value": "201.55.44.217",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.572089"
+  },
+  {
+    "id": "20251026201722572089",
+    "type": "Ip",
+    "value": "34.19.116.48",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.572089"
+  },
+  {
+    "id": "20251026201722572089",
+    "type": "Ip",
+    "value": "34.19.116.48",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.572089"
+  },
+  {
+    "id": "20251026201722572089",
+    "type": "Domain",
+    "value": "sistemainfoaguas.cetesb.sp.gov.br",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.572089"
+  },
+  {
+    "id": "20251026201722572089",
+    "type": "Ip",
+    "value": "34.19.116.52",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.572089"
+  },
+  {
+    "id": "20251026201722572089",
+    "type": "Ip",
+    "value": "34.19.116.52",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.573080"
+  },
+  {
+    "id": "20251026201722573080",
+    "type": "Domain",
+    "value": "sao-publico.cetesb.sp.gov.br",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.573080"
+  },
+  {
+    "id": "20251026201722573080",
+    "type": "Ip",
+    "value": "34.19.127.181",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.573080"
+  },
+  {
+    "id": "20251026201722573080",
+    "type": "Ip",
+    "value": "201.55.44.231",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.573080"
+  },
+  {
+    "id": "20251026201722573080",
+    "type": "Ip",
+    "value": "34.19.127.181",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.573080"
+  },
+  {
+    "id": "20251026201722573080",
+    "type": "Ip",
+    "value": "34.19.127.183",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.573080"
+  },
+  {
+    "id": "20251026201722573080",
+    "type": "Domain",
+    "value": "qualipraia.cetesb.sp.gov.br",
+    "source": "Upload: cve-2021-41773.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2021-41773.csv",
+    "date_added": "2025-10-26T20:17:22.573080"
+  },
+  {
+    "id": "20251026203653077347",
+    "type": "Ip",
+    "value": "38.54.14.88",
+    "source": "Upload: cve-2024-22024.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2024-22024.csv",
+    "date_added": "2025-10-26T20:36:53.077347"
+  },
+  {
+    "id": "20251026203653077347",
+    "type": "Domain",
+    "value": "autenticidade.cetesb.sp.gov.br",
+    "source": "Upload: cve-2024-22024.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2024-22024.csv",
+    "date_added": "2025-10-26T20:36:53.078344"
+  },
+  {
+    "id": "20251026203653078344",
+    "type": "Domain",
+    "value": "sao-publico.cetesb.sp.gov.br",
+    "source": "Upload: cve-2024-22024.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2024-22024.csv",
+    "date_added": "2025-10-26T20:36:53.078344"
+  },
+  {
+    "id": "20251026203653078344",
+    "type": "Domain",
+    "value": "simqua.cetesb.sp.gov.br",
+    "source": "Upload: cve-2024-22024.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2024-22024.csv",
+    "date_added": "2025-10-26T20:36:53.078344"
+  },
+  {
+    "id": "20251026203653078344",
+    "type": "Domain",
+    "value": "licitacoes.cetesb.sp.gov.br",
+    "source": "Upload: cve-2024-22024.csv",
+    "severity": "Medium",
+    "description": "Extraído automaticamente do arquivo cve-2024-22024.csv",
+    "date_added": "2025-10-26T20:36:53.078344"
+  },
+  {
+    "id": "20251026215803",
+    "type": "Domain",
+    "value": "sslip.io",
+    "source": "AbuseIPDB, VirusTotal",
+    "severity": "Não Malicioso",
+    "description": "Fonte: AbuseIPDB, Abuse Score: None, Limpo ou não detectado.<br>Fonte: VirusTotal, Abuse Score: None, Limpo ou não detectado."
   }
 ]

@@ -172,6 +172,30 @@
             border-radius: 8px;
             margin-top: 20px;
         }
+			footer {
+				 background: rgba(255,255,255,0.5);
+				 color: #444;
+				 text-align: center;
+				 padding: 14px 0 12px 0;
+				 font-size: 1.15em;
+				 border-top: 1px solid #e4e4ef;
+				 width: 100vw;
+				 left: 0;
+				 box-shadow: 0 -1px 12px 0 rgba(102,126,234,0.08);
+				 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				 backdrop-filter: blur(2px);
+				 letter-spacing: .3px;
+				 <!-- position: fixed; -->
+				 <!-- bottom: 0; -->
+				 <!-- z-index: 99; -->
+				 margin-top: 40px;
+				}
+			@media (max-width: 960px) {
+			  footer {
+				font-size: 1em;
+			  }
+			}
+
     </style>
 </head>
 <body>
@@ -221,7 +245,7 @@
             </div>
         </div>
     </div>
-    
+    <div id="pagination" style="text-align:center;margin:18px 0;"></div>
     <script>
         window.onload = loadCVEs;
         
@@ -235,35 +259,98 @@
             }
         }
         
-        function displayCVEs(cves) {
-            const tbody = document.getElementById('cveTableBody');
-            if (cves.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 40px; color: #999;">📭 Nenhuma CVE salva</td></tr>';
-                return;
-            }
-            tbody.innerHTML = '';
-            cves.forEach(cve => {
-                const row = document.createElement('tr');
-                const sources = Array.isArray(cve.sources) ? cve.sources.join(', ') : cve.sources || 'N/A';
-                row.innerHTML = `
-                    <td><strong>${cve.cve_id}</strong></td>
-                    <td><span class="severity-${cve.severity.toLowerCase()}">${cve.severity}</span></td>
-                    <td>${cve.cvss_score}</td>
-                    <td>${cve.description_pt || cve.description || '-'}</td>
-                    <td>${cve.published_date || '-'}</td>
-                    <td>${sources}</td>
-                    <td><button onclick="deleteCVE('${cve.id}')" class="btn btn-danger" style="padding: 8px 16px;">🗑️ Excluir</button></td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
-        
+        <!-- <!-- function displayCVEs(cves) { -->
+			<!-- const tbody = document.getElementById('cveTableBody'); -->
+			<!-- if (cves.length === 0) { -->
+				<!-- tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 40px; color: #999;">📭 Nenhuma CVE salva</td></tr>'; -->
+				<!-- return; -->
+			<!-- } -->
+			<!-- tbody.innerHTML = ''; -->
+			<!-- cves.forEach(cve => { -->
+				<!-- const sources = Array.isArray(cve.sources) ? cve.sources.join(', ') : (cve.sources || '-'); -->
+				<!-- const cveId = cve.cve_id || '-'; -->
+				<!-- const severity = cve.severity || '-'; -->
+				<!-- const cvss = cve.cvss_score || '-'; -->
+				<!-- const desc = cve.description_pt || cve.description || '-'; -->
+				<!-- const pubdate = cve.published_date || '-'; -->
+				<!-- const row = document.createElement('tr'); -->
+				<!-- row.innerHTML = ` -->
+					<!-- <td><strong>${cveId}</strong></td> -->
+					<!-- <td><span class="severity-${severity.toLowerCase()}">${severity}</span></td> -->
+					<!-- <td>${cvss}</td> -->
+					<!-- <td>${desc}</td> -->
+					<!-- <td>${pubdate}</td> -->
+					<!-- <td>${sources}</td> -->
+					<!-- <td><button onclick="deleteCVE('${cve.id}')" class="btn btn-danger" style="padding: 8px 16px;">🗑️ Excluir</button></td> -->
+				<!-- `; -->
+				<!-- tbody.appendChild(row); -->
+			<!-- }); -->
+		<!-- } -->
+ -->
+
+let currentPage = 1;
+const rowsPerPage = 10;
+let allCVEs = [];
+
+		function displayCVEs(cves) {
+			allCVEs = cves;
+			showPage(currentPage);
+			renderPagination();
+		}
+
+		function showPage(page) {
+			const tbody = document.getElementById('cveTableBody');
+			tbody.innerHTML = '';
+			const start = (page - 1) * rowsPerPage;
+			const end = start + rowsPerPage;
+			const pageCVEs = allCVEs.slice(start, end);
+
+			if (pageCVEs.length === 0) {
+				tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 40px; color: #999;">📭 Nenhuma CVE salva</td></tr>';
+				return;
+			}
+			pageCVEs.forEach(cve => {
+				const sources = Array.isArray(cve.sources) ? cve.sources.join(', ') : (cve.sources || '-');
+				const cveId = cve.cve_id || '-';
+				const severity = cve.severity || '-';
+				const cvss = cve.cvss_score || '-';
+				const desc = cve.description_pt || cve.description || '-';
+				const pubdate = cve.published_date || '-';
+				const row = document.createElement('tr');
+				row.innerHTML = `
+					<td><strong>${cveId}</strong></td>
+					<td><span class="severity-${severity.toLowerCase()}">${severity}</span></td>
+					<td>${cvss}</td>
+					<td>${desc}</td>
+					<td>${pubdate}</td>
+					<td>${sources}</td>
+					<td><button onclick="deleteCVE('${cve.id}')" class="btn btn-danger" style="padding: 8px 16px;">🗑️ Excluir</button></td>
+				`;
+				tbody.appendChild(row);
+			});
+		}
+
+		function renderPagination() {
+			const pageCount = Math.ceil(allCVEs.length / rowsPerPage);
+			let html = '';
+			for (let i = 1; i <= pageCount; i++) {
+				html += `<button onclick="toPage(${i})" ${i === currentPage ? 'style="font-weight:bold"' : ''}>${i}</button> `;
+			}
+			document.getElementById('pagination').innerHTML = html;
+		}
+
+		function toPage(page) {
+			currentPage = page;
+			showPage(page);
+			renderPagination();
+		}
+         
         async function searchCVE() {
             const cveId = document.getElementById('cveSearchInput').value.trim().toUpperCase();
             const resultsDiv = document.getElementById('searchResults');
             
             if (!cveId) {
-                resultsDiv.innerHTML = '<div class="error">⚠️ Digite um CVE ID para buscar</div>';
+                resultsDiv.innerHTML = `<div class="success">✅ ${data.count} CVEs encontradas (${data.saved} novas salvas).<br>Veja os resultados na tabela abaixo.</div>`;
                 return;
             }
             
@@ -319,15 +406,20 @@
                     body: JSON.stringify(window.currentCVE)
                 });
                 
-                if (response.ok) {
-                    alert('✅ CVE salva com sucesso!');
-                    loadCVEs();
-                }
-            } catch (error) {
-                alert('❌ Erro ao salvar CVE');
-            }
-        }
-        
+                const result = await response.json();
+				if (result.success) {
+					alert('✅ CVE salva com sucesso!');
+					loadCVEs();
+				} else if (result.error && result.error.includes("registrada")) {
+					alert('⚠️ CVE já registrada!');
+				} else {
+					alert('❌ Erro ao salvar CVE!');
+				}
+				} catch (error) {
+					alert('❌ Erro ao salvar CVE!');
+				}
+			}
+          
         async function deleteCVE(cveId) {
             if (!confirm('⚠️ Deseja realmente excluir esta CVE?')) return;
             
@@ -375,5 +467,14 @@
             }
         }
     </script>
+<footer>
+  <span style="margin-right:6px;">
+    <svg height="21" viewBox="0 0 20 20" width="21" fill="#764ba2" style="vertical-align:middle; margin-bottom: -5px;">
+      <path d="M10 2l7 4v5c0 5-7 7-7 7s-7-2-7-7V6z"></path>
+    </svg>
+  </span>
+  IOC Analyzer - Blue Team Platform - Licença GPLv3 - 2025. Autor Pablo Nunes de Oliveira
+</footer>
+
 </body>
 </html>

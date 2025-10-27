@@ -1,4 +1,10 @@
+# --- Garante a leitura do .env corretamente - desde o início do scrip
+from dotenv import load_dotenv
+load_dotenv()
+
+# --- Início das funções e imports
 from flask import Flask, request, render_template, jsonify
+from flask import redirect, url_for
 from werkzeug.utils import secure_filename
 from parsers.log_parser import parse_log
 from ioc.abuseipdb_client import check_ip
@@ -11,6 +17,8 @@ from datetime import datetime
 import json
 import os
 import traceback
+import csv
+import pandas as pd
 
 # Importar tradutor
 try:
@@ -26,7 +34,7 @@ app = Flask(__name__)
 
 # Configuração de upload
 UPLOAD_FOLDER = 'uploads'
-ALLOWED_EXTENSIONS = {'log', 'txt', 'csv'}
+ALLOWED_EXTENSIONS = {'log', 'txt', 'csv', 'xlsx', 'json', ''}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max
 
@@ -51,6 +59,33 @@ def allowed_file(filename):
 IOC_DATABASE_FILE = 'data/ioc_database.json'
 CVE_DATABASE_FILE = 'data/cve_database.json'
 
+def universal_file_parser(filepath, extension):
+    results = []
+    if extension in ["txt", "log"]:
+        with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+            for line in f:
+                results.append(parse_log(line))
+    elif extension == "csv":
+        with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+            reader = csv.reader(f)
+            for row in reader:
+                line = " ".join(row)
+                results.append(parse_log(line))
+    elif extension == "xlsx":
+        df = pd.read_excel(filepath)
+        for _, row in df.iterrows():
+            line = " ".join(str(val) for val in row.values)
+            results.append(parse_log(line))
+    # --- Deduplicação dos resultados ---
+    # Junta todos os resultados (cada resultado é um dict de tipo -> lista)
+    unique = {'ips': set(), 'urls': set(), 'domains': set(), 'hashes': set()}
+    for ioc_dict in results:
+        for ioc_type, values in ioc_dict.items():
+            unique[ioc_type].update(values)
+    # Converte novamente para listas e cria um único dict para retornar
+    deduped = {k: list(v) for k, v in unique.items()}
+    return [deduped]
+        
 def load_ioc_database():
     if os.path.exists(IOC_DATABASE_FILE):
         with open(IOC_DATABASE_FILE, 'r', encoding='utf-8') as f:
@@ -72,6 +107,37 @@ def save_cve_database(data):
     os.makedirs('data', exist_ok=True)
     with open(CVE_DATABASE_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
+
+def analisar_classificacao(results):
+    status = []
+    detalhes = []
+    for r in results:
+        # print("[DEBUG ANALISAR_CLASSIFICACAO] Entrada:", r)
+        if not r:
+            continue
+        score = r.get("abuseConfidenceScore")
+        reports = r.get("totalReports")
+        classification = r.get("classification")
+        vt_stats = r.get("virustotal_stats", {})
+        malicious = vt_stats.get("malicious", 0)
+        suspicious = vt_stats.get("suspicious", 0)
+        fonte = r.get("source", "Desconhecida")
+        if (score and int(score) >= 90) or (malicious and int(malicious) >= 1) or classification == "malicious":
+            status.append("Malicioso")
+            detalhes.append(f"Fonte: {fonte}, Abuse Score: {score}, Malicious: {malicious}, Reports: {reports}")
+        elif (score and 50 <= int(score) < 90) or suspicious or classification in ["suspicious", "unknown"]:
+            status.append("Suspeito")
+            detalhes.append(f"Fonte: {fonte}, Abuse Score: {score}, Suspicious: {suspicious}")
+        else:
+            status.append("Não Malicioso")
+            detalhes.append(f"Fonte: {fonte}, Abuse Score: {score}, Limpo ou não detectado.")
+    if "Malicioso" in status:
+        resumo = "Malicioso"
+    elif "Suspeito" in status:
+        resumo = "Suspeito"
+    else:
+        resumo = "Não Malicioso"
+    return resumo, detalhes
 
 @app.route('/')
 def index():
@@ -121,33 +187,103 @@ def upload_files():
                 filename = secure_filename(file.filename)
                 filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                 file.save(filepath)
-                with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
-                    log_content = f.read()
-                iocs = parse_log(log_content)
-                ioc_db = load_ioc_database()
-                for ioc in iocs:
-                    ioc_entry = {
-                        'id': datetime.now().strftime('%Y%m%d%H%M%S%f'),
-                        'type': ioc['type'],
-                        'value': ioc['value'],
-                        'source': f'Upload: {filename}',
-                        'severity': 'Medium',
-                        'description': f'Extraído automaticamente do arquivo {filename}',
-                        'date_added': datetime.now().isoformat()
-                    }
-                    ioc_db.append(ioc_entry)
-                    all_iocs.append(ioc)
-                save_ioc_database(ioc_db)
+                extension = filename.rsplit('.', 1)[1].lower()
+                results = universal_file_parser(filepath, extension)
+                deduped = results[0]
+                classified = []
+                for ioc_type, values in deduped.items():
+                    for value in values:
+                        results_enrich = []
+                        try:
+                            if ioc_type == "ips":
+                                abuse = check_ip(value)
+                                if abuse: abuse["source"] = "AbuseIPDB"
+                                vt = check_hash(value)
+                                if vt: vt["source"] = "VirusTotal"
+                                results_enrich = [abuse, vt]
+                            elif ioc_type in ["urls", "domains"]:
+                                vt = check_url_or_domain(value)
+                                if vt: vt["source"] = "VirusTotal"
+                                results_enrich = [vt]
+                            elif ioc_type == "hashes":
+                                vt = check_hash(value)
+                                if vt: vt["source"] = "VirusTotal"
+                                results_enrich = [vt]
+                        except Exception as e:
+                            results_enrich = [{"source": "Erro", "classification": str(e)}]
+                        resumo, detalhes = analisar_classificacao(results_enrich)
+                        classified.append({
+                            "type": ioc_type[:-1].capitalize(),
+                            "value": value,
+                            "severity": resumo,
+                            "classification": detalhes[0] if detalhes else "Desconhecido"
+                        })
+
+    
                 os.remove(filepath)
-        return jsonify({'success': True, 'total_iocs': len(all_iocs), 'iocs': all_iocs})
+                return jsonify({'success': True, 'total_iocs': len(classified), 'iocs': classified})
+
     except Exception as e:
         print(f"[ERRO] Upload: {e}")
         traceback.print_exc()
         return jsonify({'success': False, 'error': str(e)}), 500
 
-@app.route('/ioc')
+@app.route('/ioc', methods=['GET'])
 def ioc_panel():
-    return render_template('ioc_panel.html')
+    iocs = load_ioc_database()
+    # Filtros GET
+    severity = request.args.get("severity")
+    ioc_type = request.args.get("type")
+    if severity:
+        iocs = [i for i in iocs if i.get("severity") == severity]
+    if ioc_type:
+        iocs = [i for i in iocs if i.get("type") == ioc_type]
+    return render_template('ioc_panel.html', iocs=iocs)
+
+
+@app.route('/ioc/search', methods=['POST'])
+def ioc_search():
+    ioc_value = request.form.get('ioc_value', '').strip()
+    error = None
+
+    if not ioc_value:
+        return render_template('ioc_panel.html', error="Informe o valor do IOC", iocs=load_ioc_database())
+
+    abuse = None
+    vt = None
+    try:
+        if "." in ioc_value:
+            abuse = check_ip(ioc_value)
+            if abuse: abuse["source"] = "AbuseIPDB"
+            vt = check_hash(ioc_value)
+            if vt: vt["source"] = "VirusTotal"
+        else:
+            vt = check_hash(ioc_value)
+            if vt: vt["source"] = "VirusTotal"
+    except Exception as exc:
+        error = f"Erro em consultas externas: {exc}"
+
+    resumo, detalhes = analisar_classificacao([abuse, vt])
+    tipo = "-"
+    if abuse and isinstance(abuse, dict) and "type" in abuse:
+        tipo = abuse["type"]
+    elif vt and isinstance(vt, dict) and "type" in vt:
+        tipo = vt["type"]
+
+    result = {
+        "type": tipo,
+        "severity": resumo,
+        "description": "<br>".join(detalhes) if detalhes else "-",
+        "source": ", ".join(
+            s for s in [
+                abuse["source"] if abuse and isinstance(abuse, dict) and "source" in abuse else None,
+                vt["source"] if vt and isinstance(vt, dict) and "source" in vt else None
+            ] if s
+        ),
+        "date_added": datetime.now().strftime('%d/%m/%Y %H:%M'),
+    }
+
+    return render_template('ioc_panel.html', iocs=load_ioc_database(), ioc_result=result, ioc_value=ioc_value, error=error)
 
 @app.route('/ioc/list')
 def ioc_list():
@@ -160,31 +296,56 @@ def ioc_list():
 @app.route('/ioc/add', methods=['POST'])
 def ioc_add():
     try:
-        data = request.get_json()
+        data = request.form
+        valor = data.get('value')
+        tipo = data.get('type') or "-"
+        # Dedução automática do tipo, se tipo ficou vazio ou traço
+        if not tipo or tipo.strip() == "-" or tipo.strip() == "":
+            if valor:
+                import re
+                # IP v4
+                if re.match(r"^\d{1,3}(\.\d{1,3}){3}$", valor):
+                    tipo = "IP"
+                # URL
+                elif "://" in valor or valor.startswith("www."):
+                    tipo = "URL"
+                # Hash
+                elif len(valor) in (32, 40, 64) and all(c in "0123456789abcdefABCDEF" for c in valor):
+                    tipo = "Hash"
+                # Domain
+                elif re.match(r"^(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$", valor):
+                    tipo = "Domain"
+                else:
+                    tipo = "Outro"
+            else:
+                tipo = "Outro"
         ioc = {
             'id': datetime.now().strftime('%Y%m%d%H%M%S'),
-            'type': data.get('type'),
-            'value': data.get('value'),
+            'type': tipo,
+            'value': valor,
             'source': data.get('source'),
             'severity': data.get('severity'),
             'description': data.get('description'),
-            'date_added': datetime.now().isoformat()
         }
         iocs = load_ioc_database()
         iocs.append(ioc)
         save_ioc_database(iocs)
-        return jsonify({'success': True, 'ioc': ioc})
+        return redirect(url_for('ioc_panel'))
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/ioc/delete/<ioc_id>', methods=['DELETE'])
+@app.route('/ioc/delete/<ioc_id>', methods=['DELETE', 'POST'])
 def ioc_delete(ioc_id):
     try:
         iocs = load_ioc_database()
-        iocs = [ioc for ioc in iocs if ioc['id'] != ioc_id]
+        iocs = [ioc for ioc in iocs if str(ioc['id']) != str(ioc_id)]
         save_ioc_database(iocs)
+        if request.method == 'POST':
+            return redirect(url_for('ioc_panel'))
         return jsonify({'success': True})
     except Exception as e:
+        if request.method == 'POST':
+            return redirect(url_for('ioc_panel', error=str(e)))
         return jsonify({'error': str(e)}), 500
 
 @app.route('/ioc/update/<ioc_id>', methods=['PUT'])
@@ -275,6 +436,11 @@ def cve_search():
 def cve_add():
     try:
         data = request.get_json()
+        cve_id = data.get('cve_id')
+        # Verificação de duplicidade
+        cve_db = load_cve_database()
+        if any(str(cve.get('cve_id')).strip().lower() == str(cve_id).strip().lower() for cve in cve_db):
+            return jsonify({'success': False, 'error': 'CVE já registrada!'})
         cve = {
             'id': datetime.now().strftime('%Y%m%d%H%M%S%f'),
             'cve_id': data.get('cve_id'),
@@ -300,7 +466,7 @@ def cve_add():
 def cve_delete(cve_id):
     try:
         cves = load_cve_database()
-        cves = [cve for cve in cves if cve['id'] != cve_id]
+        cves = [cve for cve in cves if str(cve['id']) != str(cve_id)]
         save_cve_database(cves)
         return jsonify({'success': True})
     except Exception as e:

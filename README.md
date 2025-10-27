@@ -44,6 +44,15 @@ Plataforma completa de análise e correlação de **Indicadores de Comprometimen
 - 🔗 Navegação consistente entre páginas
 - 🌐 Acesso via rede local (LAN)
 
+## 🚀 Funcionalidades v2.2 (Out/2025)
+
+- **Visual renovado:** gradientes modernos, rodapé institucional, navegação aprimorada
+- **Paginação em todas as tabelas:** IOC e CVE, 10 itens por página
+- **Prevenção de duplicidades:** alerta para IOCs/CVEs já registrados
+- **Upload drag-and-drop** mais estável, aceitando `.log`, `.txt` e `.csv`
+- **Configuração e feedback aprimorados:** instruções claras, erros amigáveis para `.env` e APIs
+- **Filtros e layout responsivos:** experiência fluida em desktop e mobile
+
 ---
 
 ## 🏗️ Estrutura do Projeto
@@ -78,7 +87,6 @@ ioc_analyzer/
 ├── README.md                      # Este arquivo
 └── requirements.txt               # Dependências Python
 ```
-
 ---
 
 ## ⚙️ Instalação
@@ -274,12 +282,6 @@ Acesse `http://localhost:5000/` para visualizar:
 
 ## 🗺️ Roadmap (Próximas Versões)
 
-### **v2.2 - Correlação IOC ↔ CVE**
-- [ ] Correlacionar IoCs com CVEs automaticamente
-- [ ] Buscar CVEs relacionadas a IoCs
-- [ ] Buscar IoCs relacionados a CVEs
-- [ ] Dashboard de correlações
-
 ### **v3.0 - Autenticação e Segurança**
 - [ ] Sistema de login/senha
 - [ ] Autenticação JWT
@@ -291,8 +293,6 @@ Acesse `http://localhost:5000/` para visualizar:
 - [ ] TheHive Integration
 - [ ] STIX/TAXII Support
 - [ ] Exportação para SIEM
-
----
 
 ## 📝 Changelog
 
@@ -312,7 +312,13 @@ Acesse `http://localhost:5000/` para visualizar:
 ### **v2.0 - 20/10/2025**
 ✨ **Primeira Release Estável**
 
----
+### **v2.2 - 27/10/2025**
+🐛 **Correções:**
+- Correlação IOC ↔ CVE
+- Correlacionar IoCs com CVEs automaticamente
+- Buscar CVEs relacionadas a IoCs
+- Buscar IoCs relacionados a CVEs
+- Dashboard de correlações
 
 ## 🤝 Contribuindo
 

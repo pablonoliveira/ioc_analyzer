@@ -1,56 +1,141 @@
 [
   {
-    "id": 1761363421564,
-    "cveId": "CVE-2025-62723",
-    "severity": "Unknown",
-    "cvssScore": null,
-    "status": "Active",
+    "id": "20251025135843796360",
+    "cve_id": "CVE-2025-60729",
+    "severity": "Medium",
+    "cvss_score": 5.3,
+    "description": "PerfreeBlog v4.0.11 has an arbitrary file read vulnerability in the validThemeFilePath function",
+    "description_pt": "PerfreeBlog v4.0.11 tem uma vulnerabilidade de leitura de arquivo arbitrário na função validThemeFilePath",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
     "exploited": false,
-    "vendor": "",
-    "published": "",
-    "source": "CIRCL",
-    "description": "",
-    "createdAt": "2025-10-25T03:37:01.565Z"
+    "date_added": "2025-10-25T13:58:43.796360"
   },
   {
-    "id": 1761363434126,
-    "cveId": "CVE-2025-62714",
-    "severity": "Unknown",
-    "cvssScore": null,
-    "status": "Active",
+    "id": "20251025135843796360",
+    "cve_id": "CVE-2025-60730",
+    "severity": "High",
+    "cvss_score": 7.6,
+    "description": "PerfreeBlog v4.0.11 has an arbitrary file deletion vulnerability in the unInstallTheme function",
+    "description_pt": "PerfreeBlog v4.0.11 tem uma vulnerabilidade de exclusão arbitrária de arquivos na função unInstallTheme",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
     "exploited": false,
-    "vendor": "",
-    "published": "",
-    "source": "CIRCL",
-    "description": "",
-    "createdAt": "2025-10-25T03:37:14.126Z"
+    "date_added": "2025-10-25T13:58:43.796873"
   },
   {
-    "id": 1761363453322,
-    "cveId": "CVE-2024-22024",
-    "severity": "Unknown",
-    "cvssScore": null,
-    "status": "Active",
+    "id": "20251025135843796873",
+    "cve_id": "CVE-2025-60731",
+    "severity": "High",
+    "cvss_score": 7.6,
+    "description": "PerfreeBlog v4.0.11 has a File Upload vulnerability in the installTheme function",
+    "description_pt": "PerfreeBlog v4.0.11 tem uma vulnerabilidade de upload de arquivo na função installTheme",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
     "exploited": false,
-    "vendor": "",
-    "published": "",
-    "source": "CIRCL",
-    "description": "",
-    "createdAt": "2025-10-25T03:37:33.322Z"
+    "date_added": "2025-10-25T13:58:43.796873"
   },
   {
-    "id": 1761394290409,
-    "cve_id": "CVE-2024-21413",
-    "cveId": "CVE-2024-21413",
-    "severity": "Unknown",
-    "exploited": true,
-    "product": "Vulnerabilidade de validação de entrada inadequada do Microsoft Outlook",
-    "description": "O Microsoft Outlook contém uma vulnerabilidade de validação de entrada inadequada que permite a execução remota de código.A exploração bem-sucedida desta vulnerabilidade permitiria que um invasor ignorasse o Modo de Exibição Protegido do Office e abrisse no modo de edição em vez do modo protegido.",
-    "datePublished": "2025-10-25",
-    "createdAt": "2025-10-25T12:11:30.409Z"
+    "id": "20251025135843796873",
+    "cve_id": "CVE-2025-60735",
+    "severity": "High",
+    "cvss_score": 7.6,
+    "description": "PerfreeBlog v4.0.11 has a File Upload vulnerability in the installPlugin function",
+    "description_pt": "PerfreeBlog v4.0.11 tem uma vulnerabilidade de upload de arquivo na função installPlugin",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-25T13:58:43.796873"
   },
   {
-    "id": "20251025110049",
+    "id": "20251025135843796873",
+    "cve_id": "CVE-2025-60419",
+    "severity": "Medium",
+    "cvss_score": 6.2,
+    "description": "An issue was discovered in the NDIS Usermode IO driver (RtkIOAC60.sys, version 6.0.5600.16348) allowing local authenticated attackers to send a crafted IOCTL request to the driver to cause a denial of service.",
+    "description_pt": "Foi descoberto um problema no driver NDIS Usermode IO (RtkIOAC60.sys, versão 6.0.5600.16348) que permite que invasores locais autenticados enviem uma solicitação IOCTL criada ao driver para causar uma negação de serviço.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-25T13:58:43.796873"
+  },
+  {
+    "id": "20251025135843796873",
+    "cve_id": "CVE-2025-62716",
+    "severity": "High",
+    "cvss_score": 8.1,
+    "description": "Plane is open-source project management software. Prior to version 1.1.0, an open redirect vulnerability in the ?next_path query parameter allows attackers to supply arbitrary schemes (e.g., javascript:) that are passed directly to router.push. This results in a cross-site scripting (XSS) vulnerability, enabling attackers to execute arbitrary JavaScript in the victim’s browser. The issue can be exploited without authentication and has severe impact, including information disclosure, and privilege escalation and modifications of administrative settings. This issue has been patched in version 1.1.0.",
+    "description_pt": "Plane é um software de gerenciamento de projetos de código aberto.Antes da versão 1.1.0, uma vulnerabilidade de redirecionamento aberto no parâmetro de consulta ?next_path permite que invasores forneçam esquemas arbitrários (por exemplo, javascript:) que são passados ​​diretamente para router.push.Isso resulta em uma vulnerabilidade de cross-site scripting (XSS), permitindo que invasores executem JavaScript arbitrário no navegador da vítima.O problema pode ser explorado sem autenticação e tem impacto severo, incluindo divulgação de informações, escalonamento de privilégios e modificações de configurações administrativas.Este problema foi corrigido na versão 1.1.0.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-25T13:58:43.797068"
+  },
+  {
+    "id": "20251025135843797580",
+    "cve_id": "CVE-2025-12095",
+    "severity": "High",
+    "cvss_score": 8.8,
+    "description": "The Simple Registration for WooCommerce plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 1.5.8. This is due to missing nonce validation on the role requests admin page handler in the includes/display-role-admin.php file. This makes it possible for unauthenticated attackers to approve pending role requests and escalate user privileges via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
+    "description_pt": "O plugin Simple Registration for WooCommerce para WordPress é vulnerável à falsificação de solicitação entre sites em todas as versões até 1.5.8, inclusive.Isso se deve à falta de validação do nonce no manipulador da página de administração de solicitações de função no arquivo include/display-role-admin.php.Isso possibilita que invasores não autenticados aprovem solicitações de função pendentes e aumentem os privilégios do usuário por meio de uma solicitação forjada, desde que possam enganar um administrador do site para que execute uma ação como clicar em um link.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-25T13:58:43.797580"
+  },
+  {
+    "id": "20251025135843797580",
+    "cve_id": "CVE-2025-6639",
+    "severity": "Medium",
+    "cvss_score": 5.4,
+    "description": "The Tutor LMS Pro – eLearning and online course solution plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 3.8.3 due to missing validation on a user controlled key when viewing and editing assignments through the tutor_assignment_submit() function. This makes it possible for authenticated attackers, with Subscriber-level access and above, to view and edit assignment submissions of other students.",
+    "description_pt": "O plug-in Tutor LMS Pro – eLearning e solução de curso on-line para WordPress é vulnerável à referência direta insegura de objetos em todas as versões até 3.8.3, inclusive, devido à falta de validação em uma chave controlada pelo usuário ao visualizar e editar tarefas por meio da função tutor_assignment_submit().Isso possibilita que invasores autenticados, com acesso de nível de Assinante e superior, visualizem e editem envios de tarefas de outros alunos.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-25T13:58:43.797580"
+  },
+  {
+    "id": "20251025135843797580",
+    "cve_id": "CVE-2025-6680",
+    "severity": "Medium",
+    "cvss_score": 4.3,
+    "description": "The Tutor LMS – eLearning and online course solution plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 3.8.3. This makes it possible for authenticated attackers, with tutor-level access and above, to view assignments for courses they don't teach which may contain sensitive information.",
+    "description_pt": "O plugin Tutor LMS – eLearning e solução de curso online para WordPress é vulnerável à exposição de informações confidenciais em todas as versões até 3.8.3, inclusive.Isso possibilita que invasores autenticados, com acesso de nível de tutor e superior, visualizem tarefas de cursos que não ministram e que podem conter informações confidenciais.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-25T13:58:43.797726"
+  },
+  {
+    "id": "20251026231619875913",
     "cve_id": "CVE-2024-21413",
     "severity": "Critical",
     "cvss_score": 9.8,
@@ -69,6 +154,1746 @@
     ],
     "exploited": false,
     "cisa_info": null,
-    "date_added": "2025-10-25T11:00:49.874787"
+    "date_added": "2025-10-26T23:16:19.875913"
+  },
+  {
+    "id": "20251026234103747219",
+    "cve_id": "CVE-2025-8709",
+    "severity": "High",
+    "cvss_score": 7.3,
+    "description": "A SQL injection vulnerability exists in the langchain-ai/langchain repository, specifically in the LangGraph's SQLite store implementation. The affected version is langgraph-checkpoint-sqlite 2.0.10. The vulnerability arises from improper handling of filter operators ($eq, $ne, $gt, $lt, $gte, $lte) where direct string concatenation is used without proper parameterization. This allows attackers to inject arbitrary SQL, leading to unauthorized access to all documents, data exfiltration of sensitive fields such as passwords and API keys, and a complete bypass of application-level security filters.",
+    "description_pt": "Existe uma vulnerabilidade de injeção de SQL no repositório langchain-ai/langchain, especificamente na implementação do armazenamento SQLite do LangGraph.A versão afetada é langgraph-checkpoint-sqlite 2.0.10.A vulnerabilidade surge do manuseio inadequado de operadores de filtro ($eq, $ne, $gt, $lt, $gte, $lte) onde a concatenação direta de strings é usada sem a parametrização adequada.Isso permite que os invasores injetem SQL arbitrário, levando ao acesso não autorizado a todos os documentos, à exfiltração de dados de campos confidenciais, como senhas e chaves de API, e a um desvio completo dos filtros de segurança no nível do aplicativo.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.747219"
+  },
+  {
+    "id": "20251026234103747219",
+    "cve_id": "CVE-2025-12275",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Mail Configuration File Manipulation + Command Execution.This issue affects BLU-IC2: through 1.19.5; BLU-IC4: through 1.19.5.",
+    "description_pt": "Manipulação de arquivo de configuração de correio + execução de comando. Este problema afeta BLU-IC2: até 1.19.5;BLU-IC4: até 1.19.5.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.747219"
+  },
+  {
+    "id": "20251026234103747219",
+    "cve_id": "CVE-2025-12278",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Logout Functionality not Working.This issue affects BLU-IC2: through 1.19.5; BLU-IC4: through 1.19.5.",
+    "description_pt": "A funcionalidade de logout não funciona. Este problema afeta o BLU-IC2: até 1.19.5;BLU-IC4: até 1.19.5.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.747219"
+  },
+  {
+    "id": "20251026234103747219",
+    "cve_id": "CVE-2025-12284",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Lack of Input Validation in the web UI might lead to potential exploitation.This issue affects BLU-IC2: through 1.19.5; BLU-IC4: through 1.19.5.",
+    "description_pt": "A falta de validação de entrada na UI da web pode levar a uma exploração potencial. Esse problema afeta o BLU-IC2: até 1.19.5;BLU-IC4: até 1.19.5.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.747219"
+  },
+  {
+    "id": "20251026234103747219",
+    "cve_id": "CVE-2025-12285",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Initial Password Change.This issue affects BLU-IC2: through 1.19.5; BLU-IC4: through 1.19.5.",
+    "description_pt": "Alteração de senha inicial ausente. Este problema afeta BLU-IC2: até 1.19.5;BLU-IC4: até 1.19.5.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.747219"
+  },
+  {
+    "id": "20251026234103747219",
+    "cve_id": "CVE-2025-10497",
+    "severity": "High",
+    "cvss_score": 7.5,
+    "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 17.10 before 18.3.5, 18.4 before 18.4.3, and 18.5 before 18.5.1 that could have allowed an unauthenticated attacker to cause a denial of service condition by sending specially crafted payloads.",
+    "description_pt": "O GitLab corrigiu um problema no GitLab CE/EE que afetava todas as versões de 17.10 antes de 18.3.5, 18.4 antes de 18.4.3 e 18.5 antes de 18.5.1 que poderia ter permitido que um invasor não autenticado causasse uma condição de negação de serviço enviando cargas úteis especialmente criadas.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.747219"
+  },
+  {
+    "id": "20251026234103747219",
+    "cve_id": "CVE-2025-11447",
+    "severity": "High",
+    "cvss_score": 7.5,
+    "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 11.0 before 18.3.5, 18.4 before 18.4.3, and 18.5 before 18.5.1 that could have allowed an unauthenticated attacker to cause a denial of service condition by sending GraphQL requests with crafted JSON payloads.",
+    "description_pt": "O GitLab corrigiu um problema no GitLab CE/EE que afetava todas as versões de 11.0 antes de 18.3.5, 18.4 antes de 18.4.3 e 18.5 antes de 18.5.1 que poderia ter permitido que um invasor não autenticado causasse uma condição de negação de serviço enviando solicitações GraphQL com cargas JSON criadas.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.747219"
+  },
+  {
+    "id": "20251026234103747219",
+    "cve_id": "CVE-2025-11971",
+    "severity": "Medium",
+    "cvss_score": 6.5,
+    "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 10.6 before 18.3.5, 18.4 before 18.4.3, and 18.5 before 18.5.1 that could have allowed an authenticated attacker to trigger unauthorized pipeline executions by manipulating commits.",
+    "description_pt": "O GitLab corrigiu um problema no GitLab EE que afetava todas as versões de 10.6 antes de 18.3.5, 18.4 antes de 18.4.3 e 18.5 antes de 18.5.1 que poderia ter permitido que um invasor autenticado acionasse execuções de pipeline não autorizadas manipulando commits.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.747219"
+  },
+  {
+    "id": "20251026234103747219",
+    "cve_id": "CVE-2025-11974",
+    "severity": "Medium",
+    "cvss_score": 6.5,
+    "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 11.7 before 18.3.5, 18.4 before 18.4.3, and 18.5 before 18.5.1 that could have allowed an unauthenticated attacker to create a denial of service condition by uploading large files to specific API endpoints.",
+    "description_pt": "O GitLab corrigiu um problema no GitLab CE/EE que afetava todas as versões de 11.7 antes de 18.3.5, 18.4 antes de 18.4.3 e 18.5 antes de 18.5.1 que poderia ter permitido que um invasor não autenticado criasse uma condição de negação de serviço enviando arquivos grandes para endpoints de API específicos.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.747219"
+  },
+  {
+    "id": "20251026234103747219",
+    "cve_id": "CVE-2025-11989",
+    "severity": "Low",
+    "cvss_score": 3.7,
+    "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 17.6.0 before 18.3.5, 18.4 before 18.4.3, and 18.5 before 18.5.1 that could have allowed an authenticated attacker to execute unauthorized quick actions by including malicious commands in specific descriptions.",
+    "description_pt": "O GitLab corrigiu um problema no GitLab EE que afetava todas as versões de 17.6.0 antes de 18.3.5, 18.4 antes de 18.4.3 e 18.5 antes de 18.5.1 que poderia ter permitido que um invasor autenticado executasse ações rápidas não autorizadas, incluindo comandos maliciosos em descrições específicas.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.747219"
+  },
+  {
+    "id": "20251026234103747219",
+    "cve_id": "CVE-2025-6601",
+    "severity": "Low",
+    "cvss_score": 2.7,
+    "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 18.4 before 18.4.3, and 18.5 before 18.5.1 that under certain conditions could have allowed authenticated users to gain unauthorized project access by exploiting the access request approval workflow.",
+    "description_pt": "O GitLab corrigiu um problema no GitLab EE que afetava todas as versões de 18.4 antes de 18.4.3 e 18.5 antes de 18.5.1 que, sob certas condições, poderia ter permitido que usuários autenticados obtivessem acesso não autorizado ao projeto, explorando o fluxo de trabalho de aprovação de solicitação de acesso.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.747219"
+  },
+  {
+    "id": "20251026234103747219",
+    "cve_id": "CVE-2025-12198",
+    "severity": "High",
+    "cvss_score": 7.8,
+    "description": "A vulnerability has been found in dnsmasq up to 2.73rc6. Affected is the function parse_hex of the file src/util.c of the component Config File Handler. The manipulation of the argument i leads to heap-based buffer overflow. Local access is required to approach this attack. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+    "description_pt": "Uma vulnerabilidade foi encontrada no dnsmasq até 2.73rc6.Afectado é a função parse_hex do arquivo src/util.c do componente Config File Handler.A manipulação do argumento i leva ao buffer overflow baseado em heap.O acesso local é necessário para abordar este ataque.A exploração foi divulgada ao público e pode ser usada.O fornecedor foi contatado antecipadamente sobre esta divulgação, mas não respondeu de forma alguma.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.747219"
+  },
+  {
+    "id": "20251026234103747219",
+    "cve_id": "CVE-2025-12199",
+    "severity": "Low",
+    "cvss_score": 3.3,
+    "description": "A vulnerability was found in dnsmasq up to 2.73rc6. Affected by this vulnerability is the function check_servers of the file src/network.c of the component Config File Handler. The manipulation results in null pointer dereference. The attack needs to be approached locally. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+    "description_pt": "Uma vulnerabilidade foi encontrada no dnsmasq até 2.73rc6.Afectado é a função check_servers do ficheiro src/network.c do componente Config File Handler.A manipulação resulta na desreferência do ponteiro nulo.O ataque precisa ser abordado localmente.A exploração foi tornada pública e pode ser usada.O fornecedor foi contatado antecipadamente sobre esta divulgação, mas não respondeu de forma alguma.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.747219"
+  },
+  {
+    "id": "20251026234103747219",
+    "cve_id": "CVE-2025-12200",
+    "severity": "Low",
+    "cvss_score": 3.3,
+    "description": "A vulnerability was determined in dnsmasq up to 2.73rc6. Affected by this issue is the function parse_dhcp_opt of the file src/option.c of the component Config File Handler. This manipulation of the argument m causes null pointer dereference. The attack can only be executed locally. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+    "description_pt": "Uma vulnerabilidade foi determinada no dnsmasq até 2.73rc6.Afectado é a função parse_dhcp_opt do ficheiro src/option.c do componente Config File Handler.Esta manipulação do argumento m causa a desreferência do ponteiro nulo.O ataque só pode ser executado localmente.A exploração foi divulgada publicamente e pode ser utilizada.O fornecedor foi contatado antecipadamente sobre esta divulgação, mas não respondeu de forma alguma.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-12201",
+    "severity": "Medium",
+    "cvss_score": 4.7,
+    "description": "A vulnerability was identified in ajayrandhawa User-Management-PHP-MYSQL up to fedcf58797bf2791591606f7b61fdad99ad8bff1. This affects an unknown part of the file /admin/edit-user.php of the component User Management Interface. Such manipulation of the argument image leads to unrestricted upload. It is possible to launch the attack remotely. The exploit is publicly available and might be used. This product takes the approach of rolling releases to provide continious delivery. Therefore, version details for affected and updated releases are not available. The vendor was contacted early about this disclosure but did not respond in any way.",
+    "description_pt": "Uma vulnerabilidade foi identificada em ajayrandhawa User-Management-PHP-MYSQL até fedcf58797bf2791591606f7b61fdad99ad8bff1.Afectado é uma função desconhecida do ficheiro /admin/edit-user.php do componente User Management Interface.Tal manipulação da imagem do argumento leva ao upload irrestrito.É possível lançar o ataque remotamente.A exploração está disponível publicamente e pode ser usada.Este produto adota a abordagem de lançamentos contínuos para fornecer entrega contínua.Portanto, os detalhes das versões afetadas e atualizadas não estão disponíveis.O fornecedor foi contatado antecipadamente sobre esta divulgação, mas não respondeu de forma alguma.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-12202",
+    "severity": "Medium",
+    "cvss_score": 4.3,
+    "description": "A security flaw has been discovered in ajayrandhawa User-Management-PHP-MYSQL web up to fedcf58797bf2791591606f7b61fdad99ad8bff1. This vulnerability affects unknown code. Performing manipulation results in cross-site request forgery. The attack can be initiated remotely. The exploit has been released to the public and may be exploited. Continious delivery with rolling releases is used by this product. Therefore, no version details of affected nor updated releases are available. The vendor was contacted early about this disclosure but did not respond in any way.",
+    "description_pt": "Uma falha de segurança foi descoberta na web ajayrandhawa User-Management-PHP-MYSQL até fedcf58797bf2791591606f7b61fdad99ad8bff1.Esta vulnerabilidade afeta código desconhecido.A execução de manipulação resulta em falsificação de solicitação entre sites.O ataque pode ser iniciado remotamente.A exploração foi divulgada ao público e pode ser explorada.A entrega contínua com liberações contínuas é usada por este produto.Portanto, nenhum detalhe da versão afetada nem das versões atualizadas está disponível.O fornecedor foi contatado antecipadamente sobre esta divulgação, mas não respondeu de forma alguma.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62881",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in WP Lab WP-Lister Lite for eBay wp-lister-for-ebay allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WP-Lister Lite for eBay: from n/a through <= 3.8.3.",
+    "description_pt": "Vulnerabilidade de autorização ausente no WP Lab WP-Lister Lite para eBay wp-lister-for-ebay permite explorar níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o WP-Lister Lite para eBay: de n/a a <= 3.8.3.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62882",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in Craig Hewitt Seriously Simple Podcasting seriously-simple-podcasting allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Seriously Simple Podcasting: from n/a through <= 3.13.0.",
+    "description_pt": "Vulnerabilidade de autorização ausente no Podcasting Serively Simple de Craig Hewitt O podcasting seriamente simples permite a exploração de níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o Podcasting Serively Simple: de n/a até <= 3.13.0.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62883",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in Premmerce Premmerce User Roles premmerce-user-roles allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Premmerce User Roles: from n/a through <= 1.0.13.",
+    "description_pt": "Vulnerabilidade de autorização ausente em funções de usuário Premmerce Premmerce premmerce-user-roles permite a exploração de níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta funções de usuário Premmerce: de n/a até <= 1.0.13.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62884",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in Elliot Sowersby / RelyWP Coupon Affiliates woo-coupon-usage allows Accessing Functionality Not Properly Constrained by ACLs.This issue affects Coupon Affiliates: from n/a through <= 7.0.3.",
+    "description_pt": "Vulnerabilidade de autorização ausente em Elliot Sowersby / RelyWP Coupon Affiliates woo-coupon-usage permite acessar a funcionalidade não adequadamente restrita por ACLs. Este problema afeta Coupon Affiliates: de n/a até <= 7.0.3.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62885",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in RexTheme WP VR wpvr allows DOM-Based XSS.This issue affects WP VR: from n/a through <= 8.5.42.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no RexTheme WP VR wpvr permite XSS baseado em DOM. Este problema afeta WP VR: de n/a até <= 8.5.42.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62886",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Cross-Site Request Forgery (CSRF) vulnerability in wpdevart Pricing Table builder wpdevart-pricing-table allows Stored XSS.This issue affects Pricing Table builder: from n/a through <= 1.5.1.",
+    "description_pt": "Vulnerabilidade de falsificação de solicitação entre sites (CSRF) no construtor wpdevart Pricing Table wpdevart-pricing-table permite XSS armazenado. Esse problema afeta o construtor Pricing Table: de n/a até <= 1.5.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62887",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in KingAddons.com King Addons for Elementor king-addons allows DOM-Based XSS.This issue affects King Addons for Elementor: from n/a through <= 51.1.37.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em KingAddons.com King Addons para Elementor king-addons permite XSS baseado em DOM. Este problema afeta King Addons para Elementor: de n/a até <= 51.1.37.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62889",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in KingAddons.com King Addons for Elementor king-addons allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects King Addons for Elementor: from n/a through <= 51.1.37.",
+    "description_pt": "Vulnerabilidade de autorização ausente em KingAddons.com King Addons para Elementor king-addons permite explorar níveis de segurança de controle de acesso configurados incorretamente. Este problema afeta King Addons para Elementor: de n/a até <= 51.1.37.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62890",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Cross-Site Request Forgery (CSRF) vulnerability in Premmerce Premmerce Brands for WooCommerce premmerce-woocommerce-brands allows Cross Site Request Forgery.This issue affects Premmerce Brands for WooCommerce: from n/a through <= 1.2.13.",
+    "description_pt": "Vulnerabilidade de falsificação de solicitação entre sites (CSRF) no Premmerce Premmerce Brands para WooCommerce premmerce-woocommerce-brands permite falsificação de solicitação entre sites. Esse problema afeta Premmerce Brands para WooCommerce: de n/a até <= 1.2.13.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62891",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Cross-Site Request Forgery (CSRF) vulnerability in Jory Hogeveen Off-Canvas Sidebars & Menus (Slidebars) off-canvas-sidebars allows Cross Site Request Forgery.This issue affects Off-Canvas Sidebars & Menus (Slidebars): from n/a through <= 0.5.8.5.",
+    "description_pt": "Vulnerabilidade de falsificação de solicitação entre sites (CSRF) nas barras laterais e menus fora da tela (barras deslizantes) de Jory Hogeveen As barras laterais fora da tela permitem a falsificação de solicitações entre sites. Esse problema afeta barras laterais e menus fora da tela (barras deslizantes): de n/a a <= 0.5.8.5.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62892",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in sunshinephotocart Sunshine Photo Cart sunshine-photo-cart allows Accessing Functionality Not Properly Constrained by ACLs.This issue affects Sunshine Photo Cart: from n/a through <= 3.5.3.",
+    "description_pt": "Vulnerabilidade de autorização ausente no sunshinephotocart Sunshine Photo Cart sunshine-photo-cart permite o acesso à funcionalidade não adequadamente restrita por ACLs. Esse problema afeta o Sunshine Photo Cart: de n/a até <= 3.5.3.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62893",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Authorization Bypass Through User-Controlled Key vulnerability in mediavine Create by Mediavine mediavine-create allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Create by Mediavine: from n/a through <= 1.9.14.",
+    "description_pt": "Vulnerabilidade de desvio de autorização por meio de chave controlada pelo usuário no mediavine criado por Mediavine mediavine-create permite a exploração de níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o Create by Mediavine: de n/a até <= 1.9.14.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62894",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in magicoders ACF Recent Posts Widget acf-recent-posts-widget allows Stored XSS.This issue affects ACF Recent Posts Widget: from n/a through <= 5.9.3.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em magicoders Widget de postagens recentes do ACF acf-recent-posts-widget permite XSS armazenado. Esse problema afeta o widget de postagens recentes do ACF: de n/a até <= 5.9.3.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62895",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Insertion of Sensitive Information Into Sent Data vulnerability in Vito Peleg Atarim atarim-visual-collaboration allows Retrieve Embedded Sensitive Data.This issue affects Atarim: from n/a through <= 4.2.",
+    "description_pt": "Vulnerabilidade de inserção de informações confidenciais em dados enviados em Vito Peleg Atarim atarim-visual-collaboration permite recuperar dados confidenciais incorporados. Esse problema afeta Atarim: de n/a até <= 4.2.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62896",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Cross-Site Request Forgery (CSRF) vulnerability in digitaldonkey Multilang Contact Form multilang-contact-form allows Stored XSS.This issue affects Multilang Contact Form: from n/a through <= 1.5.",
+    "description_pt": "Vulnerabilidade de Cross-Site Request Forgery (CSRF) no digitaldonkey Multilang Contact Form multilang-contact-form permite XSS armazenado. Esse problema afeta o Multilang Contact Form: de n/a até <= 1.5.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62897",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in Brecht WP Recipe Maker wp-recipe-maker allows Code Injection.This issue affects WP Recipe Maker: from n/a through <= 10.1.1.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de tags HTML relacionadas a script em uma página da Web (XSS básico) no Brecht WP Recipe Maker wp-recipe-maker permite injeção de código. Esse problema afeta o WP Recipe Maker: de n/a até <= 10.1.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62898",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Maarten Links shortcode links-shortcode allows Stored XSS.This issue affects Links shortcode: from n/a through <= 1.8.3.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no código de acesso do Maarten Links links-shortcode permite XSS armazenado. Esse problema afeta o código de acesso do Links: de n/a até <= 1.8.3.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62899",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in THRIVE - Web Design Gold Coast Photospace Responsive photospace-responsive allows Stored XSS.This issue affects Photospace Responsive: from n/a through <= 2.2.0.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no THRIVE - Web Design Gold Coast Photospace Responsive photospace-responsive permite XSS armazenado. Este problema afeta o Photospace Responsive: de n/a até <= 2.2.0.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62900",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WeblineIndia Popular Posts by Webline popular-posts-by-webline allows Stored XSS.This issue affects Popular Posts by Webline: from n/a through <= 1.1.1.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em WeblineIndia Postagens populares por Webline postagens populares por webline permitem XSS armazenado. Esse problema afeta postagens populares por Webline: de n/a a <= 1.1.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62902",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Exposure of Sensitive System Information to an Unauthorized Control Sphere vulnerability in ThemeHunk WP Popup Builder wp-popup-builder allows Retrieve Embedded Sensitive Data.This issue affects WP Popup Builder: from n/a through <= 1.3.6.",
+    "description_pt": "Exposição de informações confidenciais do sistema a uma vulnerabilidade de esfera de controle não autorizada no ThemeHunk WP Popup Builder wp-popup-builder permite recuperar dados confidenciais incorporados. Este problema afeta o WP Popup Builder: de n/a a <= 1.3.6.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.748217"
+  },
+  {
+    "id": "20251026234103748217",
+    "cve_id": "CVE-2025-62903",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WPClever WPC Smart Messages for WooCommerce wpc-smart-messages allows Stored XSS.This issue affects WPC Smart Messages for WooCommerce: from n/a through <= 4.2.4.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em WPClever WPC Smart Messages para WooCommerce wpc-smart-messages permite XSS armazenado. Este problema afeta WPC Smart Messages para WooCommerce: de n/a a <= 4.2.4.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62904",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Ben Huson WP Geo wp-geo allows Stored XSS.This issue affects WP Geo: from n/a through <= 3.5.1.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em Ben Huson WP Geo wp-geo permite XSS armazenado. Este problema afeta WP Geo: de n/a até <= 3.5.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62905",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Justin Tadlock Query Posts query-posts allows Stored XSS.This issue affects Query Posts: from n/a through <= 0.3.2.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em Justin Tadlock Query Posts query-posts permite XSS armazenado. Esse problema afeta Query Posts: de n/a a <= 0.3.2.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62906",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in epiphanyit321 Referral Link Tracker referral-link-tracker allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Referral Link Tracker: from n/a through <= 1.1.4.",
+    "description_pt": "Vulnerabilidade de autorização ausente no epiphanyit321 Referral Link Tracker reference-link-tracker permite explorar níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o Referral Link Tracker: de n/a até <= 1.1.4.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62907",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in aviplugins.com Custom Post Type Attachment custom-post-type-pdf-attachment allows Stored XSS.This issue affects Custom Post Type Attachment: from n/a through <= 3.4.6.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em aviplugins.com Custom Post Type Attachment custom-post-type-pdf-attachment permite XSS armazenado. Esse problema afeta o Custom Post Type Attachment: de n/a até <= 3.4.6.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62908",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in gerritvanaaken Podlove Web Player podlove-web-player allows Accessing Functionality Not Properly Constrained by ACLs.This issue affects Podlove Web Player: from n/a through <= 5.9.1.",
+    "description_pt": "Vulnerabilidade de autorização ausente no gerritvanaaken Podlove Web Player podlove-web-player permite acesso à funcionalidade não adequadamente restrita por ACLs. Esse problema afeta o Podlove Web Player: de n/a até <= 5.9.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62909",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in mrityunjay Smart WeTransfer smart-wetransfer allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Smart WeTransfer: from n/a through <= 1.3.",
+    "description_pt": "Vulnerabilidade de autorização ausente em mrityunjay Smart WeTransfer smart-wetransfer permite explorar níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o Smart WeTransfer: de n/a até <= 1.3.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62910",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in deshine Video Gallery by Huzzaz huzzaz-video-gallery allows Stored XSS.This issue affects Video Gallery by Huzzaz: from n/a through <= 10.5.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no deshine Video Gallery da Huzzaz huzzaz-video-gallery permite XSS armazenado. Esse problema afeta a Video Gallery da Huzzaz: de n/a até <= 10.5.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62911",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Rock Content Rock Convert rock-convert allows Stored XSS.This issue affects Rock Convert: from n/a through <= 3.0.1.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no Rock Content Rock Convert rock-convert permite XSS armazenado. Este problema afeta o Rock Convert: de n/a até <= 3.0.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62912",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in SiteGround SiteGround Email Marketing siteground-email-marketing allows Stored XSS.This issue affects SiteGround Email Marketing: from n/a through <= 1.7.1.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no SiteGround SiteGround Email Marketing siteground-email-marketing permite XSS armazenado. Esse problema afeta o SiteGround Email Marketing: de n/a a <= 1.7.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62913",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in wpopal Opal Service opal-service allows Stored XSS.This issue affects Opal Service: from n/a through <= 1.9.1.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no wpopal Opal Service opal-service permite XSS armazenado. Esse problema afeta o Opal Service: de n/a até <= 1.9.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62915",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in clicksend SMS Contact Form 7 Notifications by ClickSend clicksend-contactform7 allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects SMS Contact Form 7 Notifications by ClickSend: from n/a through <= 1.4.0.",
+    "description_pt": "Vulnerabilidade de autorização ausente em notificações do formulário de contato 7 por SMS de envio de cliques por ClickSend clicksend-contactform7 permite a exploração de níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta notificações do formulário de contato por SMS 7 por ClickSend: de n/a até <= 1.4.0.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62916",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in adivaha® Flights &amp; Hotels Booking WP Plugin adiaha-hotel allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Flights &amp; Hotels Booking WP Plugin: from n/a through <= 3.1.",
+    "description_pt": "Vulnerabilidade de autorização ausente no adivaha® Flights &amp;Reserva de hotéis WP Plugin adiaha-hotel permite explorar níveis de segurança de controle de acesso configurados incorretamente.Plug-in WP para reserva de hotéis: de n/a até <= 3.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62917",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Jamel.Z Tooltipy bluet-keywords-tooltip-generator allows Stored XSS.This issue affects Tooltipy: from n/a through <= 5.5.9.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no Jamel.Z Tooltipy bluet-keywords-tooltip-generator permite XSS armazenado.Esse problema afeta o Tooltipy: de n/a até <= 5.5.9.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62918",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in ignitionwp IgnitionDeck ignitiondeck allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects IgnitionDeck: from n/a through <= 2.0.10.",
+    "description_pt": "Vulnerabilidade de autorização ausente no igniçãowp IgnitionDeck O igniçãodeck permite a exploração de níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o IgnitionDeck: de n/a até <= 2.0.10.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62919",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in themeshopy TS Demo Importer ts-demo-importer allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects TS Demo Importer: from n/a through <= 0.1.2.",
+    "description_pt": "Vulnerabilidade de autorização ausente no themeshopy TS Demo Importer ts-demo-importer permite explorar níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o TS Demo Importer: de n/a a <= 0.1.2.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62920",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in webnique USERCENTRICS CMP usercentrics-consent-management-platform allows Stored XSS.This issue affects USERCENTRICS CMP: from n/a through <= 1.0.9.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') na webnique USERCENTRICS CMP usercentrics-consent-management-platform permite XSS armazenado. Esse problema afeta USERCENTRICS CMP: de n/a a <= 1.0.9.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62921",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Pagup Bulk Auto Image Title Attribute bulk-image-title-attribute allows DOM-Based XSS.This issue affects Bulk Auto Image Title Attribute: from n/a through <= 2.0.1.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no atributo de título de imagem automática em massa Pagup permite XSS baseado em DOM. Esse problema afeta o atributo de título de imagem automática em massa: de n/a até <= 2.0.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62922",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in Shambhu Patnaik Export Categories export-categories allows Accessing Functionality Not Properly Constrained by ACLs.This issue affects Export Categories: from n/a through <= 1.0.",
+    "description_pt": "Vulnerabilidade de autorização ausente nas categorias de exportação de Shambhu Patnaik permite o acesso à funcionalidade não adequadamente restrita por ACLs. Esse problema afeta as categorias de exportação: de n/a a <= 1.0.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62923",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Debuggers Studio Marquee Addons for Elementor marquee-addons-for-elementor allows DOM-Based XSS.This issue affects Marquee Addons for Elementor: from n/a through <= 3.7.12.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em Debuggers Studio Marquee Addons para Elementor marquee-addons-for-elementor permite XSS baseado em DOM. Este problema afeta Marquee Addons para Elementor: de n/a até <= 3.7.12.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62924",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in PickPlugins Post Grid and Gutenberg Blocks post-grid allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Post Grid and Gutenberg Blocks: from n/a through <= 2.3.17.",
+    "description_pt": "Vulnerabilidade de autorização ausente no PickPlugins Post Grid e Gutenberg Blocks post-grid permite explorar níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta Post Grid e Gutenberg Blocks: de n/a até <= 2.3.17.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.749216"
+  },
+  {
+    "id": "20251026234103749216",
+    "cve_id": "CVE-2025-62925",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in Conversios Conversios.io enhanced-e-commerce-for-woocommerce-store allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Conversios.io: from n/a through <= 7.2.10.",
+    "description_pt": "Vulnerabilidade de autorização ausente em Conversios Conversios.io advanced-e-commerce-for-woocommerce-store permite explorar níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta Conversios.io: de n/a até <= 7.2.10.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62927",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in Nelio Software Nelio Content nelio-content allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Nelio Content: from n/a through <= 4.0.5.",
+    "description_pt": "Vulnerabilidade de autorização ausente no software Nelio Conteúdo do Nelio nelio-content permite a exploração de níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o conteúdo do Nelio: de n/a até <= 4.0.5.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62928",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in Joby Joseph SEO Meta Description Updater seo-meta-description-updater allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects SEO Meta Description Updater: from n/a through <= 1.2.0.",
+    "description_pt": "Vulnerabilidade de autorização ausente no atualizador de meta descrição SEO Joby Joseph seo-meta-description-updater permite explorar níveis de segurança de controle de acesso configurados incorretamente. Este problema afeta o atualizador de meta descrição SEO: de n/a até <= 1.2.0.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62929",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in PickPlugins Testimonial Slider testimonial allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Testimonial Slider: from n/a through <= 2.0.15.",
+    "description_pt": "Vulnerabilidade de autorização ausente no depoimento do PickPlugins Testimonial Slider permite explorar níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o Testimonial Slider: de n/a até <= 2.0.15.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62930",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in RomanCode MapSVG mapsvg-lite-interactive-vector-maps allows DOM-Based XSS.This issue affects MapSVG: from n/a through <= 8.7.15.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em mapas RomanCode MapSVGvg-lite-interactive-vector-maps permite XSS baseado em DOM.Este problema afeta MapSVG: de n/a até <= 8.7.15.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62931",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in microsoftstart MSN Partner Hub microsoft-start allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects MSN Partner Hub: from n/a through <= 2.8.7.",
+    "description_pt": "Vulnerabilidade de autorização ausente no microsoftstart MSN Partner Hub microsoft-start permite a exploração de níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o MSN Partner Hub: de n/a até <= 2.8.7.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62932",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in wprio Table Block by RioVizual riovizual allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Table Block by RioVizual: from n/a through <= 2.3.2.",
+    "description_pt": "Vulnerabilidade de autorização ausente no bloco de tabela wprio da RioVizual riovizual permite a exploração de níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o bloco de tabela da RioVizual: de n/a até <= 2.3.2.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62933",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Cross-Site Request Forgery (CSRF) vulnerability in Prakash Awesome Testimonials awesome-testimonials allows Stored XSS.This issue affects Awesome Testimonials: from n/a through <= 2.2.1.",
+    "description_pt": "Vulnerabilidade de falsificação de solicitação entre sites (CSRF) em Prakash Awesome Testimonials awesome-testimonials permite XSS armazenado. Esse problema afeta Awesome Testimonials: de n/a até <= 2.2.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62934",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Cross-Site Request Forgery (CSRF) vulnerability in Mejar WP Business Hours wp-business-hours allows Stored XSS.This issue affects WP Business Hours: from n/a through <= 1.4.",
+    "description_pt": "Vulnerabilidade de falsificação de solicitação entre sites (CSRF) no horário comercial do Mejar WP wp-business-hours permite XSS armazenado. Esse problema afeta o horário comercial do WP: de n/a a <= 1.4.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62935",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in ilmosys Open Close WooCommerce Store woc-open-close allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Open Close WooCommerce Store: from n/a through <= 4.9.8.",
+    "description_pt": "Vulnerabilidade de autorização ausente no ilmosys Open Close WooCommerce Store woc-open-close permite explorar níveis de segurança de controle de acesso configurados incorretamente. Este problema afeta Open Close WooCommerce Store: de n/a até <= 4.9.8.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62936",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in Jthemes xSmart xsmart allows Code Injection.This issue affects xSmart: from n/a through <= 1.2.9.4.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de tags HTML relacionadas a script em uma página da Web (XSS básico) em Jthemes xSmart xsmart permite injeção de código. Esse problema afeta o xSmart: de n/a até <= 1.2.9.4.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62937",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Johnny Post List Featured Image post-list-featured-image allows Stored XSS.This issue affects Post List Featured Image: from n/a through <= 0.5.9.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') na imagem em destaque da lista de postagens do Johnny post-list-featured-image permite XSS armazenado. Esse problema afeta a imagem em destaque da lista de postagens: de n/a a <= 0.5.9.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62938",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in Reoon Technology Reoon Email Verifier reoon-email-verifier allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Reoon Email Verifier: from n/a through <= 2.0.1.",
+    "description_pt": "Vulnerabilidade de autorização ausente na tecnologia Reoon Reoon Email Verifier reoon-email-verifier permite explorar níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o Reoon Email Verifier: de n/a até <= 2.0.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62939",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Joe Open Currency Converter artiss-currency-converter allows Stored XSS.This issue affects Open Currency Converter: from n/a through <= 1.5.0.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no Joe Open Currency Converter artiss-currency-converter permite XSS armazenado. Esse problema afeta o Open Currency Converter: de n/a até <= 1.5.0.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62940",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Nick Diego Blox Lite blox-lite allows Stored XSS.This issue affects Blox Lite: from n/a through <= 1.2.8.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em Nick Diego Blox Lite blox-lite permite XSS armazenado. Esse problema afeta o Blox Lite: de n/a até <= 1.2.8.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62941",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in dFactory Events Maker by dFactory events-maker allows Stored XSS.This issue affects Events Maker by dFactory: from n/a through <= 1.6.14.",
+    "description_pt": "A vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no dFactory Events Maker por dFactory events-maker permite XSS armazenado. Esse problema afeta o Events Maker por dFactory: de n/a até <= 1.6.14.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62942",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in tempranova WP Mapbox GL JS Maps wp-mapbox-gl-js allows Stored XSS.This issue affects WP Mapbox GL JS Maps: from n/a through <= 3.0.1.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em tempranova WP Mapbox GL JS Maps wp-mapbox-gl-js permite XSS armazenado. Este problema afeta WP Mapbox GL JS Maps: de n/a até <= 3.0.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62943",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Matt McInvale Next Page, Not Next Post next-page-not-next-post allows Stored XSS.This issue affects Next Page, Not Next Post: from n/a through <= 0.3.0.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em Matt McInvale Próxima página, não próxima postagem próxima página, não próxima postagem permite XSS armazenado. Esse problema afeta a próxima página, não a próxima postagem: de n/a até <= 0.3.0.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62944",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in Mark O'Donnell MSTW CSV EXPORTER mstw-csv-exporter allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects MSTW CSV EXPORTER: from n/a through <= 1.4.",
+    "description_pt": "Vulnerabilidade de autorização ausente em Mark O'Donnell MSTW CSV EXPORTER mstw-csv-exporter permite explorar níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o MSTW CSV EXPORTER: de n/a a <= 1.4.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62945",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Cross-Site Request Forgery (CSRF) vulnerability in Eduard Pinuaga Linares Did Prestashop Display did-prestashop-display allows Stored XSS.This issue affects Did Prestashop Display: from n/a through <= 1.0.30.",
+    "description_pt": "Vulnerabilidade de Cross-Site Request Forgery (CSRF) em Eduard Pinuaga Linares Did Prestashop Display did-prestashop-display permite XSS armazenado. Este problema afeta Did Prestashop Display: de n/a até <= 1.0.30.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62946",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in everestthemes Everest Backup everest-backup allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Everest Backup: from n/a through <= 2.3.8.",
+    "description_pt": "Vulnerabilidade de autorização ausente em everestthemes Everest Backup everest-backup permite explorar níveis de segurança de controle de acesso configurados incorretamente. Este problema afeta o Everest Backup: de n/a até <= 2.3.8.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62947",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Insertion of Sensitive Information Into Sent Data vulnerability in publitio Publitio publitio allows Retrieve Embedded Sensitive Data.This issue affects Publitio: from n/a through <= 2.2.3.",
+    "description_pt": "Vulnerabilidade de inserção de informações confidenciais em dados enviados no publitio Publitio publitio permite recuperar dados confidenciais incorporados. Esse problema afeta o Publitio: de n/a até <= 2.2.3.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.750216"
+  },
+  {
+    "id": "20251026234103750216",
+    "cve_id": "CVE-2025-62948",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Konstantin Pankratov Date counter date-counter allows Stored XSS.This issue affects Date counter: from n/a through <= 2.0.3.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em Konstantin Pankratov Contador de data O contador de data permite XSS armazenado. Esse problema afeta o Contador de data: de n/a até <= 2.0.3.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62949",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in BuddyDev Activity Plus Reloaded for BuddyPress bp-activity-plus-reloaded allows Stored XSS.This issue affects Activity Plus Reloaded for BuddyPress: from n/a through <= 1.1.2.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no BuddyDev Activity Plus Reloaded para BuddyPress bp-activity-plus-reloaded permite XSS armazenado. Esse problema afeta o Activity Plus Reloaded para BuddyPress: de n/a até <= 1.1.2.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62951",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in icc0rz Interactive Content – H5P h5p allows Stored XSS.This issue affects Interactive Content – H5P: from n/a through <= 1.16.0.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no conteúdo interativo icc0rz – H5P h5p permite XSS armazenado. Esse problema afeta o conteúdo interativo – H5P: de n/a até <= 1.16.0.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62952",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in QuantumCloud ChatBot chatbot allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects ChatBot: from n/a through <= 7.3.0.",
+    "description_pt": "A vulnerabilidade de autorização ausente no chatbot QuantumCloud ChatBot permite a exploração de níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o ChatBot: de n/a até <= 7.3.0.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62953",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in nanbu Welcart e-Commerce usc-e-shop allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Welcart e-Commerce: from n/a through <= 2.11.24.",
+    "description_pt": "Vulnerabilidade de autorização ausente no nanbu Welcart e-Commerce usc-e-shop permite explorar níveis de segurança de controle de acesso configurados incorretamente. Este problema afeta o Welcart e-Commerce: de n/a até <= 2.11.24.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62954",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in Codeinwp Revive Old Posts tweet-old-post allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Revive Old Posts: from n/a through <= 9.3.3.",
+    "description_pt": "Vulnerabilidade de autorização ausente no Codeinwp Revive Old Posts tweet-old-post permite explorar níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta Revive Old Posts: de n/a até <= 9.3.3.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62956",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Cross-Site Request Forgery (CSRF) vulnerability in iseremet Reloadly reloadly-topup-widget allows Stored XSS.This issue affects Reloadly: from n/a through <= 2.0.1.",
+    "description_pt": "Vulnerabilidade de falsificação de solicitação entre sites (CSRF) no iseremet Reloadly reloadly-topup-widget permite XSS armazenado. Esse problema afeta o Reloadly: de n/a até <= 2.0.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62957",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Cross-Site Request Forgery (CSRF) vulnerability in NikanWP NikanWP WooCommerce Reporting wc-reports-lite allows Stored XSS.This issue affects NikanWP WooCommerce Reporting: from n/a through <= 1.0.0.",
+    "description_pt": "Vulnerabilidade de falsificação de solicitação entre sites (CSRF) no NikanWP NikanWP WooCommerce Reporting wc-reports-lite permite XSS armazenado. Este problema afeta o NikanWP WooCommerce Reporting: de n/a a <= 1.0.0.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62958",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Cross-Site Request Forgery (CSRF) vulnerability in Clifton Griffin Simple Content Templates for Blog Posts &amp; Pages simple-post-template allows Cross Site Request Forgery.This issue affects Simple Content Templates for Blog Posts &amp; Pages: from n/a through <= 2.2.61.",
+    "description_pt": "Vulnerabilidade de falsificação de solicitação entre sites (CSRF) em modelos de conteúdo simples Clifton Griffin para postagens de blog e postagens de blog.O modelo de postagem simples de páginas permite falsificação de solicitação entre sites. Esse problema afeta modelos de conteúdo simples para postagens de blog e postagens de blog.Páginas: de n/a até <= 2.2.61.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62959",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Control of Generation of Code ('Code Injection') vulnerability in videowhisper Paid Videochat Turnkey Site ppv-live-webcams allows Remote Code Inclusion.This issue affects Paid Videochat Turnkey Site: from n/a through <= 7.3.22.",
+    "description_pt": "Vulnerabilidade de controle impróprio de geração de código ('injeção de código') no site videowhisper Paid Videochat Turnkey ppv-live-webcams permite inclusão remota de código. Este problema afeta o site Paid Videochat Turnkey: de n/a até <= 7.3.22.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62962",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Cross-Site Request Forgery (CSRF) vulnerability in Andrea Landonio CloudSearch cloud-search allows Stored XSS.This issue affects CloudSearch: from n/a through <= 3.0.0.",
+    "description_pt": "Vulnerabilidade de falsificação de solicitação entre sites (CSRF) em Andrea Landonio A pesquisa em nuvem do CloudSearch permite XSS armazenado. Esse problema afeta o CloudSearch: de n/a até <= 3.0.0.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62963",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Estatik Estatik estatik allows DOM-Based XSS.This issue affects Estatik: from n/a through <= 4.1.13.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no Estatik Estatik estatik permite XSS baseado em DOM. Esse problema afeta o Estatik: de n/a até <= 4.1.13.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62964",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in RealMag777 MDTF wp-meta-data-filter-and-taxonomy-filter allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects MDTF: from n/a through <= 1.3.4.",
+    "description_pt": "Vulnerabilidade de autorização ausente no RealMag777 MDTF wp-meta-data-filter-and-taxonomy-filter permite explorar níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o MDTF: de n/a a <= 1.3.4.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62965",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in wpseek Admin Management Xtended  admin-management-xtended allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Admin Management Xtended : from n/a through <= 2.5.1.",
+    "description_pt": "Vulnerabilidade de autorização ausente no wpseek Admin Management Xtended admin-management-xtended permite explorar níveis de segurança de controle de acesso configurados incorretamente. Este problema afeta o Admin Management Xtended: de n/a até <= 2.5.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62966",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in Apiki GoCache gocache-cdn allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects GoCache: from n/a through <= 1.3.6.",
+    "description_pt": "Vulnerabilidade de autorização ausente no Apiki GoCache gocache-cdn permite a exploração de níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o GoCache: de n/a até <= 1.3.6.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62967",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in designinvento DirectoryPress directorypress allows DOM-Based XSS.This issue affects DirectoryPress: from n/a through <= 3.6.25.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no designinvento DirectoryPress directorypress permite XSS baseado em DOM. Esse problema afeta o DirectoryPress: de n/a até <= 3.6.25.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62968",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Sayan Datta WP Last Modified Info wp-last-modified-info allows Stored XSS.This issue affects WP Last Modified Info: from n/a through <= 1.9.2.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em Sayan Datta WP Last Modified Info wp-last-modified-info permite XSS armazenado. Este problema afeta WP Last Modified Info: de n/a até <= 1.9.2.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62969",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in XLPlugins NextMove Lite woo-thank-you-page-nextmove-lite allows Stored XSS.This issue affects NextMove Lite: from n/a through <= 2.21.0.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em XLPlugins NextMove Lite woo-thank-you-page-nextmove-lite permite XSS armazenado. Este problema afeta NextMove Lite: de n/a até <= 2.21.0.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62970",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in Spencer Haws Link Whisper Free link-whisper allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Link Whisper Free: from n/a through <= 0.8.8.",
+    "description_pt": "Vulnerabilidade de autorização ausente no Spencer Haws Link Whisper Free link-whisper permite explorar níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta Link Whisper Free: de n/a a <= 0.8.8.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103751217",
+    "cve_id": "CVE-2025-62971",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in CrestaProject Attesa Extra attesa-extra allows Stored XSS.This issue affects Attesa Extra: from n/a through <= 1.4.5.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no CrestaProject Attesa Extra attesa-extra permite XSS armazenado. Esse problema afeta o Attesa Extra: de n/a até <= 1.4.5.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.751217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62972",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in WPWebinarSystem WebinarPress wp-webinarsystem allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WebinarPress: from n/a through <= 1.33.28.",
+    "description_pt": "Vulnerabilidade de autorização ausente no WPWebinarSystem WebinarPress wp-webinarsystem permite explorar níveis de segurança de controle de acesso configurados incorretamente. Este problema afeta o WebinarPress: de n/a até <= 1.33.28.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62973",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in Themekraft BuddyForms buddyforms allows Accessing Functionality Not Properly Constrained by ACLs.This issue affects BuddyForms: from n/a through <= 2.9.0.",
+    "description_pt": "Vulnerabilidade de autorização ausente no Themekraft BuddyForms buddyforms permite acessar funcionalidades não adequadamente restritas por ACLs. Esse problema afeta BuddyForms: de n/a até <= 2.9.0.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62974",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in CoSchedule Headline Analyzer headline-analyzer allows Stored XSS.This issue affects Headline Analyzer: from n/a through <= 1.3.7.",
+    "description_pt": "A vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no analisador de títulos do CoSchedule Headline Analyzer permite XSS armazenado. Esse problema afeta o Headline Analyzer: de n/a até <= 1.3.7.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62975",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Cross-Site Request Forgery (CSRF) vulnerability in raychat Raychat raychat allows Cross Site Request Forgery.This issue affects Raychat: from n/a through <= 2.2.1.",
+    "description_pt": "Vulnerabilidade de falsificação de solicitação entre sites (CSRF) no raychat Raychat raychat permite falsificação de solicitação entre sites. Esse problema afeta o Raychat: de n/a até <= 2.2.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62976",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in Joovii Sendle Shipping official-sendle-shipping-method allows Accessing Functionality Not Properly Constrained by ACLs.This issue affects Sendle Shipping: from n/a through <= 6.02.",
+    "description_pt": "Vulnerabilidade de autorização ausente no Joovii Sendle Shipping oficial-sendle-shipping-method permite acessar a funcionalidade não adequadamente restrita por ACLs. Este problema afeta Sendle Shipping: de n/a até <= 6.02.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62977",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in 沃之涛 百度站长SEO合集(支持百度/神马/Bing/头条推送) baiduseo allows Accessing Functionality Not Properly Constrained by ACLs.This issue affects 百度站长SEO合集(支持百度/神马/Bing/头条推送): from n/a through <= 2.1.3.",
+    "description_pt": "Vulnerabilidade de autorização ausente em 沃之涛 百度站长SEO合集(支持百度/神马/Bing/头条推送) baiduseo permite o acesso à funcionalidade não adequadamente restrita por ACLs.Esse problema afeta百度站长SEO合集(支持百度/神马/Bing/头条推送): de n/a até <= 2.1.3.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62978",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in Kiotviet KiotViet Sync kiotvietsync allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects KiotViet Sync: from n/a through <= 1.8.5.",
+    "description_pt": "Vulnerabilidade de autorização ausente no Kiotviet KiotViet Sync kiotvietsync permite explorar níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta o KiotViet Sync: de n/a até <= 1.8.5.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62979",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Insertion of Sensitive Information Into Sent Data vulnerability in airesvsg ACF to REST API acf-to-rest-api allows Retrieve Embedded Sensitive Data.This issue affects ACF to REST API: from n/a through <= 3.3.4.",
+    "description_pt": "Vulnerabilidade de inserção de informações confidenciais em dados enviados no airesvsg ACF para API REST acf-to-rest-api permite recuperar dados confidenciais incorporados. Esse problema afeta ACF para API REST: de n/a até <= 3.3.4.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62980",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Missing Authorization vulnerability in MDZ Persian Admnin Fonts persian-admin-fonts allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Persian Admnin Fonts: from n/a through <= 4.1.03.",
+    "description_pt": "Vulnerabilidade de autorização ausente em fontes Admnin persas MDZ persian-admin-fonts permite a exploração de níveis de segurança de controle de acesso configurados incorretamente. Esse problema afeta fontes Admnin persas: de n/a até <= 4.1.03.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62981",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "URL Redirection to Untrusted Site ('Open Redirect') vulnerability in CRM Perks WP Gravity Forms Zoho CRM and Bigin gf-zoho allows Phishing.This issue affects WP Gravity Forms Zoho CRM and Bigin: from n/a through <= 1.2.8.",
+    "description_pt": "Vulnerabilidade de redirecionamento de URL para site não confiável ('Redirecionamento aberto') em vantagens de CRM WP Gravity Forms Zoho CRM e Bigin gf-zoho permite phishing. Esse problema afeta WP Gravity Forms Zoho CRM e Bigin: de n/a a <= 1.2.8.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62982",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Sarah Giles Dynamic User Directory dynamic-user-directory allows Stored XSS.This issue affects Dynamic User Directory: from n/a through <= 2.3.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no diretório de usuário dinâmico Sarah Giles diretório de usuário dinâmico permite XSS armazenado. Esse problema afeta o diretório de usuário dinâmico: de n/a até <= 2.3.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62983",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Sudar Muthu Posts By Tag posts-by-tag allows Stored XSS.This issue affects Posts By Tag: from n/a through <= 3.2.1.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em Sudar Muthu Postagens por tag postagens por tag permitem XSS armazenado. Esse problema afeta Postagens por tag: de n/a até <= 3.2.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62984",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WPeka WP AdCenter wpadcenter allows Stored XSS.This issue affects WP AdCenter: from n/a through <= 2.6.1.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no WPeka WP AdCenter wpadcenter permite XSS armazenado. Esse problema afeta o WP AdCenter: de n/a até <= 2.6.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62985",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in llamaman Simple Pull Quote simple-pull-quote allows Stored XSS.This issue affects Simple Pull Quote: from n/a through <= 1.6.3.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') em llamaman Simple Pull Quote simple-pull-quote permite XSS armazenado. Esse problema afeta Simple Pull Quote: de n/a até <= 1.6.3.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62986",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Cross-Site Request Forgery (CSRF) vulnerability in FanBridge FanBridge signup fanbridge-signup allows Stored XSS.This issue affects FanBridge signup: from n/a through <= 0.6.",
+    "description_pt": "Vulnerabilidade de falsificação de solicitação entre sites (CSRF) na inscrição do FanBridge FanBridge fanbridge-signup permite XSS armazenado. Esse problema afeta a inscrição do FanBridge: de n/a a <= 0,6.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62987",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Builderall Builderall Builder for WordPress builderall-cheetah-for-wp allows Stored XSS.This issue affects Builderall Builder for WordPress: from n/a through <= 3.0.1.",
+    "description_pt": "Vulnerabilidade de neutralização inadequada de entrada durante a geração de páginas da Web ('Cross-site Scripting') no Builderall Builderall Builder para WordPress builderall-cheetah-for-wp permite XSS armazenado. Esse problema afeta o Builderall Builder para WordPress: de n/a até <= 3.0.1.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
+  },
+  {
+    "id": "20251026234103752217",
+    "cve_id": "CVE-2025-62988",
+    "severity": "Unknown",
+    "cvss_score": null,
+    "description": "Server-Side Request Forgery (SSRF) vulnerability in Codeless Slider Templates slider-templates allows Server Side Request Forgery.This issue affects Slider Templates: from n/a through <= 1.0.3.",
+    "description_pt": "A vulnerabilidade de falsificação de solicitação do lado do servidor (SSRF) em modelos de controle deslizante sem código permite a falsificação de solicitação do lado do servidor. Esse problema afeta os modelos de controle deslizante: de n/a até <= 1.0.3.",
+    "published_date": null,
+    "sources": [
+      "NVD"
+    ],
+    "references": [],
+    "exploited": false,
+    "date_added": "2025-10-26T23:41:03.752217"
   }
 ]

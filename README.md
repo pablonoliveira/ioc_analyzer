@@ -53,8 +53,6 @@ Plataforma completa de análise e correlação de **Indicadores de Comprometimen
 - **Configuração e feedback aprimorados:** instruções claras, erros amigáveis para `.env` e APIs
 - **Filtros e layout responsivos:** experiência fluida em desktop e mobile
 
-## 🚀 Funcionalidades v2.3 (Out/2025)
-
 ---
 
 ## 🏗️ Estrutura do Projeto

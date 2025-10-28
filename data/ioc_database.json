@@ -2599,5 +2599,21 @@
     "source": "AbuseIPDB, VirusTotal",
     "severity": "Não Malicioso",
     "description": "Fonte: AbuseIPDB, Abuse Score: None, Limpo ou não detectado.<br>Fonte: VirusTotal, Abuse Score: None, Limpo ou não detectado."
+  },
+  {
+    "id": "20251027143542",
+    "type": "IP",
+    "value": "45.89.53.222",
+    "source": "AbuseIPDB, VirusTotal",
+    "severity": "Malicioso",
+    "description": "Fonte: AbuseIPDB, Abuse Score: 100, Malicious: 0, Reports: 65<br>Fonte: VirusTotal, Abuse Score: None, Limpo ou não detectado."
+  },
+  {
+    "id": "20251027211325",
+    "type": "IP",
+    "value": "40.77.167.79",
+    "source": "AbuseIPDB, VirusTotal",
+    "severity": "Malicioso",
+    "description": "Fonte: AbuseIPDB, Abuse Score: 100, Malicious: 0, Reports: 383<br>Fonte: VirusTotal, Abuse Score: None, Limpo ou não detectado."
   }
 ]

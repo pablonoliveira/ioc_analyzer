@@ -42,9 +42,8 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 def translate_to_portuguese(text):
-    if not TRANSLATION_ENABLED or not text or text is None:
-        return text
-    if text is None or text.strip() == '':
+    # Só traduz se estiver habilitado e for string válida
+    if not TRANSLATION_ENABLED or not isinstance(text, str) or not text.strip():
         return text
     try:
         translated = translator.translate(text, src='en', dest='pt')
@@ -100,13 +99,25 @@ def save_ioc_database(data):
 def load_cve_database():
     if os.path.exists(CVE_DATABASE_FILE):
         with open(CVE_DATABASE_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f)
+            try:
+                content = f.read().strip()
+                if not content:
+                    return []  # Arquivo vazio, retorna lista vazia
+                return json.loads(content)
+            except Exception as e:
+                print(f"[ERRO] Falha ao ler CVE DB: {e}")
+                return []
     return []
+
 
 def save_cve_database(data):
     os.makedirs('data', exist_ok=True)
     with open(CVE_DATABASE_FILE, 'w', encoding='utf-8') as f:
+        # Se data for None ou não lista, salva lista vazia
+        if not data or not isinstance(data, list):
+            data = []
         json.dump(data, f, indent=2, ensure_ascii=False)
+
 
 def analisar_classificacao(results):
     status = []
@@ -486,10 +497,10 @@ def cve_fetch_recent():
         print(f"[INFO] {count} CVEs encontradas")
         for cve in cves_found:
             desc = cve.get('description')
-            if desc and desc.strip():
+            if isinstance(desc, str) and desc.strip():
                 cve['description_pt'] = translate_to_portuguese(desc)
             else:
-                cve['description_pt'] = desc
+                cve['description_pt'] = ""  # ou simplesmente desc se quiser preservar original
         auto_save = data.get('auto_save', False)
         saved_count = 0
         if auto_save:
@@ -497,6 +508,9 @@ def cve_fetch_recent():
             existing_cve_ids = {cve.get('cve_id') for cve in cve_db}
             for cve_data in cves_found:
                 cve_id = cve_data.get('cve_id')
+                # print(f"[DEBUG] cve_id={cve_id}, type={type(cve_id)}, desc={cve_data.get('description')}")
+                if not cve_id or not isinstance(cve_id, str):
+                    continue  # ignora registros inválidos
                 if cve_id not in existing_cve_ids:
                     cve = {
                         'id': datetime.now().strftime('%Y%m%d%H%M%S%f'),

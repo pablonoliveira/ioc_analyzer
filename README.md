@@ -53,6 +53,8 @@ Plataforma completa de análise e correlação de **Indicadores de Comprometimen
 - **Configuração e feedback aprimorados:** instruções claras, erros amigáveis para `.env` e APIs
 - **Filtros e layout responsivos:** experiência fluida em desktop e mobile
 
+## 🚀 Funcionalidades v2.3 (Out/2025)
+
 ---
 
 ## 🏗️ Estrutura do Projeto
@@ -319,6 +321,16 @@ Acesse `http://localhost:5000/` para visualizar:
 - Buscar CVEs relacionadas a IoCs
 - Buscar IoCs relacionados a CVEs
 - Dashboard de correlações
+
+### **v2.3 - 28/10/2025**
+🐛 **Correções:**
+- Validação reforçada dos tipos em description e cve_id (somente string é aceita)
+- Tradução automática protegida contra erros de tipo e valores nulos
+- CVEs duplicadas ou inválidas não são mais salvas no banco
+- Proteção e tratamento contra arquivos JSON vazios/corrompidos
+- Adicionados logs de debug para facilitar diagnóstico e manutenção
+
+---
 
 ## 🤝 Contribuindo
 

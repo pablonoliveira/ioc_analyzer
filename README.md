@@ -53,6 +53,12 @@ Plataforma completa de análise e correlação de **Indicadores de Comprometimen
 - **Configuração e feedback aprimorados:** instruções claras, erros amigáveis para `.env` e APIs
 - **Filtros e layout responsivos:** experiência fluida em desktop e mobile
 
+## 🚀 Funcionalidades v3.0 (Nov/2025)
+
+- **Painel AbuseIPDB detalhado:** histórico de reports completo para IPs, incluindo comentários, tradução automática das categorias (PT-BR) e datas ajustadas para UTC-3.
+- **Filtros avançados:** busca refinada por tipo, severidade, categoria e data tanto no painel de IoCs quanto de CVEs
+- **Backend (Flask) ajustado:** Adicionado dicionário AbuseIPDB para categorias traduzidas em português.
+
 ---
 
 ## 🏗️ Estrutura do Projeto
@@ -282,19 +288,22 @@ Acesse `http://localhost:5000/` para visualizar:
 
 ## 🗺️ Roadmap (Próximas Versões)
 
-### **v3.0 - Autenticação e Segurança**
+### **v4.0 - Autenticação e Segurança**
 - [ ] Sistema de login/senha
 - [ ] Autenticação JWT
 - [ ] Níveis de permissão (Admin, Analyst, Viewer)
 - [ ] Logs de auditoria
 
-### **v3.1 - Integrações Avançadas**
+### **v4.1 - Integrações Avançadas**
 - [ ] MISP Integration
 - [ ] TheHive Integration
 - [ ] STIX/TAXII Support
 - [ ] Exportação para SIEM
 
 ## 📝 Changelog
+
+### **v2.0 - 20/10/2025**
+✨ **Primeira Release Estável**
 
 ### **v2.1 - 25/10/2025**
 ✨ **Novidades:**
@@ -308,9 +317,6 @@ Acesse `http://localhost:5000/` para visualizar:
 - Rotas 404 corrigidas
 - Comunicação entre páginas funcionando
 - API endpoints atualizados
-
-### **v2.0 - 20/10/2025**
-✨ **Primeira Release Estável**
 
 ### **v2.2 - 27/10/2025**
 🐛 **Correções:**
@@ -327,6 +333,12 @@ Acesse `http://localhost:5000/` para visualizar:
 - CVEs duplicadas ou inválidas não são mais salvas no banco
 - Proteção e tratamento contra arquivos JSON vazios/corrompidos
 - Adicionados logs de debug para facilitar diagnóstico e manutenção
+
+### **v3.0 - 20/11/2025**
+🐛 **Correções:**
+- Correção de exibição do histórico AbuseIPDB;
+- Tratamento de listas e variáveis no backend;
+- Padronização do formato de datas.
 
 ---
 

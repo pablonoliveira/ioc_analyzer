@@ -196,21 +196,21 @@
             margin-top: 20px;
             border: 1px solid #f5c6cb;
         }
-		footer {
-			background: rgba(255,255,255,0.5);
+		.footer {
+			background: rgba(255,255,255,0.8);
 			color: #444;
 			text-align: center;
 			padding: 14px 0 12px 0;
 			font-size: 1.15em;
 			border-top: 1px solid #e4e4ef;
-			width: 100vw;
+			width: 100%;
+			margin: 0;
 			box-shadow: 0 -1px 12px 0 rgba(102,126,234,0.08);
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
 			backdrop-filter: blur(2px);
 			letter-spacing: .3px;
-			margin-top: 40px;
-			/* Não use position: fixed/absolute */
 		}
+
 
     </style>
 </head>
@@ -390,14 +390,14 @@
             resultsPanel.style.display = 'block';
         }
     </script>
-<footer>
-  <span style="margin-right:6px;">
-    <svg height="21" viewBox="0 0 20 20" width="21" fill="#764ba2" style="vertical-align:middle; margin-bottom: -5px;">
-      <path d="M10 2l7 4v5c0 5-7 7-7 7s-7-2-7-7V6z"></path>
-    </svg>
-  </span>
-  IOC Analyzer - Blue Team Platform - Licença GPLv3 - 2025. Autor Pablo Nunes de Oliveira
-</footer>
-
+	<div style="height:48px;"></div>
+	<footer class="footer">
+            <span style="margin-right:6px;">
+                <svg height="21" viewBox="0 0 20 20" width="21" fill="#764ba2" style="vertical-align:middle; margin-bottom: -5px">
+                    <path d="M10 2l7 4v5c0 5-7 7-7 7s-7-2-7-7V6z"/>
+                </svg>
+            </span>
+            IOC Analyzer - Blue Team Platform - Licença GPLv3 - 2025. Autor: Pablo Nunes de Oliveira
+	</footer>
 </body>
 </html>

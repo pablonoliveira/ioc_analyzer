@@ -4,3 +4,4 @@ python-dotenv
 googletrans 
 pandas
 openpyxl
+OTXv2

@@ -1,18 +1,5 @@
 [
   {
-    "id": 1761359258996,
-    "type": "IP",
-    "value": "10.7.23.124",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. None | Reserved",
-    "createdAt": "2025-10-24T23:27:38.993751"
-  },
-  {
     "id": 1761359259363,
     "type": "IP",
     "value": "95.164.5.169",
@@ -78,19 +65,6 @@
     "createdAt": "2025-10-24T23:27:43.075271"
   },
   {
-    "id": 1761359264905,
-    "type": "IP",
-    "value": "10.7.24.28",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. None | Reserved",
-    "createdAt": "2025-10-24T23:27:44.896029"
-  },
-  {
     "id": 1761359265297,
     "type": "IP",
     "value": "95.164.5.51",
@@ -102,19 +76,6 @@
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
     "createdAt": "2025-10-24T23:27:45.287318"
-  },
-  {
-    "id": 1761359266800,
-    "type": "IP",
-    "value": "10.7.31.32",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. None | Reserved",
-    "createdAt": "2025-10-24T23:27:46.789744"
   },
   {
     "id": 1761359267185,
@@ -156,19 +117,6 @@
     "createdAt": "2025-10-24T23:27:49.875949"
   },
   {
-    "id": 1761359270290,
-    "type": "IP",
-    "value": "10.7.33.54",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. None | Reserved",
-    "createdAt": "2025-10-24T23:27:50.275087"
-  },
-  {
     "id": 1761359270675,
     "type": "IP",
     "value": "95.164.4.121",
@@ -180,19 +128,6 @@
     "campaign": "",
     "description": "Detectado automaticamente via análise de logs. BR | Data Center/Web Hosting/Transit",
     "createdAt": "2025-10-24T23:27:50.659941"
-  },
-  {
-    "id": 1761359271958,
-    "type": "IP",
-    "value": "10.7.7.56",
-    "severity": "Low",
-    "status": "Monitored",
-    "source": "Log Analysis - Automated Detection",
-    "firstSeen": "2025-10-24",
-    "lastSeen": "2025-10-24",
-    "campaign": "",
-    "description": "Detectado automaticamente via análise de logs. None | Reserved",
-    "createdAt": "2025-10-24T23:27:51.941173"
   },
   {
     "id": 1761359272348,
@@ -2615,5 +2550,21 @@
     "source": "AbuseIPDB, VirusTotal",
     "severity": "Malicioso",
     "description": "Fonte: AbuseIPDB, Abuse Score: 100, Malicious: 0, Reports: 383<br>Fonte: VirusTotal, Abuse Score: None, Limpo ou não detectado."
+  },
+  {
+    "id": "20251120142526",
+    "type": "IP",
+    "value": "91.208.184.85",
+    "source": "AbuseIPDB, VirusTotal",
+    "severity": "Suspeito",
+    "description": "<b>AbuseIPDB:</b> Este endereço IP foi reportado um total de <b>67</b> vezes por <b>-</b> fontes distintas.<br>Primeiro registro em mais recente <b>20/11/2025 04:53 (UTC-3)</b> (há 9 horas)"
+  },
+  {
+    "id": "20251120153322",
+    "type": "IP",
+    "value": "206.168.34.56",
+    "source": "AbuseIPDB, VirusTotal",
+    "severity": "Malicioso",
+    "description": "<b>AbuseIPDB:</b> Este endereço IP foi reportado um total de <b>1346</b> vezes por <b>-</b> fontes distintas.<br>Primeiro registro em mais recente <b>20/11/2025 14:20 (UTC-3)</b> (há 1 hora)"
   }
 ]

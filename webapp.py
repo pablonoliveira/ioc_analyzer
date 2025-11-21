@@ -7,18 +7,44 @@ from flask import Flask, request, render_template, jsonify
 from flask import redirect, url_for
 from werkzeug.utils import secure_filename
 from parsers.log_parser import parse_log
-from ioc.abuseipdb_client import check_ip
+from ioc.abuseipdb_client import check_ip, fetch_reports
 from ioc.virustotal_client import check_hash
 from ioc.url_checker import check_url_or_domain
 from ioc.cisa_kev_client import search_cve_in_kev
 from ioc.circl_cve_client import search_cve, get_severity_from_cvss
 from ioc.nvd_cve_client import search_cve_by_id as search_nvd, fetch_recent_cves as fetch_nvd_recent
-from datetime import datetime
+from utils.datetime_utils import format_datetime_br
+from datetime import datetime, timedelta, timezone
 import json
 import os
 import traceback
 import csv
 import pandas as pd
+
+# --- Dicionário de categorias AbuseIPDB para tradução PT-BR ---
+abuseipdb_category_map = {
+    3: "Fraude",
+    4: "DDoS",
+    5: "NSA envenenamento",
+    6: "Escaneamento",
+    7: "Botnet",
+    8: "Spam",
+    9: "Phishing",
+    10: "Malware",
+    11: "Spam de login",
+    12: "Exploração",
+    13: "Vazamento de dados",
+    14: "Exfiltração",
+    15: "Scan web",
+    16: "Pharming",
+    17: "Abuso SSH",
+    18: "Força bruta",
+    19: "Ataque Web",
+    20: "Vulnerabilidade",
+    21: "Ataque à Aplicação",
+    22: "Proxy",
+    # ... pode adicionar outras categorias conforme necessário
+}
 
 # Importar tradutor
 try:
@@ -51,6 +77,36 @@ def translate_to_portuguese(text):
     except Exception as e:
         print(f"[ERRO] Falha na tradução: {e}")
         return text
+
+# Função para conversão de data em UTC-3
+def format_datetime_br(iso_str, modo_relativo=False):
+    if not iso_str:
+        return "-"
+    try:
+        dt = datetime.fromisoformat(iso_str.replace("Z", "+00:00"))
+        # Ajuste para horário de Brasília UTC-3
+        dt_br = dt - timedelta(hours=3)
+        if modo_relativo:
+            return humanize_timedelta(dt)
+        return dt_br.strftime('%d/%m/%Y %H:%M') + " (UTC-3)"
+    except Exception:
+        return iso_str
+
+def humanize_timedelta(dt):
+    if not dt:
+        return "-"
+    ago = datetime.now(timezone.utc) - dt
+    minutes = int(ago.total_seconds() // 60)
+    hours = minutes // 60
+    days = hours // 24
+    if days > 0:
+        return f"há {days} dia{'s' if days>1 else ''}"
+    elif hours > 0:
+        return f"há {hours} hora{'s' if hours>1 else ''}"
+    elif minutes > 0:
+        return f"há {minutes} minuto{'s' if minutes>1 else ''}"
+    else:
+        return "agora"
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -118,30 +174,43 @@ def save_cve_database(data):
             data = []
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-
 def analisar_classificacao(results):
     status = []
     detalhes = []
     for r in results:
-        # print("[DEBUG ANALISAR_CLASSIFICACAO] Entrada:", r)
         if not r:
             continue
-        score = r.get("abuseConfidenceScore")
-        reports = r.get("totalReports")
-        classification = r.get("classification")
-        vt_stats = r.get("virustotal_stats", {})
-        malicious = vt_stats.get("malicious", 0)
-        suspicious = vt_stats.get("suspicious", 0)
         fonte = r.get("source", "Desconhecida")
-        if (score and int(score) >= 90) or (malicious and int(malicious) >= 1) or classification == "malicious":
-            status.append("Malicioso")
-            detalhes.append(f"Fonte: {fonte}, Abuse Score: {score}, Malicious: {malicious}, Reports: {reports}")
-        elif (score and 50 <= int(score) < 90) or suspicious or classification in ["suspicious", "unknown"]:
-            status.append("Suspeito")
-            detalhes.append(f"Fonte: {fonte}, Abuse Score: {score}, Suspicious: {suspicious}")
-        else:
-            status.append("Não Malicioso")
-            detalhes.append(f"Fonte: {fonte}, Abuse Score: {score}, Limpo ou não detectado.")
+        if fonte.lower().startswith("abuse"):
+            score = int(r.get("abuseConfidenceScore", 0))
+            reports = r.get("totalReports", 0)
+            # Pegue nome correto para fontes distintas; ajuste conforme nome real do campo!
+            distinct = r.get("distinct") or r.get("uniqueReports") or "-"
+            first_seen = r.get("firstSeen", "")
+            last_report = r.get("lastReportedAt", "")
+
+            first_seen_fmt = format_datetime_br(first_seen) if first_seen else "-"
+            last_report_fmt = format_datetime_br(last_report) if last_report else "-"
+            last_report_rel = format_datetime_br(last_report, modo_relativo=True) if last_report else "-"
+            
+            url = r.get("url", "#")  # Pega o campo url, se não vier, usa "#"
+
+            msg1 = (f"<b>AbuseIPDB:</b> Este endereço IP foi reportado um total de <b>{reports}</b> vezes.")
+            msg2 = f"O reporte mais recente em <b>{last_report_fmt}</b>."
+            msg2 += f' | <a href="{url}" target="_new" rel="noopener"><b>Acesse diretamente no AbuseIPDB</b></a>.'
+
+            if last_report_rel != "-":
+                msg2 += f" ({last_report_rel})"
+            if score >= 90 or reports > 100:
+                status.append("Malicioso")
+            elif score >= 50 or reports > 10:
+                status.append("Suspeito")
+            else:
+                status.append("Não Malicioso")
+            detalhes += [msg1, msg2]
+
+        # ...VirusTotal e outros igual anterior...
+
     if "Malicioso" in status:
         resumo = "Malicioso"
     elif "Suspeito" in status:
@@ -149,7 +218,7 @@ def analisar_classificacao(results):
     else:
         resumo = "Não Malicioso"
     return resumo, detalhes
-
+    
 @app.route('/')
 def index():
     return render_template('dashboard.html')
@@ -239,18 +308,25 @@ def upload_files():
         traceback.print_exc()
         return jsonify({'success': False, 'error': str(e)}), 500
 
-@app.route('/ioc', methods=['GET'])
+@app.route('/ioc')
 def ioc_panel():
     iocs = load_ioc_database()
-    # Filtros GET
-    severity = request.args.get("severity")
-    ioc_type = request.args.get("type")
-    if severity:
-        iocs = [i for i in iocs if i.get("severity") == severity]
-    if ioc_type:
-        iocs = [i for i in iocs if i.get("type") == ioc_type]
-    return render_template('ioc_panel.html', iocs=iocs)
-
+    page = int(request.args.get('page', 1))
+    per_page = 20
+    start = (page - 1) * per_page
+    end = start + per_page
+    iocs_paginated = iocs[start:end]
+    total = len(iocs)
+    total_pages = ((total - 1) // per_page) + 1
+    return render_template(
+        'ioc_panel.html',
+        iocs=iocs_paginated,
+        page=page,
+        total_pages=total_pages,
+        per_page=per_page,
+        total=total,
+        request=request
+    )
 
 @app.route('/ioc/search', methods=['POST'])
 def ioc_search():
@@ -266,19 +342,32 @@ def ioc_search():
         if "." in ioc_value:
             abuse = check_ip(ioc_value)
             if abuse: abuse["source"] = "AbuseIPDB"
+            if abuse is not None and isinstance(abuse, dict):
+                abuse["type"] = "IP"
+                
             vt = check_hash(ioc_value)
             if vt: vt["source"] = "VirusTotal"
+            if vt is not None and isinstance(vt, dict):
+                vt["type"] = "IP"
         else:
             vt = check_hash(ioc_value)
             if vt: vt["source"] = "VirusTotal"
+            if vt is not None and isinstance(vt, dict):
+                # deduza o tipo: "Hash", "URL", "Domain"
+                vt_type = "-"
+                if len(ioc_value) in (32,40,64): vt_type = "Hash"
+                elif "://" in ioc_value or ioc_value.startswith("www."): vt_type = "URL"
+                elif "@" in ioc_value or "." in ioc_value: vt_type = "Domain"
+                vt["type"] = vt_type
+
     except Exception as exc:
-        error = f"Erro em consultas externas: {exc}"
+        error = f"Erro em consultas externas: {exc}"  
 
     resumo, detalhes = analisar_classificacao([abuse, vt])
     tipo = "-"
-    if abuse and isinstance(abuse, dict) and "type" in abuse:
+    if abuse and isinstance(abuse, dict):
         tipo = abuse["type"]
-    elif vt and isinstance(vt, dict) and "type" in vt:
+    elif vt and isinstance(vt, dict):
         tipo = vt["type"]
 
     result = {
@@ -293,8 +382,51 @@ def ioc_search():
         ),
         "date_added": datetime.now().strftime('%d/%m/%Y %H:%M'),
     }
+    api_limitation_msg = (
+    "<b>Aviso:</b> Os dados exibidos refletem apenas o valor retornado pela AbuseIPDB API, "
+    "podendo ser diferentes do total apresentado no site oficial. Para o histórico completo e contagens agregadas, utilize o site do AbuseIPDB."
+    )
 
-    return render_template('ioc_panel.html', iocs=load_ioc_database(), ioc_result=result, ioc_value=ioc_value, error=error)
+    return render_template(
+        'ioc_panel.html', 
+        iocs=load_ioc_database(),
+        ioc_result=result, 
+        ioc_value=ioc_value, 
+        error=error,
+        api_limitation_msg=api_limitation_msg,
+    )
+
+@app.route('/ioc/reportshistory', methods=['POST'])
+def ioc_reportshistory():
+    """
+    Rota para consulta avançada do histórico de reports de um IP via endpoint /reports da AbuseIPDB.
+    
+    - Recebe o valor do IOC (IP) via POST (formulário oculto).
+    - Invoca fetch_reports (método da client wrapper) que realiza a consulta detalhada.
+    - Retorna lista com todos os reports do IP (limitado por quota diária da API AbuseIPDB).
+    - Os dados são enviados ao template como 'reports_history' para exibição.
+    - Caso haja muitos reports, pode ser implementada paginação ou aviso ao usuário.
+    - Aviso: Consulta avançada consome quota de /reports (100/dia em conta gratuita AbuseIPDB).
+    """
+    ioc_value = request.form.get('ioc_value', '').strip()
+    error = None
+    reports = []
+    try:
+        reports = fetch_reports(ioc_value, max_age=365, per_page=10)
+    except Exception as exc:
+        error = f"Erro na consulta avançada: {exc}"
+    # Garante que 'reports' seja lista
+    if not reports or not isinstance(reports, list):
+        reports = []
+
+    return render_template(
+        'ioc_panel.html',
+        iocs=load_ioc_database(),
+        reports_history=reports,      # nunca None!
+        ioc_value=ioc_value,
+        abuseipdb_category_map=abuseipdb_category_map,
+        error=error
+    )
 
 @app.route('/ioc/list')
 def ioc_list():

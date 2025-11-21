@@ -1,3 +1,4 @@
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -172,29 +173,20 @@
             border-radius: 8px;
             margin-top: 20px;
         }
-			footer {
-				 background: rgba(255,255,255,0.5);
-				 color: #444;
-				 text-align: center;
-				 padding: 14px 0 12px 0;
-				 font-size: 1.15em;
-				 border-top: 1px solid #e4e4ef;
-				 width: 100vw;
-				 left: 0;
-				 box-shadow: 0 -1px 12px 0 rgba(102,126,234,0.08);
-				 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-				 backdrop-filter: blur(2px);
-				 letter-spacing: .3px;
-				 <!-- position: fixed; -->
-				 <!-- bottom: 0; -->
-				 <!-- z-index: 99; -->
-				 margin-top: 40px;
-				}
-			@media (max-width: 960px) {
-			  footer {
-				font-size: 1em;
-			  }
-			}
+		.footer {
+			background: rgba(255,255,255,0.8);
+			color: #444;
+			text-align: center;
+			padding: 14px 0 12px 0;
+			font-size: 1.15em;
+			border-top: 1px solid #e4e4ef;
+			width: 100%;
+			margin: 0;
+			box-shadow: 0 -1px 12px 0 rgba(102,126,234,0.08);
+			font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+			backdrop-filter: blur(2px);
+			letter-spacing: .3px;
+		}
 
     </style>
 </head>
@@ -243,9 +235,9 @@
                     </tbody>
                 </table>
             </div>
+			<div id="pagination" style="text-align:center;margin:18px 0;"></div>
         </div>
     </div>
-    <div id="pagination" style="text-align:center;margin:18px 0;"></div>
     <script>
         window.onload = loadCVEs;
         
@@ -259,37 +251,9 @@
             }
         }
         
-        <!-- <!-- function displayCVEs(cves) { -->
-			<!-- const tbody = document.getElementById('cveTableBody'); -->
-			<!-- if (cves.length === 0) { -->
-				<!-- tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 40px; color: #999;">📭 Nenhuma CVE salva</td></tr>'; -->
-				<!-- return; -->
-			<!-- } -->
-			<!-- tbody.innerHTML = ''; -->
-			<!-- cves.forEach(cve => { -->
-				<!-- const sources = Array.isArray(cve.sources) ? cve.sources.join(', ') : (cve.sources || '-'); -->
-				<!-- const cveId = cve.cve_id || '-'; -->
-				<!-- const severity = cve.severity || '-'; -->
-				<!-- const cvss = cve.cvss_score || '-'; -->
-				<!-- const desc = cve.description_pt || cve.description || '-'; -->
-				<!-- const pubdate = cve.published_date || '-'; -->
-				<!-- const row = document.createElement('tr'); -->
-				<!-- row.innerHTML = ` -->
-					<!-- <td><strong>${cveId}</strong></td> -->
-					<!-- <td><span class="severity-${severity.toLowerCase()}">${severity}</span></td> -->
-					<!-- <td>${cvss}</td> -->
-					<!-- <td>${desc}</td> -->
-					<!-- <td>${pubdate}</td> -->
-					<!-- <td>${sources}</td> -->
-					<!-- <td><button onclick="deleteCVE('${cve.id}')" class="btn btn-danger" style="padding: 8px 16px;">🗑️ Excluir</button></td> -->
-				<!-- `; -->
-				<!-- tbody.appendChild(row); -->
-			<!-- }); -->
-		<!-- } -->
- -->
-
+    
 let currentPage = 1;
-const rowsPerPage = 10;
+const rowsPerPage = 20;
 let allCVEs = [];
 
 		function displayCVEs(cves) {
@@ -329,29 +293,39 @@ let allCVEs = [];
 				tbody.appendChild(row);
 			});
 		}
-
-		function renderPagination() {
-			const pageCount = Math.ceil(allCVEs.length / rowsPerPage);
-			let html = '';
-			for (let i = 1; i <= pageCount; i++) {
-				html += `<button onclick="toPage(${i})" ${i === currentPage ? 'style="font-weight:bold"' : ''}>${i}</button> `;
-			}
-			document.getElementById('pagination').innerHTML = html;
-		}
-
+		
 		function toPage(page) {
 			currentPage = page;
 			showPage(page);
 			renderPagination();
+			document.getElementById('filterInput').value = ""; // Optional: limpa filtro ao paginar
 		}
-         
+		
+		function renderPagination() {
+    const pageCount = Math.ceil(allCVEs.length / rowsPerPage);
+    let html = '';
+    if (pageCount > 1) {
+        html += `<div style="display:inline-block; padding:12px 0;">`;
+        if (currentPage > 1) {
+            html += `<a onclick="toPage(${currentPage-1})" class="btn btn-primary" aria-label="Página Anterior" style="margin-right:8px; cursor:pointer;">← Anterior</a>`;
+        }
+        html += `<span>Página ${currentPage} de ${pageCount}</span>`;
+        if (currentPage < pageCount) {
+            html += `<a onclick="toPage(${currentPage+1})" class="btn btn-primary" aria-label="Próxima Página" style="margin-left:8px; cursor:pointer;">Próxima →</a>`;
+        }
+        html += `</div>`;
+    }
+    html += `<div style="color:#666;margin-top:7px;">Exibindo ${rowsPerPage} por página — Total: ${allCVEs.length}</div>`;
+    document.getElementById('pagination').innerHTML = html;
+}   	
+		
         async function searchCVE() {
             const cveId = document.getElementById('cveSearchInput').value.trim().toUpperCase();
             const resultsDiv = document.getElementById('searchResults');
             
             if (!cveId) {
-                resultsDiv.innerHTML = `<div class="success">✅ ${data.count} CVEs encontradas (${data.saved} novas salvas).<br>Veja os resultados na tabela abaixo.</div>`;
-                return;
+                resultsDiv.innerHTML = `<div class="success">✅ Busque um CVE pelo campo acima.</div>`;
+               return;
             }
             
             resultsDiv.innerHTML = '<div class="loading">🔍 Buscando CVE...</div>';
@@ -467,14 +441,14 @@ let allCVEs = [];
             }
         }
     </script>
-<footer>
-  <span style="margin-right:6px;">
-    <svg height="21" viewBox="0 0 20 20" width="21" fill="#764ba2" style="vertical-align:middle; margin-bottom: -5px;">
-      <path d="M10 2l7 4v5c0 5-7 7-7 7s-7-2-7-7V6z"></path>
-    </svg>
-  </span>
-  IOC Analyzer - Blue Team Platform - Licença GPLv3 - 2025. Autor Pablo Nunes de Oliveira
-</footer>
-
+	<div style="height:48px;"></div>
+	<footer class="footer">
+		<span style="margin-right:6px;">
+			<svg height="21" viewBox="0 0 20 20" width="21" fill="#764ba2" style="vertical-align:middle; margin-bottom: -5px">
+				<path d="M10 2l7 4v5c0 5-7 7-7 7s-7-2-7-7V6z"/>
+			</svg>
+		</span>
+		IOC Analyzer - Blue Team Platform - Licença GPLv3 - 2025. Autor: Pablo Nunes de Oliveira
+	</footer>
 </body>
 </html>

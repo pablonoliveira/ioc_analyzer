@@ -3,15 +3,12 @@
 # ============================================
 
 # ===== PYTHON =====
-# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 
-# C extensions
 *.so
 
-# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -32,7 +29,6 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# Virtual environments
 env/
 venv/
 ENV/
@@ -40,11 +36,9 @@ env.bak/
 venv.bak/
 .venv/
 
-# PyInstaller
 *.manifest
 *.spec
 
-# Unit test / coverage reports
 htmlcov/
 .tox/
 .nox/
@@ -59,7 +53,6 @@ coverage.xml
 .pytest_cache/
 
 # ===== ENVIRONMENT VARIABLES =====
-# CRÍTICO: NUNCA commitar chaves de API
 .env
 .env.*
 .env.local
@@ -68,142 +61,104 @@ coverage.xml
 !.env.example
 
 # ===== FLASK / WEB =====
-# Flask session and temporary files
 instance/
 .webassets-cache
 flask_session/
 
-# Flask SQLAlchemy (se migrar para DB)
 *.db
 *.sqlite
 *.sqlite3
 
 # ===== IDES E EDITORES =====
-# VSCode
 .vscode/
 *.code-workspace
-
-# PyCharm
 .idea/
 *.iml
 *.iws
 *.ipr
-
-# Sublime Text
 *.sublime-project
 *.sublime-workspace
-
-# Vim
 *.swp
 *.swo
 *~
 .netrwhist
-
-# Emacs
 *~
 \#*\#
-.\#*
+.#*
 
 # ===== SISTEMAS OPERACIONAIS =====
-# macOS
 .DS_Store
 .AppleDouble
 .LSOverride
 ._*
-
-# Windows
 Thumbs.db
 Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
 Desktop.ini
 $RECYCLE.BIN/
-
-# Linux
 *~
 .directory
 .Trash-*
 
 # ===== PROJECT SPECIFIC =====
-# Cache files (ignorar cache, MANTER banco de dados)
-data/abuseipdb_cache.json
-data/virustotal_cache.json
-data/*_cache.json
-
-# Logs
 logs/
 *.log
 *.log.*
 
-# Backup files
 *.bak
 *.backup
 *.old
 *.orig
 
-# Temporary files
 temp/
 tmp/
 *.tmp
 
-# Exports (relatórios gerados - opcional, comente se quiser versionar)
 exports/
 reports/*.pdf
 reports/*.csv
 
-# ===== DOCKER (futuro) =====
-# Docker
 *.tar
 *.zip
 docker-compose.override.yml
 
-# ===== SECURITY =====
-# Certificados e chaves privadas
 *.pem
 *.key
 *.cert
 *.crt
 *.p12
 *.pfx
-
-# Secrets
 secrets/
 .secrets
 
-# ===== DOCUMENTATION =====
-# Jupyter Notebooks checkpoints
 .ipynb_checkpoints
 
-# Sphinx documentation
 docs/_build/
 docs/_static/
 docs/_templates/
 
-# ===== DADOS SENSÍVEIS (ADICIONAR SE NECESSÁRIO) =====
-# Se você não quer versionar os bancos de dados JSON:
-# data/ioc_database.json
-# data/cve_database.json
-
 # ===== MANTER NO REPOSITÓRIO =====
-# Exemplos e templates devem ser versionados
 !.env.example
 !data/.gitkeep
 !logs/.gitkeep
 !docs/img/
 
-# ===== PERFORMANCE =====
-# Compiled translations
 *.mo
-
-# Celery (se implementar tarefas assíncronas)
 celerybeat-schedule
 celerybeat.pid
 
-# ===== NOTAS =====
-# Este .gitignore está configurado para:
-# ✅ Proteger chaves de API e secrets
-# ✅ Ignorar arquivos temporários e cache
-# ✅ MANTER os bancos de dados JSON (data/*.json)
-# ✅ Ignorar ambientes virtuais
-# ✅ Suportar múltiplos IDEs e SOs
-# ✅ Preparado para expansão futura (Docker, testes, etc.)
+# ===== IGNORAR PLANILHAS, UPLOADS E BANCO DE DADOS =====
+*.csv
+*.tsv
+*.xls
+*.xlsx
+*.xlsm
+*.ods
+*.numbers
+
+upload/
+
+# Ignora TUDO da pasta data, inclusive .json
+data/
+!data/.gitkeep

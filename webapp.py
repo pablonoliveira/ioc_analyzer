@@ -327,14 +327,28 @@ def ioc_panel():
         total=total,
         request=request
     )
-
 @app.route('/ioc/search', methods=['POST'])
 def ioc_search():
     ioc_value = request.form.get('ioc_value', '').strip()
     error = None
 
+    # Carrega todos os IOCs do banco (ajuste conforme sua estrutura)
+    ioc_list = load_ioc_database()
+    page_size = 10  # Ajuste conforme necessário
+    current_page = 1  # Se não houver paginação dinâmica, mantenha 1
+    
+    # Calcula o total de páginas, lidando com lista vazia
+    total_pages = max(1, (len(ioc_list) + page_size - 1) // page_size)
+
+    # Caso não seja informado o valor, já retorna o template
     if not ioc_value:
-        return render_template('ioc_panel.html', error="Informe o valor do IOC", iocs=load_ioc_database())
+        return render_template(
+            'ioc_panel.html', 
+            error="Informe o valor do IOC", 
+            iocs=ioc_list,
+            total_pages=total_pages,
+            current_page=current_page
+        )
 
     abuse = None
     vt = None
@@ -353,7 +367,7 @@ def ioc_search():
             vt = check_hash(ioc_value)
             if vt: vt["source"] = "VirusTotal"
             if vt is not None and isinstance(vt, dict):
-                # deduza o tipo: "Hash", "URL", "Domain"
+                # deduze tipo ("Hash", "URL", "Domain")
                 vt_type = "-"
                 if len(ioc_value) in (32,40,64): vt_type = "Hash"
                 elif "://" in ioc_value or ioc_value.startswith("www."): vt_type = "URL"
@@ -382,25 +396,30 @@ def ioc_search():
         ),
         "date_added": datetime.now().strftime('%d/%m/%Y %H:%M'),
     }
+
     api_limitation_msg = (
-    "<b>Aviso:</b> Os dados exibidos refletem apenas o valor retornado pela AbuseIPDB API, "
-    "podendo ser diferentes do total apresentado no site oficial. Para o histórico completo e contagens agregadas, utilize o site do AbuseIPDB."
+        "<b>Aviso:</b> Os dados exibidos refletem apenas o valor retornado pela AbuseIPDB API, "
+        "podendo ser diferentes do total apresentado no site oficial. Para o histórico completo e contagens agregadas, utilize o site do AbuseIPDB."
     )
 
+    # Renderiza o template passando todas as variáveis necessárias
     return render_template(
-        'ioc_panel.html', 
-        iocs=load_ioc_database(),
-        ioc_result=result, 
-        ioc_value=ioc_value, 
+        'ioc_panel.html',
+        iocs=ioc_list,
+        ioc_result=result,
+        ioc_value=ioc_value,
         error=error,
         api_limitation_msg=api_limitation_msg,
+        total_pages=total_pages,
+        page=current_page
     )
+
 
 @app.route('/ioc/reportshistory', methods=['POST'])
 def ioc_reportshistory():
     """
     Rota para consulta avançada do histórico de reports de um IP via endpoint /reports da AbuseIPDB.
-    
+
     - Recebe o valor do IOC (IP) via POST (formulário oculto).
     - Invoca fetch_reports (método da client wrapper) que realiza a consulta detalhada.
     - Retorna lista com todos os reports do IP (limitado por quota diária da API AbuseIPDB).
@@ -411,21 +430,30 @@ def ioc_reportshistory():
     ioc_value = request.form.get('ioc_value', '').strip()
     error = None
     reports = []
+    page_size = 10
+    page = 1  # Em produção, você pode pegar o número da página de request.args.get('page', 1, type=int)
+
     try:
-        reports = fetch_reports(ioc_value, max_age=365, per_page=10)
+        reports = fetch_reports(ioc_value, max_age=365, per_page=page_size)
     except Exception as exc:
         error = f"Erro na consulta avançada: {exc}"
+
     # Garante que 'reports' seja lista
     if not reports or not isinstance(reports, list):
         reports = []
 
+    # Calcula o total de páginas para exibição no template
+    total_pages = max(1, (len(reports) + page_size - 1) // page_size)
+
     return render_template(
         'ioc_panel.html',
         iocs=load_ioc_database(),
-        reports_history=reports,      # nunca None!
+        reports_history=reports,         # nunca None!
         ioc_value=ioc_value,
         abuseipdb_category_map=abuseipdb_category_map,
-        error=error
+        error=error,
+        total_pages=total_pages,
+        page=page
     )
 
 @app.route('/ioc/list')

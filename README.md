@@ -59,6 +59,10 @@ Plataforma completa de análise e correlação de **Indicadores de Comprometimen
 - **Filtros avançados:** busca refinada por tipo, severidade, categoria e data tanto no painel de IoCs quanto de CVEs
 - **Backend (Flask) ajustado:** Adicionado dicionário AbuseIPDB para categorias traduzidas em português.
 
+## 🚀 Funcionalidades v3.1 (Dez/2025)
+
+- **Signature info (VirusTotal):** exibição de informações de assinatura digital de arquivos (verified, produto, descrição, nome original, versão do arquivo e data de assinatura) quando disponíveis a partir do hash consultado.
+
 ---
 
 ## 🏗️ Estrutura do Projeto
@@ -97,14 +101,14 @@ ioc_analyzer/
 
 ## ⚙️ Instalação
 
-### 1️⃣ **Clonar o Repositório**
+### 1. **Clonar o Repositório**
 
 ```bash
 git clone https://github.com/pablonoliveira/ioc_analyzer.git
 cd ioc_analyzer
 ```
 
-### 2️⃣ **Criar Ambiente Virtual**
+### 2. **Criar Ambiente Virtual**
 
 ```bash
 python -m venv venv
@@ -116,13 +120,13 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-### 3️⃣ **Instalar Dependências**
+### 3. **Instalar Dependências**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4️⃣ **Configurar APIs (Opcional)**
+### 4️. **Configurar APIs (Opcional)**
 
 Crie um arquivo `.env` na raiz do projeto:
 
@@ -230,7 +234,7 @@ pip install -r requirements.txt
 | **CIRCL CVE** | CVE Search | ✅ Integrado | [cve.circl.lu](https://cve.circl.lu) |
 | **CISA KEV** | Known Exploited Vulnerabilities | ✅ Integrado | [cisa.gov/kev](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
 | **AbuseIPDB** | IP Reputation | 🔧 Requer API Key | [abuseipdb.com](https://www.abuseipdb.com) |
-| **VirusTotal** | Hash/URL Analysis | 🔧 Requer API Key | [virustotal.com](https://www.virustotal.com) |
+| **VirusTotal** | Hash/URL Analysis + metadados de arquivos (tags, reputation, signature info quando disponível | 🔧 Requer API Key | [virustotal.com](https://www.virustotal.com) |
 
 ---
 
@@ -257,6 +261,8 @@ Acesse `http://localhost:5000/` para visualizar:
 2. Adicione IoCs manualmente ou via upload
 3. Filtre e busque IoCs
 4. Exclua ou atualize IoCs
+5. Opcionalmente, utilize a busca rápida de IOC para consultar reputação no VirusTotal e visualizar detalhes de assinatura digital do arquivo a partir do hash.
+
 
 ### **4. Gerenciar CVEs**
 

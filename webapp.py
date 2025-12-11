@@ -334,60 +334,88 @@ def ioc_search():
 
     # Carrega todos os IOCs do banco (ajuste conforme sua estrutura)
     ioc_list = load_ioc_database()
+
     page_size = 10  # Ajuste conforme necessário
     current_page = 1  # Se não houver paginação dinâmica, mantenha 1
-    
+
     # Calcula o total de páginas, lidando com lista vazia
     total_pages = max(1, (len(ioc_list) + page_size - 1) // page_size)
 
     # Caso não seja informado o valor, já retorna o template
     if not ioc_value:
         return render_template(
-            'ioc_panel.html', 
-            error="Informe o valor do IOC", 
+            'ioc_panel.html',
+            error="Informe o valor do IOC",
             iocs=ioc_list,
             total_pages=total_pages,
-            current_page=current_page
+            page=current_page
         )
 
     abuse = None
     vt = None
+    vt_signature = {}
+
     try:
+        # Heurística simples para IP vs outros
         if "." in ioc_value:
+            # Consulta AbuseIPDB
             abuse = check_ip(ioc_value)
-            if abuse: abuse["source"] = "AbuseIPDB"
+            if abuse:
+                abuse["source"] = "AbuseIPDB"
             if abuse is not None and isinstance(abuse, dict):
                 abuse["type"] = "IP"
-                
+
+            # Consulta VirusTotal (mesmo valor; se for hash/URL o VT ainda responde)
             vt = check_hash(ioc_value)
-            if vt: vt["source"] = "VirusTotal"
+            if vt:
+                vt["source"] = "VirusTotal"
             if vt is not None and isinstance(vt, dict):
                 vt["type"] = "IP"
         else:
+            # Consulta somente VirusTotal
             vt = check_hash(ioc_value)
-            if vt: vt["source"] = "VirusTotal"
+            if vt:
+                vt["source"] = "VirusTotal"
             if vt is not None and isinstance(vt, dict):
                 # deduze tipo ("Hash", "URL", "Domain")
                 vt_type = "-"
-                if len(ioc_value) in (32,40,64): vt_type = "Hash"
-                elif "://" in ioc_value or ioc_value.startswith("www."): vt_type = "URL"
-                elif "@" in ioc_value or "." in ioc_value: vt_type = "Domain"
+                if len(ioc_value) in (32, 40, 64):
+                    vt_type = "Hash"
+                elif "://" in ioc_value or ioc_value.startswith("www."):
+                    vt_type = "URL"
+                elif "@" in ioc_value or "." in ioc_value:
+                    vt_type = "Domain"
                 vt["type"] = vt_type
 
+        # Extrai assinatura do VT (se veio)
+        if vt and isinstance(vt, dict):
+            attrs = vt.get("data", {}).get("attributes", {})
+            sig = attrs.get("signature_info", {}) or {}
+            vt_signature = {
+                "verified": sig.get("verified"),
+                "product": sig.get("product"),
+                "description": sig.get("description"),
+                "original_name": sig.get("original name"),
+                "file_version": sig.get("file version"),
+                "signing_date": sig.get("signing date"),
+                "copyright": sig.get("copyright"),
+            }
+
     except Exception as exc:
-        error = f"Erro em consultas externas: {exc}"  
+        error = f"Erro em consultas externas: {exc}"
 
     resumo, detalhes = analisar_classificacao([abuse, vt])
+
     tipo = "-"
     if abuse and isinstance(abuse, dict):
         tipo = abuse["type"]
     elif vt and isinstance(vt, dict):
-        tipo = vt["type"]
+        tipo = vt.get("type", "-")
 
     result = {
         "type": tipo,
         "severity": resumo,
-        "description": "<br>".join(detalhes) if detalhes else "-",
+        "description": "".join(detalhes) if detalhes else "-",
         "source": ", ".join(
             s for s in [
                 abuse["source"] if abuse and isinstance(abuse, dict) and "source" in abuse else None,
@@ -395,11 +423,13 @@ def ioc_search():
             ] if s
         ),
         "date_added": datetime.now().strftime('%d/%m/%Y %H:%M'),
+        "vt_signature": vt_signature  # novo bloco com dados de assinatura
     }
 
     api_limitation_msg = (
-        "<b>Aviso:</b> Os dados exibidos refletem apenas o valor retornado pela AbuseIPDB API, "
-        "podendo ser diferentes do total apresentado no site oficial. Para o histórico completo e contagens agregadas, utilize o site do AbuseIPDB."
+        "Aviso: Os dados exibidos refletem apenas o valor retornado pela AbuseIPDB/VirusTotal API, "
+        "podendo ser diferentes do total apresentado nos sites oficiais. "
+        "Para o histórico completo e contagens agregadas, utilize os sites do AbuseIPDB e VirusTotal."
     )
 
     # Renderiza o template passando todas as variáveis necessárias
@@ -413,8 +443,6 @@ def ioc_search():
         total_pages=total_pages,
         page=current_page
     )
-
-
 @app.route('/ioc/reportshistory', methods=['POST'])
 def ioc_reportshistory():
     """

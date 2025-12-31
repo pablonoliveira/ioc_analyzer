@@ -177,14 +177,16 @@ def save_cve_database(data):
 def analisar_classificacao(results):
     status = []
     detalhes = []
+
     for r in results:
         if not r:
             continue
+
         fonte = r.get("source", "Desconhecida")
+
         if fonte.lower().startswith("abuse"):
             score = int(r.get("abuseConfidenceScore", 0))
             reports = r.get("totalReports", 0)
-            # Pegue nome correto para fontes distintas; ajuste conforme nome real do campo!
             distinct = r.get("distinct") or r.get("uniqueReports") or "-"
             first_seen = r.get("firstSeen", "")
             last_report = r.get("lastReportedAt", "")
@@ -192,31 +194,40 @@ def analisar_classificacao(results):
             first_seen_fmt = format_datetime_br(first_seen) if first_seen else "-"
             last_report_fmt = format_datetime_br(last_report) if last_report else "-"
             last_report_rel = format_datetime_br(last_report, modo_relativo=True) if last_report else "-"
-            
-            url = r.get("url", "#")  # Pega o campo url, se não vier, usa "#"
 
-            msg1 = (f"<b>AbuseIPDB:</b> Este endereço IP foi reportado um total de <b>{reports}</b> vezes.")
+            url = r.get("url", "#")
+
+            msg1 = (
+                f"<b>AbuseIPDB:</b> Este endereço IP foi reportado um total de "
+                f"<b>{reports}</b> vezes."
+            )
             msg2 = f"O reporte mais recente em <b>{last_report_fmt}</b>."
-            msg2 += f' | <a href="{url}" target="_new" rel="noopener"><b>Acesse diretamente no AbuseIPDB</b></a>.'
+            msg2 += (
+                f' | <a href="{url}" target="_new" rel="noopener">'
+                f"<b>Acesse diretamente no AbuseIPDB</b></a>."
+            )
 
             if last_report_rel != "-":
                 msg2 += f" ({last_report_rel})"
+
             if score >= 90 or reports > 100:
-                status.append("Malicioso")
+                status.append("High")
             elif score >= 50 or reports > 10:
-                status.append("Suspeito")
+                status.append("Medium")
             else:
-                status.append("Não Malicioso")
+                status.append("Low")
+
             detalhes += [msg1, msg2]
 
-        # ...VirusTotal e outros igual anterior...
+        # ... VT e outras fontes ...
 
-    if "Malicioso" in status:
-        resumo = "Malicioso"
-    elif "Suspeito" in status:
-        resumo = "Suspeito"
+    if "High" in status:
+        resumo = "High"
+    elif "Medium" in status:
+        resumo = "Medium"
     else:
-        resumo = "Não Malicioso"
+        resumo = "Low"
+
     return resumo, detalhes
     
 @app.route('/')
@@ -310,14 +321,37 @@ def upload_files():
 
 @app.route('/ioc')
 def ioc_panel():
+    # Carrega todos os IOCs
     iocs = load_ioc_database()
+
+    # Lê filtros da query string
+    filtro_type = request.args.get('type', '').strip()
+    filtro_severity = request.args.get('severity', '').strip()
+
+    # Aplica filtros em memória
+    filtered_iocs = []
+    for ioc in iocs:
+        # Filtro por tipo (IP, Domain, URL, Hash, Outro)
+        if filtro_type and str(ioc.get('type', '')).strip() != filtro_type:
+            continue
+
+        # Filtro por severidade
+        if filtro_severity:
+            sev = str(ioc.get('severity', '')).strip()
+            if sev != filtro_severity:
+                continue
+
+        filtered_iocs.append(ioc)
+
+    # Paginação
     page = int(request.args.get('page', 1))
     per_page = 20
+    total = len(filtered_iocs)
     start = (page - 1) * per_page
     end = start + per_page
-    iocs_paginated = iocs[start:end]
-    total = len(iocs)
-    total_pages = ((total - 1) // per_page) + 1
+    iocs_paginated = filtered_iocs[start:end]
+    total_pages = max(1, ((total - 1) // per_page) + 1)
+
     return render_template(
         'ioc_panel.html',
         iocs=iocs_paginated,
@@ -327,6 +361,7 @@ def ioc_panel():
         total=total,
         request=request
     )
+
 @app.route('/ioc/search', methods=['POST'])
 def ioc_search():
     ioc_value = request.form.get('ioc_value', '').strip()
@@ -574,7 +609,15 @@ def cve_panel():
 def cve_list():
     try:
         cves = load_cve_database()
-        return jsonify(cves)
+
+        # Ordena pela data de inserção (id é timestamp YYYYMMDDHHMMSSffffff)
+        cves_sorted = sorted(
+            cves,
+            key=lambda c: str(c.get('id', '0')),
+            reverse=True
+        )
+
+        return jsonify(cves_sorted)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

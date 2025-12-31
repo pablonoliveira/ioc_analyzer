@@ -63,6 +63,11 @@ Plataforma completa de análise e correlação de **Indicadores de Comprometimen
 
 - **Signature info (VirusTotal):** exibição de informações de assinatura digital de arquivos (verified, produto, descrição, nome original, versão do arquivo e data de assinatura) quando disponíveis a partir do hash consultado.
 
+## 🚀 Funcionalidades v3.1.1 (Dez/2025)
+
+- Atualização incremental a partir da versão `3.1.0`.
+- Ajustes internos de código (melhorias visuais no painel de IOCs e CVEs, paginação e padronização de severidade). 
+
 ---
 
 ## 🏗️ Estrutura do Projeto
@@ -210,13 +215,17 @@ Exemplo: `http://192.168.254.83:5000`
 
 ## 📚 Dependências Principais
 
-```
-flask>=3.0.0
-requests>=2.31.0
+```bash
+Flask
+requests
+python-dotenv
 googletrans==4.0.0-rc1
-werkzeug>=3.0.0
-python-dotenv>=1.0.0
-```
+pandas
+openpyxl
+OTXv2
+abuseipdb-wrapper
+virustotal-python
+'''
 
 **Instalar todas:**
 
@@ -345,6 +354,13 @@ Acesse `http://localhost:5000/` para visualizar:
 - Correção de exibição do histórico AbuseIPDB;
 - Tratamento de listas e variáveis no backend;
 - Padronização do formato de datas.
+
+### **3.1.1 - - 31/12/2025**
+
+- Melhoria na exibição de severidade de IOCs e CVEs (padronização em inglês: Low, Medium, High, Critical).
+- Inclusão de paginação com seleção direta de página no painel de CVEs e IOCs.
+- Ajustes visuais gerais (cores de badges, espaçamento, layout do footer).
+- Refatorações internas de código sem impacto em APIs públicas.
 
 ---
 

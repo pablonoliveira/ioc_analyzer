@@ -190,7 +190,7 @@
 
     </style>
 </head>
-<body>
+<body style="position:relative; min-height:100vh; padding-bottom:64px;">
     <div class="container">
         <header>
             <h1>🛡️ CVE Management Panel</h1>
@@ -304,20 +304,59 @@ let allCVEs = [];
 		function renderPagination() {
     const pageCount = Math.ceil(allCVEs.length / rowsPerPage);
     let html = '';
+
     if (pageCount > 1) {
         html += `<div style="display:inline-block; padding:12px 0;">`;
+
         if (currentPage > 1) {
-            html += `<a onclick="toPage(${currentPage-1})" class="btn btn-primary" aria-label="Página Anterior" style="margin-right:8px; cursor:pointer;">← Anterior</a>`;
+            html += `<a onclick="toPage(${currentPage-1})"
+                        class="btn btn-primary"
+                        aria-label="Página Anterior"
+                        style="margin-right:8px; cursor:pointer;">← Anterior</a>`;
         }
+
         html += `<span>Página ${currentPage} de ${pageCount}</span>`;
+
         if (currentPage < pageCount) {
-            html += `<a onclick="toPage(${currentPage+1})" class="btn btn-primary" aria-label="Próxima Página" style="margin-left:8px; cursor:pointer;">Próxima →</a>`;
+            html += `<a onclick="toPage(${currentPage+1})"
+                        class="btn btn-primary"
+                        aria-label="Próxima Página"
+                        style="margin-left:8px; cursor:pointer;">Próxima →</a>`;
         }
+
         html += `</div>`;
+
+        // Formulário "Ir para página"
+        html += `
+            <form onsubmit="event.preventDefault(); gotoPage();"
+                  style="margin-top:10px; display:flex; justify-content:center; align-items:center; gap:8px;">
+                <label for="goto_page" style="color:#555;">Ir para página:</label>
+                <input id="goto_page" type="number" min="1" max="${pageCount}"
+                       value="${currentPage}"
+                       style="width:70px; padding:4px 6px; border-radius:6px; border:1px solid #ccc;">
+                <button type="submit" class="btn btn-primary"
+                        style="padding:6px 14px; font-size:0.9em;">
+                    Ir
+                </button>
+            </form>
+        `;
     }
+
     html += `<div style="color:#666;margin-top:7px;">Exibindo ${rowsPerPage} por página — Total: ${allCVEs.length}</div>`;
     document.getElementById('pagination').innerHTML = html;
-}   	
+}
+
+// Função auxiliar chamada pelo formulário
+function gotoPage() {
+    const pageCount = Math.ceil(allCVEs.length / rowsPerPage);
+    const input = document.getElementById('goto_page');
+    let target = parseInt(input.value, 10) || 1;
+
+    if (target < 1) target = 1;
+    if (target > pageCount) target = pageCount;
+
+    toPage(target);
+}
 		
         async function searchCVE() {
             const cveId = document.getElementById('cveSearchInput').value.trim().toUpperCase();

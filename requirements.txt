@@ -6,3 +6,4 @@ requests
 waitress
 abuseipdb-wrapper==0.2.0
 virustotal-python==1.0.0
+deep-translator==1.11.4

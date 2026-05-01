@@ -1,56 +1,78 @@
-# ioc/alienvault_client.py
-
 import os
+from dotenv import load_dotenv
 from OTXv2 import OTXv2, IndicatorTypes
 
-# Carrega a API KEY via variável ambiente (.env)
-API_KEY = os.getenv("ALIENVAULT_API_KEY")
-otx = OTXv2(API_KEY) if API_KEY else None
+load_dotenv()
+
+def get_otx_client():
+    api_key = os.getenv("ALIENVAULT_API_KEY")
+    if not api_key:
+        return None
+    try:
+        return OTXv2(api_key)
+    except Exception:
+        return None
 
 def check_ip(ip):
     """Consulta detalhes de um IP no OTX."""
+    otx = get_otx_client()
     if not otx:
-        return {"error": "OTXv2 não configurado"}
-    return otx.get_indicator_details_full(IndicatorTypes.IPV4, ip)
+        return {"source": "AlienVault OTX", "error": "OTXv2 não configurado"}
+    try:
+        return otx.get_indicator_details_full(IndicatorTypes.IPV4, ip)
+    except Exception as e:
+        return {"source": "AlienVault OTX", "error": str(e)}
 
 def check_domain(domain):
     """Consulta detalhes de um domínio no OTX."""
+    otx = get_otx_client()
     if not otx:
-        return {"error": "OTXv2 não configurado"}
-    return otx.get_indicator_details_full(IndicatorTypes.DOMAIN, domain)
+        return {"source": "AlienVault OTX", "error": "OTXv2 não configurado"}
+    try:
+        return otx.get_indicator_details_full(IndicatorTypes.DOMAIN, domain)
+    except Exception as e:
+        return {"source": "AlienVault OTX", "error": str(e)}
 
 def check_url(url):
     """Consulta detalhes de uma URL no OTX."""
+    otx = get_otx_client()
     if not otx:
-        return {"error": "OTXv2 não configurado"}
-    return otx.get_indicator_details_full(IndicatorTypes.URL, url)
+        return {"source": "AlienVault OTX", "error": "OTXv2 não configurado"}
+    try:
+        return otx.get_indicator_details_full(IndicatorTypes.URL, url)
+    except Exception as e:
+        return {"source": "AlienVault OTX", "error": str(e)}
 
 def check_hash(hash_value, hash_type="md5"):
     """Consulta detalhes de um hash (MD5, SHA1, SHA256) no OTX."""
+    otx = get_otx_client()
     if not otx:
-        return {"error": "OTXv2 não configurado"}
+        return {"source": "AlienVault OTX", "error": "OTXv2 não configurado"}
+
     type_map = {
         "md5": IndicatorTypes.FILE_HASH_MD5,
         "sha1": IndicatorTypes.FILE_HASH_SHA1,
         "sha256": IndicatorTypes.FILE_HASH_SHA256
     }
+
     indicator_type = type_map.get(hash_type.lower(), IndicatorTypes.FILE_HASH_MD5)
-    return otx.get_indicator_details_full(indicator_type, hash_value)
+
+    try:
+        return otx.get_indicator_details_full(indicator_type, hash_value)
+    except Exception as e:
+        return {"source": "AlienVault OTX", "error": str(e)}
 
 def get_recent_iocs(limit=3):
-    print("Entrou em get_recent_iocs")
+    otx = get_otx_client()
     if not otx:
-        print("OTX não foi inicializado")
         return []
+
     indicators = []
+
     try:
         pulses = otx.getall()
-        print("Pulses recebidos:", pulses)
-        print("Qtde de pulses:", len(pulses))
         for pulse in pulses[:limit]:
-            print("Pulse:", pulse)
-            indics = otx.get_pulse_indicators(pulse['id'])
-            print("Indicators desse pulse:", indics)
+            indics = otx.get_pulse_indicators(pulse["id"])
             for ioc in indics:
                 indicators.append({
                     "type": ioc.get("type"),
@@ -58,8 +80,6 @@ def get_recent_iocs(limit=3):
                     "description": pulse.get("name", ""),
                     "source": "AlienVault OTX"
                 })
-        print("Retornando", len(indicators), "IOCs")
         return indicators
     except Exception as e:
-        print("Erro:", e)
-        return [{"error": str(e)}]
+        return [{"source": "AlienVault OTX", "error": str(e)}]

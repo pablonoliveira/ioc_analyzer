@@ -6,17 +6,14 @@ def search_cve(cve_id):
     """
     try:
         url = f"https://cve.circl.lu/api/cve/{cve_id}"
-        
         response = requests.get(url, timeout=10)
-        
+
         if response.status_code == 404:
-            return {
-                "found": False
-            }
-        
+            return {"found": False}
+
         response.raise_for_status()
         data = response.json()
-        
+
         cvss_score = None
         if "cvss" in data:
             cvss_score = data.get("cvss")
@@ -25,7 +22,7 @@ def search_cve(cve_id):
                 cvss_score = data["impact"]["baseMetricV3"].get("cvssV3", {}).get("baseScore")
             elif "baseMetricV2" in data["impact"]:
                 cvss_score = data["impact"]["baseMetricV2"].get("cvssV2", {}).get("baseScore")
-        
+
         references = []
         if "references" in data:
             for ref in data["references"][:10]:
@@ -33,7 +30,7 @@ def search_cve(cve_id):
                     references.append(ref.get("url", ""))
                 elif isinstance(ref, str):
                     references.append(ref)
-        
+
         return {
             "found": True,
             "cve_id": data.get("id"),
@@ -43,7 +40,7 @@ def search_cve(cve_id):
             "modified": data.get("Modified", ""),
             "references": references
         }
-    
+
     except Exception as e:
         print(f"[ERRO] CIRCL Client: {e}")
         return {
@@ -65,5 +62,5 @@ def get_severity_from_cvss(cvss_score):
             return "Medium"
         else:
             return "Low"
-    except:
+    except Exception:
         return "Unknown"

@@ -1,166 +1,183 @@
-# 🛡️ IOC Analyzer - Blue Team Platform
+# IOC Analyzer - Blue Team Platform
 
-[![Version](https://img.shields.io/badge/version-2.1-blue.svg)](https://github.com/pablonoliveira/ioc_analyzer)
-[![Python](https://img.shields.io/badge/python-3.8+-brightgreen.svg)](https://python.org)
-[![License](https://img.shields.io/badge/license-GPL--3.0-green.svg)](LICENSE)
-[![Flask](https://img.shields.io/badge/flask-3.0+-red.svg)](https://flask.palletsprojects.com/)
+Plataforma completa de análise e correlação de **Indicadores de Comprometimento (IoCs)** e **Vulnerabilidades (CVEs)** para equipes de **Blue Team**, **Threat Intelligence**, **DFIR** e **Resposta a Incidentes**.[file:260][file:83]
 
-Plataforma completa de análise e correlação de **Indicadores de Comprometimento (IoCs)** e **Vulnerabilidades (CVEs)** para equipes de **Blue Team** e **Threat Intelligence**.
+## Visão Geral
 
----
+O IOC Analyzer centraliza a consulta, classificação, armazenamento e visualização de IoCs e CVEs em uma interface web construída com Flask, com painéis dedicados para dashboard, upload de logs, análise de IoCs e pesquisa de vulnerabilidades.[file:260][file:83]
 
-## 🚀 Funcionalidades v2.1
+A aplicação permite enriquecer dados com múltiplas fontes externas, como AbuseIPDB, VirusTotal, NVD, CIRCL e CISA KEV, além de manter banco local em JSON para persistência das análises.[file:260][file:83]
 
-### ✅ **Dashboard Interativo**
-- 📊 Visualização consolidada de IoCs e CVEs
-- 📈 Gráficos interativos com Chart.js
-- 🎯 Estatísticas em tempo real
-- 🔢 Contador de ameaças críticas
+## Site em produção
 
-### ✅ **Gerenciamento de IoCs**
-- 🔍 Busca rápida de IPs, Domínios, URLs e Hashes
-- 💾 CRUD completo de IoCs
-- 🏷️ Classificação por severidade (Critical, High, Medium, Low)
-- 🔎 Filtro de busca em tempo real
-- 📂 Organização por tipo (IP, Domain, URL, Hash)
+A instância publicada da aplicação está disponível em [iocanalyzer-production.up.railway.app](https://iocanalyzer-production.up.railway.app).[file:260]
 
-### ✅ **Gerenciamento de CVEs**
-- 🛡️ Busca em múltiplas fontes (NVD, CIRCL, CISA KEV)
-- 📥 Buscar CVEs das últimas 24 horas automaticamente
-- 🌐 Tradução automática para português (PT-BR)
-- ⚠️ Detecção de CVEs exploradas ativamente (CISA KEV)
-- 💾 Banco de dados local de CVEs
-- 🔍 Busca e filtro de CVEs
+### Endpoints principais
 
-### ✅ **Upload de Logs**
-- 📤 Upload com drag-and-drop
-- 📂 Suporte a múltiplos arquivos (.log, .txt, .csv)
-- 🤖 Extração automática de IoCs
-- 💾 Salvamento automático no banco de dados
+- Dashboard: [https://iocanalyzer-production.up.railway.app/](https://iocanalyzer-production.up.railway.app/)[file:83]
+- Upload de Logs: [https://iocanalyzer-production.up.railway.app/upload](https://iocanalyzer-production.up.railway.app/upload)[file:83][file:242]
+- IOC Panel: [https://iocanalyzer-production.up.railway.app/ioc](https://iocanalyzer-production.up.railway.app/ioc)[file:83][file:241]
+- CVE Panel: [https://iocanalyzer-production.up.railway.app/cve](https://iocanalyzer-production.up.railway.app/cve)[file:83][file:239]
 
-### ✅ **Navegação e Interface**
-- 🎨 Interface moderna com gradientes
-- 📱 Totalmente responsiva
-- 🔗 Navegação consistente entre páginas
-- 🌐 Acesso via rede local (LAN)
+> **Observação:** em produção, recomenda-se executar a aplicação com `debug=False`, variáveis sensíveis protegidas e servidor WSGI apropriado para ambiente exposto.[file:260][file:83]
 
-## 🚀 Funcionalidades v2.2 (Out/2025)
+## Funcionalidades
 
-- **Visual renovado:** gradientes modernos, rodapé institucional, navegação aprimorada
-- **Paginação em todas as tabelas:** IOC e CVE, 10 itens por página
-- **Prevenção de duplicidades:** alerta para IOCs/CVEs já registrados
-- **Upload drag-and-drop** mais estável, aceitando `.log`, `.txt` e `.csv`
-- **Configuração e feedback aprimorados:** instruções claras, erros amigáveis para `.env` e APIs
-- **Filtros e layout responsivos:** experiência fluida em desktop e mobile
+### Dashboard Interativo
 
-## 🚀 Funcionalidades v3.0 (Nov/2025)
+- Visualização consolidada de IoCs e CVEs.[file:260][file:83]
+- Estatísticas em tempo real.[file:260][file:83]
+- Gráficos interativos com Chart.js.[file:260]
+- Distribuição de IoCs por tipo e severidade.[file:83]
+- Contador de ameaças críticas.[file:260][file:83]
 
-- **Painel AbuseIPDB detalhado:** histórico de reports completo para IPs, incluindo comentários, tradução automática das categorias (PT-BR) e datas ajustadas para UTC-3.
-- **Filtros avançados:** busca refinada por tipo, severidade, categoria e data tanto no painel de IoCs quanto de CVEs
-- **Backend (Flask) ajustado:** Adicionado dicionário AbuseIPDB para categorias traduzidas em português.
+### Gerenciamento de IoCs
 
-## 🚀 Funcionalidades v3.1 (Dez/2025)
+- Busca rápida de IPs, domínios, URLs e hashes.[file:260][file:83]
+- CRUD básico de IoCs com armazenamento local em JSON.[file:260][file:83]
+- Classificação por severidade (`Critical`, `High`, `Medium`, `Low`).[file:260][file:83]
+- Filtro por tipo e severidade no painel de IoCs.[file:83][file:241]
+- Consulta a fontes externas, com destaque para AbuseIPDB e VirusTotal.[file:260][file:83]
+- Exibição opcional de **signature info** do VirusTotal para hashes consultados, quando disponível.[file:260][file:83]
+- Consulta avançada de histórico de reports no AbuseIPDB para IPs, sujeita à cota da API.[file:260][file:83]
 
-- **Signature info (VirusTotal):** exibição de informações de assinatura digital de arquivos (verified, produto, descrição, nome original, versão do arquivo e data de assinatura) quando disponíveis a partir do hash consultado.
+### Gerenciamento de CVEs
 
-## 🚀 Funcionalidades v3.1.1 (Dez/2025)
+- Busca de CVEs em múltiplas fontes: NVD, CIRCL e CISA KEV.[file:260][file:83]
+- Busca por CVE ID específico.[file:260][file:83]
+- Coleta automática de CVEs recentes das últimas 24 horas.[file:260][file:83]
+- Tradução automática para PT-BR quando `googletrans` está instalado.[file:260][file:83]
+- Identificação de CVEs exploradas ativamente com base no catálogo CISA KEV.[file:260][file:83]
+- Armazenamento local e paginação no painel de CVEs.[file:260][file:239]
 
-- Atualização incremental a partir da versão `3.1.0`.
-- Ajustes internos de código (melhorias visuais no painel de IOCs e CVEs, paginação e padronização de severidade). 
+### Upload e Parsing de Logs
 
----
+- Upload com drag-and-drop.[file:260][file:242]
+- Suporte a arquivos `.log`, `.txt`, `.csv`, `.xlsx` e `.json` no backend.[file:83]
+- Extração automática de IoCs a partir de logs.[file:260][file:83]
+- Enriquecimento automático durante o processamento, conforme o tipo de IOC e disponibilidade de APIs.[file:83]
+- Salvamento posterior no banco local por fluxo do painel/aplicação.[file:260][file:83]
 
-## 🏗️ Estrutura do Projeto
+### Interface e Navegação
 
-```
-ioc_analyzer/
+- Navegação consistente entre Dashboard, Upload, IOC Panel e CVE Panel.[file:260][file:239][file:241][file:242]
+- Interface responsiva para desktop e mobile.[file:260]
+- Paginação nas tabelas principais.[file:260][file:239][file:241]
+- Layout com foco operacional para análise rápida.[file:239][file:241][file:242]
+
+## Novidades e correções aplicadas
+
+### Versão 3.1.1
+
+- Padronização da severidade de IoCs e CVEs em inglês: `Low`, `Medium`, `High` e `Critical`.[file:260]
+- Paginação com seleção direta de páginas no painel de IoCs e no painel de CVEs.[file:260][file:239][file:241]
+- Ajustes visuais em badges, espaçamento e rodapé.[file:260][file:239][file:241][file:242]
+- Refatorações internas sem alteração de APIs públicas da aplicação.[file:260]
+
+### Correções relevantes já refletidas no projeto
+
+- Leitura antecipada de variáveis do `.env` com `load_dotenv()` no início da aplicação.[file:83]
+- Tradução automática protegida contra erro de importação do `googletrans` e falhas de tradução.[file:83]
+- Tratamento para banco de CVEs vazio ou corrompido.[file:260][file:83]
+- Filtros por query string no painel de IoCs.[file:83][file:241]
+- Suporte ampliado a extensões de upload no backend.[file:83]
+- Ajustes na ordenação e persistência de CVEs e IoCs.[file:83]
+
+## Estrutura do Projeto
+
+```text
+IOC_ANALYZER/
+├── .venv314/
 ├── data/
-│   ├── ioc_database.json          # Banco de IoCs
-│   └── cve_database.json          # Banco de CVEs
+│   ├── iocdatabase.json
+│   └── cvedatabase.json
 ├── docs/
-│   ├── DOCUMENTACAO.html          # Documentação completa
-│   └── img/                       # Screenshots
 ├── ioc/
-│   ├── abuseipdb_client.py        # Cliente AbuseIPDB
-│   ├── virustotal_client.py       # Cliente VirusTotal
-│   ├── cisa_kev_client.py         # Cliente CISA KEV
-│   ├── circl_cve_client.py        # Cliente CIRCL
-│   ├── nvd_cve_client.py          # Cliente NVD (novo!)
-│   └── url_checker.py             # Checker de URLs
+│   ├── abuseipdb_client.py
+│   ├── alienvault_client.py
+│   ├── cisa_kev_client.py
+│   ├── circl_cve_client.py
+│   ├── nvd_cve_client.py
+│   ├── url_checker.py
+│   └── virustotal_client.py
 ├── parsers/
-│   └── log_parser.py              # Parser de logs
 ├── templates/
-│   ├── dashboard.html             # Dashboard principal
-│   ├── ioc_panel.html             # Painel de IoCs
-│   ├── cve_panel.html             # Painel de CVEs
-│   └── upload.html                # Upload de logs
-├── uploads/                       # Pasta temporária de uploads
-├── webapp.py                      # Aplicação Flask principal
-├── .env.example                   # Exemplo de configuração
-├── .gitignore                     # Arquivos ignorados
-├── LICENSE                        # GNU GPL v3
-├── README.md                      # Este arquivo
-└── requirements.txt               # Dependências Python
+│   ├── dashboard.html
+│   ├── upload.html
+│   ├── ioc_panel.html
+│   └── cve_panel.html
+├── uploads/
+├── utils/
+├── .env
+├── .gitignore
+├── app.py
+├── LICENSE
+├── README.md
+└── requirements.txt
 ```
----
 
-## ⚙️ Instalação
+> A estrutura acima representa a organização funcional do projeto com base nos arquivos anexados e no conteúdo atual do repositório.[file:260][file:83]
 
-### 1. **Clonar o Repositório**
+## Instalação
+
+### 1. Clonar o repositório
 
 ```bash
 git clone https://github.com/pablonoliveira/ioc_analyzer.git
 cd ioc_analyzer
 ```
 
-### 2. **Criar Ambiente Virtual**
+### 2. Criar ambiente virtual
 
 ```bash
-python -m venv venv
-
-# Windows:
-venv\Scripts\activate
-
-# Linux/Mac:
-source venv/bin/activate
+python -m venv .venv
 ```
 
-### 3. **Instalar Dependências**
+#### Windows
+
+```powershell
+.\.venv\Scripts\activate
+```
+
+#### Linux/macOS
+
+```bash
+source .venv/bin/activate
+```
+
+### 3. Instalar dependências
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4️. **Configurar APIs (Opcional)**
+## Configuração
 
 Crie um arquivo `.env` na raiz do projeto:
 
 ```env
-# APIs de Threat Intelligence
 ABUSEIPDB_API_KEY=sua_chave_aqui
 VIRUSTOTAL_API_KEY=sua_chave_aqui
-
-# Configurações do Servidor
-FLASK_DEBUG=True
+FLASK_DEBUG=False
 FLASK_HOST=0.0.0.0
 FLASK_PORT=5000
 ```
 
-> **Nota**: As APIs são opcionais. O sistema funciona sem elas, mas com funcionalidades limitadas.
+### Observações
 
----
+- As APIs externas são opcionais; sem elas, parte do enriquecimento ficará limitada.[file:260][file:83]
+- A tradução automática depende de `googletrans==4.0.0-rc1`.[file:260][file:83]
+- Para produção, utilize `FLASK_DEBUG=False`.[file:260][file:83]
 
-## 🚀 Execução
-
-### **Iniciar o Servidor**
+## Execução local
 
 ```bash
-python webapp.py
+python app.py
 ```
 
-**Saída esperada:**
+Saída esperada:
 
-```
+```text
 ============================================================
 🛡️  IOC Analyzer - Blue Team Platform
 ============================================================
@@ -170,251 +187,197 @@ python webapp.py
 🔍 IOC Panel: http://localhost:5000/ioc
 🛡️  CVE Panel: http://localhost:5000/cve
 ============================================================
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://192.168.X.X:5000
 ```
 
-### **Acessar via Navegador**
+## Acesso
 
-- **Local**: http://localhost:5000
-- **Rede Local**: http://SEU_IP_LOCAL:5000
+### Ambiente local
 
----
+- Dashboard: [http://localhost:5000](http://localhost:5000)[file:260][file:83]
+- Upload: [http://localhost:5000/upload](http://localhost:5000/upload)[file:260][file:83]
+- IOC Panel: [http://localhost:5000/ioc](http://localhost:5000/ioc)[file:260][file:83]
+- CVE Panel: [http://localhost:5000/cve](http://localhost:5000/cve)[file:260][file:83]
 
-## 🌐 Acesso via Rede Local (LAN)
+### Ambiente em produção
 
-### **Configuração do Firewall (Windows)**
+- Base URL: [https://iocanalyzer-production.up.railway.app](https://iocanalyzer-production.up.railway.app)[file:260]
+- A aplicação está publicada para acesso web externo por meio do Railway.[file:260]
 
-```powershell
-# Executar como Administrador:
-netsh advfirewall firewall add rule name="IOC Analyzer Port 5000" dir=in action=allow protocol=TCP localport=5000
-```
+## Dependências principais
 
-### **Descobrir seu IP Local**
+- Flask.[file:260][file:19]
+- requests.[file:260][file:19]
+- python-dotenv.[file:260][file:19]
+- pandas.[file:83]
+- openpyxl.[file:260]
+- `googletrans==4.0.0-rc1`.[file:260]
+- `abuseipdb-wrapper`.[file:260][file:19]
+- `virustotal-python`.[file:260][file:19]
 
-```bash
-# Windows:
-ipconfig
+## APIs suportadas
 
-# Linux/Mac:
-ifconfig
-```
+| API | Descrição | Status |
+|---|---|---|
+| NVD | National Vulnerability Database | Integrado [file:260][file:83] |
+| CIRCL | CVE Search | Integrado [file:260][file:83] |
+| CISA KEV | Known Exploited Vulnerabilities | Integrado [file:260][file:83] |
+| AbuseIPDB | Reputação de IP | Requer API Key [file:260][file:83] |
+| VirusTotal | Análise de hash, IP, domínio e URL | Requer API Key [file:260][file:83] |
 
-### **Acessar de Outros Dispositivos**
+## Uso básico
 
-Conecte-se à mesma rede WiFi e acesse:
+### 1. Dashboard
 
-```
-http://SEU_IP_LOCAL:5000
-```
+Acesse o dashboard para visualizar totais, distribuição por severidade e visão consolidada de IoCs e CVEs.[file:260][file:83]
 
-Exemplo: `http://192.168.254.83:5000`
+### 2. Upload de logs
 
----
+1. Acesse `/upload`.[file:242]
+2. Envie arquivos suportados para análise.[file:242][file:83]
+3. Aguarde a extração dos IoCs.[file:242][file:83]
+4. Revise os resultados enriquecidos exibidos pela interface.[file:242][file:83]
 
-## 📚 Dependências Principais
+### 3. Gerenciar IoCs
 
-```bash
-Flask
-requests
-python-dotenv
-googletrans==4.0.0-rc1
-pandas
-openpyxl
-OTXv2
-abuseipdb-wrapper
-virustotal-python
-'''
+1. Acesse `/ioc`.[file:241]
+2. Consulte um IOC manualmente ou filtre registros do banco local.[file:241][file:83]
+3. Salve, remova e revise a classificação retornada pelas integrações.[file:241][file:83]
 
-**Instalar todas:**
+### 4. Gerenciar CVEs
 
-```bash
-pip install -r requirements.txt
-```
+1. Acesse `/cve`.[file:239]
+2. Busque um CVE específico ou solicite CVEs das últimas 24 horas.[file:239][file:83]
+3. Salve resultados e acompanhe severidade, score CVSS e indicadores de exploração ativa.[file:239][file:83]
 
----
+## Segurança
 
-## 🛠️ APIs Suportadas
+### Importante
 
-| API | Descrição | Status | Documentação |
-|-----|-----------|--------|--------------|
-| **NVD** | National Vulnerability Database | ✅ Integrado | [nvd.nist.gov](https://nvd.nist.gov) |
-| **CIRCL CVE** | CVE Search | ✅ Integrado | [cve.circl.lu](https://cve.circl.lu) |
-| **CISA KEV** | Known Exploited Vulnerabilities | ✅ Integrado | [cisa.gov/kev](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
-| **AbuseIPDB** | IP Reputation | 🔧 Requer API Key | [abuseipdb.com](https://www.abuseipdb.com) |
-| **VirusTotal** | Hash/URL Analysis + metadados de arquivos (tags, reputation, signature info quando disponível | 🔧 Requer API Key | [virustotal.com](https://www.virustotal.com) |
+- Não exponha a aplicação em produção sem controles adicionais de segurança.[file:260]
+- Não mantenha `debug=True` em ambiente publicado.[file:260][file:83]
+- Proteja chaves de API no ambiente de execução.[file:260][file:83]
+- Recomenda-se uso de autenticação, proxy reverso e HTTPS quando aplicável.[file:260]
 
----
+### Recomendações para produção
 
-## 📖 Uso Básico
+- Executar com servidor WSGI, como Gunicorn.[file:260]
+- Desabilitar debug mode.[file:260][file:83]
+- Adicionar autenticação e controle de acesso.[file:260]
+- Implementar logs de auditoria e proteção de borda.[file:260]
 
-### **1. Dashboard - Visão Geral**
+## Roadmap
 
-Acesse `http://localhost:5000/` para visualizar:
-- Total de IoCs e CVEs
-- Contador de ameaças críticas
-- Gráficos de distribuição por severidade
-- Gráficos de IoCs por tipo
+### v4.0 - Autenticação e Segurança
 
-### **2. Upload de Logs**
+- Sistema de login e senha.[file:260]
+- Autenticação JWT.[file:260]
+- Níveis de permissão (`Admin`, `Analyst`, `Viewer`).[file:260]
+- Logs de auditoria.[file:260]
 
-1. Acesse `http://localhost:5000/upload`
-2. Arraste arquivos `.log`, `.txt` ou `.csv`
-3. Clique em "Analisar Logs"
-4. IoCs serão extraídos e salvos automaticamente
+### v4.1 - Integrações Avançadas
 
-### **3. Gerenciar IoCs**
+- Integração com MISP.[file:260]
+- Integração com TheHive.[file:260]
+- Suporte a STIX/TAXII.[file:260]
+- Exportação para SIEM.[file:260]
 
-1. Acesse `http://localhost:5000/ioc`
-2. Adicione IoCs manualmente ou via upload
-3. Filtre e busque IoCs
-4. Exclua ou atualize IoCs
-5. Opcionalmente, utilize a busca rápida de IOC para consultar reputação no VirusTotal e visualizar detalhes de assinatura digital do arquivo a partir do hash.
+## Changelog
 
+### v2.0 - 20/10/2025
 
-### **4. Gerenciar CVEs**
+- Primeira release estável.[file:260]
 
-1. Acesse `http://localhost:5000/cve`
-2. Busque CVEs específicas (ex: CVE-2024-1234)
-3. Busque CVEs das últimas 24h automaticamente
-4. Visualize informações detalhadas
-5. Salve CVEs no banco de dados local
-
----
-
-## 🔐 Segurança
-
-⚠️ **IMPORTANTE**:
-- Este servidor é projetado para **uso em rede local confiável**
-- **NÃO exponha à internet** sem proteção adequada
-- Não possui autenticação por padrão
-- Debug mode deve ser desabilitado em produção
-- Não possui HTTPS por padrão
-
-**Recomendações para Produção:**
-- Adicionar autenticação (login/senha)
-- Usar HTTPS com certificado SSL
-- Desabilitar debug mode (`debug=False`)
-- Usar servidor WSGI (Gunicorn, uWSGI)
-- Configurar firewall adequadamente
-
----
-
-## 🗺️ Roadmap (Próximas Versões)
-
-### **v4.0 - Autenticação e Segurança**
-- [ ] Sistema de login/senha
-- [ ] Autenticação JWT
-- [ ] Níveis de permissão (Admin, Analyst, Viewer)
-- [ ] Logs de auditoria
-
-### **v4.1 - Integrações Avançadas**
-- [ ] MISP Integration
-- [ ] TheHive Integration
-- [ ] STIX/TAXII Support
-- [ ] Exportação para SIEM
+### v2.1 - 25/10/2025
 
-## 📝 Changelog
+**Novidades**
+- Navegação consistente em todas as páginas.[file:260]
+- Botão de upload de logs acessível de todas as páginas.[file:260]
+- Interface modernizada.[file:260]
+- Busca automática de CVEs das últimas 24 horas.[file:260]
+- Dashboard com gráficos Chart.js interativos.[file:260]
 
-### **v2.0 - 20/10/2025**
-✨ **Primeira Release Estável**
+**Correções**
+- Rotas 404 corrigidas.[file:260]
+- Comunicação entre páginas funcionando.[file:260]
+- Endpoints atualizados.[file:260]
 
-### **v2.1 - 25/10/2025**
-✨ **Novidades:**
-- Navegação consistente em todas as páginas
-- Botão "Upload de Logs" acessível de todas as páginas
-- Interface modernizada com gradientes
-- Buscar CVEs das últimas 24h automaticamente
-- Dashboard com gráficos Chart.js interativos
+### v2.2 - 27/10/2025
 
-🐛 **Correções:**
-- Rotas 404 corrigidas
-- Comunicação entre páginas funcionando
-- API endpoints atualizados
+**Correções**
+- Correlação entre IoCs e CVEs.[file:260]
+- Busca de CVEs relacionadas a IoCs.[file:260]
+- Busca de IoCs relacionados a CVEs.[file:260]
+- Dashboard de correlações.[file:260]
 
-### **v2.2 - 27/10/2025**
-🐛 **Correções:**
-- Correlação IOC ↔ CVE
-- Correlacionar IoCs com CVEs automaticamente
-- Buscar CVEs relacionadas a IoCs
-- Buscar IoCs relacionados a CVEs
-- Dashboard de correlações
+### v2.3 - 28/10/2025
 
-### **v2.3 - 28/10/2025**
-🐛 **Correções:**
-- Validação reforçada dos tipos em description e cve_id (somente string é aceita)
-- Tradução automática protegida contra erros de tipo e valores nulos
-- CVEs duplicadas ou inválidas não são mais salvas no banco
-- Proteção e tratamento contra arquivos JSON vazios/corrompidos
-- Adicionados logs de debug para facilitar diagnóstico e manutenção
+**Correções**
+- Validação reforçada dos tipos em campos críticos.[file:260]
+- Tradução automática protegida contra erros de tipo e valores nulos.[file:260]
+- CVEs duplicadas ou inválidas não são mais salvas no banco.[file:260]
+- Proteção contra arquivos JSON vazios ou corrompidos.[file:260]
+- Logs de debug adicionados para facilitar diagnóstico.[file:260]
 
-### **v3.0 - 20/11/2025**
-🐛 **Correções:**
-- Correção de exibição do histórico AbuseIPDB;
-- Tratamento de listas e variáveis no backend;
-- Padronização do formato de datas.
+### v3.0 - 20/11/2025
 
-### **3.1.1 - - 31/12/2025**
+**Correções**
+- Correção de exibição do histórico do AbuseIPDB.[file:260]
+- Tratamento de listas e variáveis no backend.[file:260]
+- Padronização do formato de datas.[file:260]
 
-- Melhoria na exibição de severidade de IOCs e CVEs (padronização em inglês: Low, Medium, High, Critical).
-- Inclusão de paginação com seleção direta de página no painel de CVEs e IOCs.
-- Ajustes visuais gerais (cores de badges, espaçamento, layout do footer).
-- Refatorações internas de código sem impacto em APIs públicas.
+### v3.1.1 - 31/12/2025
 
----
+- Melhoria na exibição de severidade de IoCs e CVEs.[file:260]
+- Inclusão de paginação com seleção direta de página.[file:260]
+- Ajustes visuais gerais.[file:260]
+- Refatorações internas sem impacto nas APIs públicas.[file:260]
 
-## 🤝 Contribuindo
+### Atualização de implantação
 
-Contribuições são bem-vindas! Para contribuir:
+- Inclusão da URL pública de produção no Railway: [https://iocanalyzer-production.up.railway.app](https://iocanalyzer-production.up.railway.app).[file:260]
+- Documentação revisada para refletir acesso web em produção e boas práticas mínimas de publicação.[file:260][file:83]
 
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/NovaFuncionalidade`)
-3. Commit suas mudanças (`git commit -m 'Adiciona NovaFuncionalidade'`)
-4. Push para a branch (`git push origin feature/NovaFuncionalidade`)
-5. Abra um Pull Request
+## Contribuindo
 
----
+Contribuições são bem-vindas.
 
-## 📄 Licença
+1. Faça um fork do projeto.[file:260]
+2. Crie uma branch para sua feature: `git checkout -b feature/nova-funcionalidade`.[file:260]
+3. Commit suas alterações: `git commit -m "Adiciona nova funcionalidade"`.[file:260]
+4. Envie para o repositório remoto: `git push origin feature/nova-funcionalidade`.[file:260]
+5. Abra um Pull Request.[file:260]
 
-Este projeto está licenciado sob a **GNU General Public License v3.0**. 
+## Licença
 
-Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está licenciado sob a **GNU General Public License v3.0**.[file:260]
 
-**Em resumo:**
-- ✅ Uso comercial permitido
-- ✅ Modificação permitida
-- ✅ Distribuição permitida
-- ✅ Uso privado permitido
-- ⚠️ **Copyleft** - Trabalhos derivados devem usar a mesma licença
-- ⚠️ **Código-fonte** - Código-fonte deve ser disponibilizado
+Em resumo:
 
----
+- Uso comercial permitido.[file:260]
+- Modificação permitida.[file:260]
+- Distribuição permitida.[file:260]
+- Uso privado permitido.[file:260]
+- Copyleft obrigatório para trabalhos derivados.[file:260]
+- Disponibilização do código-fonte quando aplicável.[file:260]
 
-## 👤 Autor
+## Autor
 
-**Pablo Oliveira**
-- GitHub: [@pablonoliveira](https://github.com/pablonoliveira)
-- LinkedIn: [Pablo Oliveira](https://linkedin.com/in/pabloliveir)
-- Email: pabloliveir@gmail.com
+**Pablo Nunes de Oliveira**[file:260]
 
----
+- GitHub: [pablonoliveira](https://github.com/pablonoliveira)[file:260]
+- LinkedIn: Pablo Oliveira.[file:260]
+- Email: pabloliveir@gmail.com.[file:260]
 
-## 🙏 Agradecimentos
+## Agradecimentos
 
-- [Flask](https://flask.palletsprojects.com/) - Framework web
-- [Chart.js](https://www.chartjs.org/) - Biblioteca de gráficos
-- [NVD](https://nvd.nist.gov/) - National Vulnerability Database
-- [CISA](https://www.cisa.gov/) - Cybersecurity and Infrastructure Security Agency
-- [CIRCL](https://www.circl.lu/) - Computer Incident Response Center Luxembourg
+- Flask.[file:260]
+- Chart.js.[file:260]
+- NVD.[file:260]
+- CISA.[file:260]
+- CIRCL.[file:260]
 
----
+## Suporte
 
-## 📞 Suporte
+Para suporte, abra uma issue no GitHub ou entre em contato pelos canais do autor.[file:260]
 
-Para suporte, abra uma [issue](https://github.com/pablonoliveira/ioc_analyzer/issues) no GitHub ou entre em contato via email.
-
----
-
-**⭐ Se este projeto foi útil, considere dar uma estrela no GitHub!**
+Se este projeto foi útil, considere dar uma estrela no repositório.[file:260]

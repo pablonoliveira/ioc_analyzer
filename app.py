@@ -58,6 +58,7 @@ except Exception as e:
     print("Instale com: pip install deep-translator==1.11.4")
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'ioc-analyzer-dev-key-change-in-production')
 
 # Configuração de upload
 UPLOAD_FOLDER = 'uploads'
@@ -751,15 +752,27 @@ def cve_fetch_recent():
 
 
 if __name__ == '__main__':
-    from waitress import serve
+    # [US-01] debug lido do .env — nunca hardcoded
+    # FLASK_DEBUG=false em produção (Railway)
+    # FLASK_DEBUG=true apenas em desenvolvimento local
+    debug_mode = os.getenv('FLASK_DEBUG', 'false').lower() == 'true'
+    port = int(os.getenv('PORT', 5000))
 
     print("=" * 60)
     print("🛡️ IOC Analyzer - Blue Team Platform")
     print("=" * 60)
-    print("✅ Servidor iniciado")
-    print("📊 Dashboard: http://localhost:5000")
-    print("📤 Upload: http://localhost:5000/upload")
-    print("🔍 IOC Panel: http://localhost:5000/ioc")
-    print("🛡️ CVE Panel: http://localhost:5000/cve")
+    print(f"✅ Servidor iniciado — modo: {'DEV' if debug_mode else 'PRODUÇÃO'}")
+    print(f"📊 Dashboard: http://localhost:{port}")
+    print(f"📤 Upload:    http://localhost:{port}/upload")
+    print(f"🔍 IOC Panel: http://localhost:{port}/ioc")
+    print(f"🛡️  CVE Panel: http://localhost:{port}/cve")
     print("=" * 60)
-    app.run(debug=True, host='0.0.0.0', port=5000, use_reloader=False)
+
+    if debug_mode:
+        # Desenvolvimento local — Flask dev server
+        app.run(debug=True, host='0.0.0.0', port=port, use_reloader=True)
+    else:
+        # Produção — Waitress WSGI server (sem debug, sem reloader)
+        from waitress import serve
+        print("🚀 Waitress WSGI server ativo")
+        serve(app, host='0.0.0.0', port=port)
